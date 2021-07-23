@@ -40,7 +40,8 @@
     </div>
     <div class="col-md-12 col-xl-6 home-menu-right text-strat">
         <h1 class="mb-3">สำหรับประชาชน</h1>
-        <button id="goToDemo" type="button" class="btn btn-danger mb-3"><span class="fs-5">คลิกที่นี้
+        <button onclick="app.setLocation('#/people')" type="button" class="btn btn-danger mb-3"><span
+                class="fs-5">คลิกที่นี้
                 เพื่อเข้าสู่สำหรับประชาชน</span></button>
         <h5 class="mb-3">ความรู้ทั่วไป และบริการของกรมทรัพยากรน้ำบาดาล</h5>
     </div>
@@ -81,13 +82,13 @@
         }
         console.log($state.user);
     });
-    $('#goToDemo').click(function (e) {
-        e.preventDefault();
-        if ($state.user.token) {
-            app.setLocation('#/demo');
-        } else {
-            app.setLocation('#/auth');
-        }
-        console.log($state.user);
-    });
+    // $('#goToDemo').click(function (e) {
+    //     e.preventDefault();
+    //     if ($state.user.token) {
+    //         app.setLocation('#/demo');
+    //     } else {
+    //         app.setLocation('#/auth');
+    //     }
+    //     console.log($state.user);
+    // });
 </script>
