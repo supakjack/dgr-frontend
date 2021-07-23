@@ -5,9 +5,12 @@ const app = Sammy('#app')
 $.each(router, function (indexInArray, valueOfElement) {
     const { path, file } = valueOfElement
     app.get('#/' + path, function () {
-        if ($state.user.role) {
+        if ($state.user.role && path != 'home') {
             $('#header_staff').show();
             $('#header_public').hide();
+        } else if (path == 'home') {
+            $('#header_public').hide();
+            $('#header_staff').hide();
         } else {
             $('#header_staff').hide();
             $('#header_public').show();

@@ -15,12 +15,11 @@ $('.owl-carousel').owlCarousel({
     }
 });
 
-AOS.init();
 
 // Main Navbar menu
 $(document).on('click', '#goHome', (e) => {
     e.preventDefault();
-    app.setLocation('#/demo');
+    app.setLocation('#/home');
 })
 
 $(document).on('click', '#goLogin', (e) => {
