@@ -1,4 +1,4 @@
-const app = Sammy('#app') // define a new Sammy.Application bound to the #app element selecto
+const app = Sammy('#app')
 
 $.each(router, function (indexInArray, valueOfElement) {
     const { path, file } = valueOfElement
@@ -9,9 +9,10 @@ $.each(router, function (indexInArray, valueOfElement) {
 });
 
 app.notFound = function () {
-    this.$element().load('views/home.html'); //if error load home
+    $('#header').hide();
+    this.$element().load('views/home.html');
 }
 
-app.run(); // run Sammy.Application
+app.run();
 
 
