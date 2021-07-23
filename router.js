@@ -10,5 +10,9 @@ const router = [
     {
         "path": "home",
         "file": "home"
+    },
+    {
+        "path": "people",
+        "file": "people"
     }
 ]
