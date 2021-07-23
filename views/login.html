@@ -49,7 +49,7 @@
                     <span class="input-group-text" id="btn_show_user_password"><i class="bi bi-eye"></i></span>
                 </div>
                 <div class="d-grid gap-2 mb-3">
-                    <button class="btn btn-success" type="button">เข้าสู่ระบบ</button>
+                    <button id="btn_auth" class="btn btn-success" type="button">เข้าสู่ระบบ</button>
                 </div>
 
                 <div class="input-group mb-3">
@@ -67,5 +67,10 @@
         } else {
             $('#user_password').attr('type', 'password')
         }
+    })
+
+    $('#btn_auth').click(function () {
+        login($('#user_username').val(), $('#user_password').val())
+        app.setLocation('#/demo');
     })
 </script>

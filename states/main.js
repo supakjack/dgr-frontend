@@ -3,5 +3,5 @@ const $state = {
         username: '',
         token: '',
         role: '',
-    }
+    },
 }

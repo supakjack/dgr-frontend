@@ -40,7 +40,7 @@
     </div>
     <div class="col-md-12 col-xl-6 home-menu-right text-strat">
         <h1 class="mb-3">สำหรับประชาชน</h1>
-        <button id="goToLogin" type="button" class="btn btn-danger mb-3"><span class="fs-4">คลิกที่นี้
+        <button id="goToDemo" type="button" class="btn btn-danger mb-3"><span class="fs-4">คลิกที่นี้
                 เพื่อเข้าสู่สำหรับประชาชน</span></button>
         <h4 class="mb-3">ความรู้ทั่วไป และบริการของกรมทรัพยากรน้ำบาดาล</h4>
     </div>
@@ -74,16 +74,20 @@
 <script>
     $('#goToManage').click(function (e) {
         e.preventDefault();
-        console.log($state.user);
-        if ($state.user.role) {
-            app.setLocation('#/auth');
+        if ($state.user.token) {
+            app.setLocation('#/demo');
         } else {
-            alert("Plase Login")
+            app.setLocation('#/auth');
         }
+        console.log($state.user);
     });
-    $('#goToLogin').click(function (e) {
+    $('#goToDemo').click(function (e) {
         e.preventDefault();
-        login()
+        if ($state.user.token) {
+            app.setLocation('#/demo');
+        } else {
+            app.setLocation('#/auth');
+        }
         console.log($state.user);
     });
 </script>

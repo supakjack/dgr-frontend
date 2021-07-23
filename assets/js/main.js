@@ -27,3 +27,13 @@ $(document).on('click', '#goLogin', (e) => {
     e.preventDefault();
     app.setLocation('#/auth');
 })
+
+$(document).on('click', '#goLogout', (e) => {
+    e.preventDefault();
+    $state.user = {
+        username: '',
+        token: '',
+        role: '',
+    }
+    app.setLocation('#/home');
+})
