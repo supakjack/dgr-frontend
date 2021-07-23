@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <!-- DataTables -->
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap5.min.css" />
+    <!-- OwlCarousel2 -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+    <!-- AOS -->
+    <link rel="stylesheet" href="assets/css/aos.css" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <title>ศูนย์เรียนรู้ในการบริหารจัดการทรัพยากรน้ำบาดาล</title>
+</head>
+
+<body data-aos="fade-up" class="container-fluid">
+    <header data-aos="fade-up" class="row mb-5">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="
+              navbar-brand
+              justify-content-center
+              d-flex
+              align-items-center
+              flex-wrap
+            " href="#">
+                    <img src="assets/images/themes/dgr-logo.png" alt="" width="40" height="40"
+                        class="d-inline-block align-text-top mb-1" />
+                    <div class="h6 text-left">
+                        &nbsp&nbsp<span style="font-size: 1.2rem">กรมทรัพยากรน้ำบาดาล</span>
+                        <br /> &nbsp&nbsp
+                        <span style="font-size: 0.68rem">Department of Groundwater Resources</span>
+                    </div>
+                </a>
+                <button class="btn-sm navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fs-6"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarColor03">
+                    <ul class="navbar-nav ms-md-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#" id="goHome">หน้าแรก </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">การบริหารจัดการ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">สำหรับประชาชน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="goLogin">เข้าสู่ระบบ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <router-application id="app"> </router-application>
+
+    <footer>
+        <div data-aos="fade-up" class="row mt-4">
+            <div class="col">
+                <p class="text-success h3">ติดต่อกรม</p>
+            </div>
+        </div>
+
+        <div data-aos="fade-up" class="row mt-3">
+            <div class="col-xl-6 col-md-6 col-sm-12">
+                <p class="text-success h5">กรมทรัพยากรน้ำบาดาล</p>
+                <p class="text-secondary h6">เลขที่ 26/83 ซอยท่านผู้หญิงพหล (ซอยงามวงศ์วาน 54) ถนนงามวงศ์วาน แขวงลาดยาว
+                    เขตจตุจักร กรุงเทพฯ 10900</p>
+            </div>
+            <div class="col-xl-3 col-md-6 col-sm-12">
+                <div class="d-flex flex-row mb-3">
+                    <div class="p-2">
+                        <img src="assets/images/themes/icon-social-fb.png" class="rounded mx-auto d-block" alt="...">
+                    </div>
+                    <div class="p-2">
+                        <img src="assets/images/themes/icon-social-tw.png" class="rounded mx-auto d-block" alt="...">
+                    </div>
+                    <div class="p-2">
+                        <img src="assets/images/themes/icon-social-yt.png" class="rounded mx-auto d-block" alt="...">
+                    </div>
+                    <div class="p-2">
+                        <img src="assets/images/themes/icon-social-call.png" class="rounded mx-auto d-block" alt="...">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-sm-12">
+                <p class="text-warning h5 text-end">DGR</p>
+                <p class="text-warning h5 text-end">CALL CENTER</p>
+                <p class="text-end"><a href="tel:1310กด4" class="text-success text-decoration-none h3">1310 กด 4</a></p>
+            </div>
+        </div>
+
+        <div data-aos="fade-up" class="row mt-3">
+            <div class="col-xl-6 col-md-6 col-sm-12">
+                <i class="bi bi-telephone text-warning h3"></i>
+                <span class="text-success h5">&nbspโทร 02 666 7000</span>
+            </div>
+            <div class="col-xl-3 col-md-6 col-sm-12">
+                <i class="bi bi-printer text-warning h3"></i>
+                <span class="text-success h5">&nbspโทรสาร 02 666 7055</span>
+            </div>
+            <div class="col-xl-3 col-md-6 col-sm-12">
+                <i class="bi bi-envelope text-warning h3"></i>
+                <span class="text-success h5">&nbspอีเมล์ : webmaster@dgr.mail.go.th</span>
+            </div>
+        </div>
+        <hr class="mt-4 text-warning border border-warning border-2">
+        <div data-aos="fade-up" class="carousel-wrapper">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 1 (ลำปาง)</strong><br> <span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 8 จังหวัด ดังนี้ <br>1.จังหวัดลำปาง <br>2.จังหวัดเชียงราย
+                            <br>3.จังหวัดเชียงใหม่ <br>4.จังหวัดน่าน <br>5.จังหวัดพะเยา <br>6.จังหวัดแพร่
+                            <br>7.จังหวัดแม่ฮ่องสอน <br>8.จังหวัดลำพูน <br>ติดต่อ เลขที่ 430 หมู่ 2 ต.ศาลา อ.เกาะคา
+                            จ.ลำปาง 52130<br>
+                            โทรศัพท์ <a href="tel:054282356-8" class="link">0 5428 2356-8</a> โทรสาร 0 5428 2357
+                        </span>
+                    </address>
+                </div>
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 2 (สุพรรณบุรี)</strong><br> <span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 10 จังหวัด ดังนี้ <br>1.จังหวัดสุพรรณบุรี
+                            <br>2.จังหวัดกาญจนบุรี <br>3.จังหวัดชัยนาท <br>4.จังหวัดนครสวรรค์ <br>5.จังหวัดนนทบุรี
+                            <br>6.จังหวัดปทุมธานี <br>7.จังหวัดสิงห์บุรี <br>8.จังหวัดพระนครศรีอยุธยา
+                            <br>9.จังหวัดอ่างทอง <br>10.จังหวัดอุทัยธานี <br>ติดต่อ เลขที่ 255 หมู่ 1
+                            ถ.สุพรรณบุรี-ลาดตาล ต.โคกโคเฒ่า อ.เมือง จ.สุพรรณบุรี 72000<br>
+                            โทรศัพท์ <a href="tel:035440331" class="link">0 3544 0331</a> โทรสาร 0 3544 0331
+                        </span>
+                    </address>
+                </div>
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 3 (สระบุรี)</strong><br> <span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 5 จังหวัด ดังนี้ <br>1.จังหวัดสระบุรี
+                            <br>2.จังหวัดนครนายก <br>3.จังหวัดปราจีนบุรี <br>4.จังหวัดเพชรบูรณ์ <br>5.จังหวัดลพบุรี
+                            <br>ติดต่อ เลขที่ 81 หมู่ 5 ถ.สุวรรณศร ต.โคกแย้ อ.หนองแค จ.สระบุรี 18230<br>
+                            โทรศัพท์ <a href="tel:036387271,036670381" class="link">0 3638 7271 ,0 3667 0381</a> โทรสาร
+                            0 3638 7200
+                        </span>
+                    </address>
+                </div>
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 4 (ขอนแก่น)</strong><br> <span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 5 จังหวัด ดังนี้ 1.จังหวัดขอนแก่น <br>2.จังหวัดกาฬสินธุ์
+                            <br>3.จังหวัดมหาสารคาม <br>4.จังหวัดเลย <br>5.จังหวัดหนองบัวลำภู <br>ติดต่อ เลขที่ 178 ม.27
+                            ถ.มิตรภาพ อ.เมือง จ.ขอนแก่น 40000<br>
+                            โทรศัพท์ <a href="tel:043236663" class="link">0 4323 6663</a> โทรสาร 0 4324 1289
+                        </span>
+                    </address>
+                </div>
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 5 (นครราชสีมา)</strong><br> <span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 4 จังหวัด ดังนี้ <br>1.จังหวัดนครราชสีมา
+                            <br>2.จังหวัดชัยภูมิ <br>3.จังหวัดบุรีรัมย์ <br>4.จังหวัดสุรินทร์ <br>ติดต่อ เลขที่ 87 ม.4
+                            ถ.ราชสีมา-ปักธงชัย ต.ปรุใหญ่ อ.เมือง จ.นครราชสีมา 30000<br>
+                            โทรศัพท์ <a href="tel:044953705/044953677" class="link">0 4495 3705 / 0 4495 3677</a> โทรสาร
+                            0 4495 3677
+                        </span>
+                    </address>
+                </div>
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 6 (ตรัง)</strong><br> <span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 8 จังหวัด ดังนี้ <br>1.จังหวัดตรัง <br>2.จังหวัดกระบี่
+                            <br>3.จังหวัดชุมพร <br>4.จังหวัดนครศรีธรรมราช <br>5.จังหวัดพังงา <br>6.จังหวัดภูเก็ต
+                            <br>7.จังหวัดระนอง <br>8.จังหวัดสุราษฎร์ธานี <br>ติดต่อ เลขที่ 114 หมู่ 6 ต.บ้านควน อ.เมือง
+                            จ.ตรัง 92000<br>
+                            โทรศัพท์ <a href="tel:075825700-1" class="link">0 7582 5700-1</a> โทรสาร 0 7582 5702
+                        </span>
+                    </address>
+                </div>
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 7 (กำแพงเพชร)</strong><br><span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 6 จังหวัด ดังนี้ <br>1.จังหวัดกำแพงเพชร <br>2.จังหวัดตาก
+                            <br>3.จังหวัดพิจิตร <br>4.จังหวัดพิษณุโลก <br>5.จังหวัดสุโขทัย <br>6.จังหวัดอุตรดิตถ์
+                            <br>ติดต่อ เลขที่ 84 หมู่ 8 บ้านทรงธรรม ต.ทรงธรรม อ.เมือง จ.กำแพงเพชร 62000<br>
+                            โทรศัพท์ <a href="tel:055851127" class="link">0 5585 1127</a> โทรสาร 0 5585 1129
+                        </span>
+                    </address>
+                </div>
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 8 (ราชบุรี)</strong><br><span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 7 จังหวัด ดังนี้ <br>1.จังหวัดราชบุรี
+                            <br>2.จังหวัดประจวบคีรีขันธ์ <br>3.จังหวัดนครปฐม <br>4.จังหวัดเพชรบุรี
+                            <br>5.จังหวัดสมุทรปราการ <br>6.จังหวัดสมุทรสงคราม <br>7.จังหวัดสมุทรสาคร <br>ติดต่อ เลขที่
+                            273 หมู่ที่ 1 ต.หินกอง อ.เมือง จ.ราชบุรี 70000<br>
+                            โทรศัพท์ <a href="tel:032334872-5" class="link">0 3233 4872-5</a> โทรสาร 0 3233 4872
+                        </span>
+                    </address>
+                </div>
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 9 (ระยอง)</strong><br><span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 6 จังหวัด ดังนี้ <br>1.จังหวัดระยอง <br>2.จังหวัดจันทบุรี
+                            <br>3.จังหวัดฉะเชิงเทรา <br>4.จังหวัดชลบุรี <br>5.จังหวัดตราด <br>6.จังหวัดสระแก้ว
+                            <br>ติดต่อ เลขที่ 94 หมู่ที่ 2 ต.วังหว้า อ.แกลง จ.ระยอง 21110<br>
+                            โทรศัพท์ <a href="tel:038677766" class="link">0 3867 7766</a> โทรสาร 0 3867 7768
+                        </span>
+                    </address>
+                </div>
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 10 (อุดรธานี)</strong><br> <span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 6 จังหวัด ดังนี้ <br>1.จังหวัดอุดรธานี
+                            <br>2.จังหวัดนครพนม <br>3.จังหวัดสกลนคร <br>4.จังหวัดมุกดาหาร <br>5.จังหวัดหนองคาย
+                            <br>6.จังหวัดบึงกาฬ <br>ติดต่อ เลขที่ 134 หมู่ 14 ถ.อุดร-สกลนคร อ.เมือง จ.อุดรธานี 41000<br>
+                            โทรศัพท์ <a href="tel:042920655" class="link">0 4292 0655</a> โทรสาร 0 4292 0655
+                        </span>
+                    </address>
+                </div>
+
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 11(อุบลราชธานี)</strong><br> <span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 5 จังหวัด ดังนี้ <br>1.จังหวัดอุบลราชธานี
+                            <br>2.จังหวัดยโสธร <br>3.จังหวัดร้อยเอ็ด <br>4.จังหวัดศรีสะเกษ <br>5.จังหวัดอำนาจเจริญ
+                            <br>เลขที่ 106 หมู่ 2 บ้านนางิ้ว ตำบลกระโสบ อำเภอเมือง จังหวัดอุบลราชธานี 34000<br>
+                            โทรศัพท์ <a href="tel:045955507" class="link">0 4595 5507</a> โทรสาร 0 4595 5507
+                        </span>
+                    </address>
+                </div>
+
+                <div class="item">
+                    <address>
+                        <strong class="text-success h5">สำนักทรัพยากรน้ำบาดาล เขต 12 (สงขลา)</strong><br> <span
+                            class="text-secondary h6">
+                            จังหวัดที่อยู่ภายใต้การกำกับดูแลมี 6 จังหวัด ดังนี้ <br>1.จังหวัดสงขลา <br>2.จังหวัดนราธิวาส
+                            <br>3.จังหวัดปัตตานี <br>4.จังหวัดพัทลุง <br>5.จังหวัดยะลา <br>6.จังหวัดสตูล <br>ติดต่อ
+                            เลขที่ 439/10 ม.2 ถ.สงขลา-เกาะยอ ต.พะวง อ.เมือง จ.สงขลา 90100<br>
+                            โทรศัพท์ <a href="tel:074330225" class="link">0 7433 0225</a> โทรสาร 0 7433 0225
+                        </span>
+                    </address>
+                </div>
+            </div>
+        </div>
+
+        <div data-aos="fade-up" class="row mt-3">
+            <div class="card col-12 bg-light">
+                <div class="card-body">
+                    <p class="text-success h3">หน่วยงานที่เกี่ยวข้อง</p>
+                    <div class="mt-4 d-flex flex-wrap justify-content-evenly">
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/mnre-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/onep-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/pcd-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/deqp-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/dnp-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/forest-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/egov-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/dmr-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/dwr-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/fio-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/zoo-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/qsbg-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/tgo-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div>
+                            <img style="width: auto; max-height: 80px;" src="assets/images/themes/bedo-logo.png"
+                                class="rounded mx-auto d-block" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="d-flex justify-content-evenly">
+                    <p class="h3 text-secondary"><i class="bi bi-graph-up"></i>&nbspจำนวนผู้เข้าชม 1,000,000 คน</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-3">
+            <div class="card bg-success">
+                <div class="card-body row d-flex justify-content-between">
+                    <div class="text-light col-xl-6 col-sm-12">
+                        <span>กรมทรัพยากรน้ำบาดาล</span>
+                        <br>เลขที่ 26/83 ซอยท่านผู้หญิงพหล (ซอยงามวงศ์วาน 54) ถนนงามวงศ์วาน แขวงลาดยาว เขตจตุจักร
+                        กรุงเทพฯ 10900
+                        <br>โทร 02 666 7000 โทรสาร 02 666 7055 อีเมล์: webmaster@dgr.mail.go.th Call Center 1310 กด 4
+                        </span>
+                    </div>
+                    <div class="text-light text-right col-xl-6 col-sm-12">
+                        <span>ออกแบบและพัฒนาโดย ศูนย์เทคโนโลยีสารสนเทศทรัพยากรน้ำบาดาล
+                            <br>แผนแม่บทเทคโนโลยีสารสนเทศและการสื่อสาร ประจำปี พ.ศ. 2559-2562
+                            <br>Copyright © 2018 กรมทรัพยากรน้ำบาดาล</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- jQuery Core 3.6.0 min -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Data Table -->
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap5.min.js"></script>
+    <!-- OwlCarousel2 -->
+    <script src="assets/js/owl.carousel.js"></script>
+    <!-- AOS -->
+    <script src="assets/js/aos.js"></script>
+    <!-- app.js -->
+    <script src="assets/js/sammy.js"></script>
+    <script src="router.js"></script>
+    <script src="app.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>

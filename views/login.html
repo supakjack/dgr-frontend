@@ -1,0 +1,71 @@
+<style>
+    html {
+        height: 100%;
+    }
+
+    body {
+        background-image: url('assets/images/themes/login-background.png');
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+</style>
+<div class="h-100 row align-items-center d-flex justify-content-center">
+    <div class="card col-xl-4 col-md-10 rounded-5">
+        <div class="card-body">
+            <form>
+                <div class="
+                  mb-3
+                  d-flex
+                  justify-content-center
+                  align-items-center
+                  d-flex
+                  flex-wrap
+                  ">
+                    <div class="">
+                        <img src="assets/images/themes/dgr-logo.png" style="max-width: 100px" class="img-fluid"
+                            alt="กรมน้ำบาดาล" />
+                    </div>
+                    <div class="text-center">
+                        <p class="h2 text-success">กรมทรัพยากรน้ำบาดาล</p>
+                        <p class="h6 text-success">Department of Groundwater Resources</p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <p class="text-center h3 text-success">ยินดีตอนรับเข้าสู่ระบบ</p>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="user_username" class="form-label">ชื่อผู้ใช้งาน</label>
+                    <input type="text" placeholder="กรุณากรอกชื่อผู้ใช้งาน..." class="form-control" name="user_username"
+                        id="user_username" />
+                </div>
+                <label for="user_password" class="form-label">รหัสผ่าน</label>
+                <div class="input-group mb-3">
+                    <input type="password" placeholder="กรุณากรอกรหัสผ่าน..." class="form-control" name="user_password"
+                        id="user_password" />
+                    <span class="input-group-text" id="btn_show_user_password"><i class="bi bi-eye"></i></span>
+                </div>
+                <div class="d-grid gap-2 mb-3">
+                    <button class="btn btn-success" type="button">เข้าสู่ระบบ</button>
+                </div>
+
+                <div class="input-group mb-3">
+                    <a class="text-dark" href="#"><i class="bi bi-arrow-left">&nbspกลับสู่หน้าจอหลัก</i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#btn_show_user_password').click(function () {
+        if ($('#user_password').attr('type') == 'password') {
+            $('#user_password').attr('type', 'text')
+        } else {
+            $('#user_password').attr('type', 'password')
+        }
+    })
+</script>
