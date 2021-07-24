@@ -17,5 +17,8 @@ const router = [
     }, {
         "path": "management",
         "file": "management"
+    }, {
+        "path": "library",
+        "file": "library"
     }
 ]
