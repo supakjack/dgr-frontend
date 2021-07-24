@@ -14,5 +14,8 @@ const router = [
     {
         "path": "people",
         "file": "people"
+    }, {
+        "path": "management",
+        "file": "management"
     }
 ]
