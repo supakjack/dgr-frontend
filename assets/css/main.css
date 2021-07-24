@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
 * {
     font-family: 'Kanit', sans-serif;
 }
@@ -66,3 +67,6 @@
     background-position: -24px -53px;
 }
 
+.pointer {
+    cursor: pointer;
+}
