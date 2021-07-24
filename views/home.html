@@ -78,7 +78,7 @@
     $('#goToManage').click(function (e) {
         e.preventDefault();
         if ($state.user.token) {
-            app.setLocation('#/demo');
+            app.setLocation('#/home');
         } else {
             app.setLocation('#/auth');
         }
