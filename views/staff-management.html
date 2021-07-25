@@ -90,14 +90,14 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
                     "targets": 1,
                     "data": "create_date",
                     "render": function (data, type, row, meta) {
-                        return `<div  class="d-flex justify-content-center align-items-center  mt-4"> <p> ${data}</p> </div>`
+                        return `<div  class=" align-items-center  mt-4"> <p> ${data}</p> </div>`
                     }
                 },
                 {
                     "targets": 2,
                     "data": "status",
                     "render": function (data, type, row, meta) {
-                        return `<div class="d-flex justify-content-center align-items-center mt-4 text-center">
+                        return `<div class=" align-items-center mt-4 text-center">
                                         <span class="fs-6 badge ${data == 'รออนุมัติ' ? 'bg-warning' : 'bg-success'}" value="${data}">${data}</span> 
                                     </div>`
                     }
