@@ -25,5 +25,9 @@ const router = [
         "path": "staff-report",
         "file": "staff-report"
     }
+    , {
+        "path": "staff-application",
+        "file": "staff-application"
+    }
 ]
 
