@@ -14,20 +14,26 @@ const router = [
     {
         "path": "people",
         "file": "people"
-    }, {
+    },
+    {
         "path": "management",
         "file": "management"
-    }, {
+    },
+    {
         "path": "library",
         "file": "library"
-    }
-    , {
+    },
+    {
         "path": "staff-report",
         "file": "staff-report"
-    }
-    , {
+    },
+    {
         "path": "staff-application",
         "file": "staff-application"
+    },
+    {
+        "path": "staff-management",
+        "file": "staff-management"
     }
 ]
 

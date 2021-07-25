@@ -1,0 +1,122 @@
+<p class="text-light" style="z-index: 1; position: absolute;left: 20px;
+top: 110px;"><a href="#/library" class="text-light text-decoration-none">คลังข้อมูลกำลัังผลิตน้ำ</a> &nbsp;/&nbsp;<a
+        class="text-light" href="#/staff-management">รายการลงทะเบียนขอรับน้ำดื่มส่วนกลาง</a></p>
+<img src="assets/images/themes/staff-report-01.png" class="img-fluid" alt="...">
+<div class="text-center mt-5 mb-5 ">
+    <span class="fs-1">รายการลงทะเบียนขอรับน้ำดื่มส่วนกลาง</span>
+</div>
+
+<div class="row pb-5 ">
+    <!-- start table user -->
+    <table id="table_water_application_management" class="table display" style="width:100%">
+        <thead>
+            <tr class="text-center">
+                <th>ผู้ลงทะเบียน</th>
+                <th>วันที่ลงทะเบียน</th>
+                <th>สถานะ</th>
+                <th>เครื่องมือ</th>
+            </tr>
+        </thead>
+    </table>
+    <!-- end table user -->
+</div>
+
+<script>
+    $(document).ready(function () {
+        const data = [
+            {
+                "id": "1",
+                "name": "กอญ่า มัจฉะ",
+                "create_date": "2021-06-18 20:46:06",
+                "status": "อนุมัติ",
+            },
+            {
+                "id": "2",
+                "name": "สมชาย มาดี",
+                "create_date": "2021-05-18 20:46:06",
+                "status": "รออนุมัติ",
+            },
+            {
+                "id": "4",
+                "name": "สมหญิง มาดี",
+                "create_date": "2021-05-18 20:46:06",
+                "status": "รออนุมัติ",
+            }, {
+                "id": "6",
+                "name": "สมศรี มาดี",
+                "create_date": "2021-05-18 20:46:06",
+                "status": "รออนุมัติ",
+            },
+            {
+                "id": "1",
+                "name": "มานี มัจฉะ",
+                "create_date": "2021-04-18 20:46:06",
+                "status": "อนุมัติ",
+            },
+            {
+                "id": "2",
+                "name": "มาโนด มาดี",
+                "create_date": "2021-03-18 20:46:06",
+                "status": "รออนุมัติ",
+            },
+            {
+                "id": "4",
+                "name": "มานัด มาดี",
+                "create_date": "2021-02-18 20:46:06",
+                "status": "รออนุมัติ",
+            }, {
+                "id": "6",
+                "name": "มณี มาดี",
+                "create_date": "2021-01-18 20:46:06",
+                "status": "รออนุมัติ",
+            },
+        ]
+
+        console.log(data);
+        $(document).ready(function () {
+            $('#table_water_application_management').DataTable({
+                pageLength: 5,
+                "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                data: data,
+                "columnDefs": [{
+                    "targets": 0,
+                    "data": "name",
+                    "render": function (data, type, row, meta) {
+                        return '<div class="d-flex justify-content-start align-items-center"><i class="bi bi-person-circle" style="font-size: 50px" ></i> &emsp; <span value="' + data + '">' + data + '</span></div>'
+
+                    }
+                },
+                {
+                    "targets": 1,
+                    "data": "create_date",
+                    "render": function (data, type, row, meta) {
+                        return `<div  class="d-flex justify-content-center align-items-center  mt-4"> <p> ${data}</p> </div>`
+                    }
+                },
+                {
+                    "targets": 2,
+                    "data": "status",
+                    "render": function (data, type, row, meta) {
+                        return `<div class="d-flex justify-content-center align-items-center mt-4 text-center">
+                                        <span class="fs-6 badge ${data == 'รออนุมัติ' ? 'bg-warning' : 'bg-success'}" value="${data}">${data}</span> 
+                                    </div>`
+                    }
+                },
+                {
+                    "targets": 3,
+                    "data": "id",
+                    "render": function (data, type, row, meta) {
+                        return `
+                        <div class="d-flex justify-content-evenly align-items-center mt-3">
+                                <button type="button" class="btn btn-primary">ดูรายละเอียด</button>
+                                <button type="button" class="btn " style="background-color: #b955f5; color: white"><i class="bi bi-pencil"></i> แก้ไข</button>
+                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
+                            </div>
+                            `
+                    }
+                }
+                ]
+            });
+        });
+    });
+</script>
