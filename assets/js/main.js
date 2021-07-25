@@ -34,5 +34,6 @@ $(document).on('click', '#goLogout', (e) => {
         token: '',
         role: '',
     }
+    localStorage.clear()
     app.setLocation('#/home');
 })

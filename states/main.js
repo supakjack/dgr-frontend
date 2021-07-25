@@ -4,4 +4,5 @@ const $state = {
         token: '',
         role: '',
     },
+    path: ''
 }
