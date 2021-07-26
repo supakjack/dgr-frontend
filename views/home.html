@@ -84,13 +84,14 @@
         }
         console.log($state.user);
     });
-    // $('#goToDemo').click(function (e) {
-    //     e.preventDefault();
-    //     if ($state.user.token) {
-    //         app.setLocation('#/demo');
-    //     } else {
-    //         app.setLocation('#/auth');
-    //     }
-    //     console.log($state.user);
-    // });
+    $(() => {
+        setTimeout(() => {
+            loadingOverlay().cancel($state.loading);
+        }, 1000);
+    });
+    $(() => {
+        setTimeout(() => {
+            loadingOverlay().cancel($state.loading);
+        }, 1000);
+    });
 </script>

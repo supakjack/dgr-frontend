@@ -22,101 +22,104 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
 </div>
 
 <script>
-    $(document).ready(function () {
-        const data = [
-            {
-                "id": "1",
-                "name": "กอญ่า มัจฉะ",
-                "create_date": "2021-06-18 20:46:06",
-                "status": "อนุมัติ",
-            },
-            {
-                "id": "2",
-                "name": "สมชาย มาดี",
-                "create_date": "2021-05-18 20:46:06",
-                "status": "รออนุมัติ",
-            },
-            {
-                "id": "4",
-                "name": "สมหญิง มาดี",
-                "create_date": "2021-05-18 20:46:06",
-                "status": "รออนุมัติ",
-            }, {
-                "id": "6",
-                "name": "สมศรี มาดี",
-                "create_date": "2021-05-18 20:46:06",
-                "status": "รออนุมัติ",
-            },
-            {
-                "id": "1",
-                "name": "มานี มัจฉะ",
-                "create_date": "2021-04-18 20:46:06",
-                "status": "อนุมัติ",
-            },
-            {
-                "id": "2",
-                "name": "มาโนด มาดี",
-                "create_date": "2021-03-18 20:46:06",
-                "status": "รออนุมัติ",
-            },
-            {
-                "id": "4",
-                "name": "มานัด มาดี",
-                "create_date": "2021-02-18 20:46:06",
-                "status": "รออนุมัติ",
-            }, {
-                "id": "6",
-                "name": "มณี มาดี",
-                "create_date": "2021-01-18 20:46:06",
-                "status": "รออนุมัติ",
-            },
-        ]
 
-        console.log(data);
-        $(document).ready(function () {
-            $('#table_water_application_management').DataTable({
-                pageLength: 5,
-                "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
-                data: data,
-                "columnDefs": [{
-                    "targets": 0,
-                    "data": "name",
-                    "render": function (data, type, row, meta) {
-                        return '<div class="pl-5 d-flex justify-content-start align-items-center"><i class="bi bi-person-circle" style="font-size: 50px" ></i> &emsp; <span value="' + data + '">' + data + '</span></div>'
+    const data = [
+        {
+            "id": "1",
+            "name": "กอญ่า มัจฉะ",
+            "create_date": "2021-06-18 20:46:06",
+            "status": "อนุมัติ",
+        },
+        {
+            "id": "2",
+            "name": "สมชาย มาดี",
+            "create_date": "2021-05-18 20:46:06",
+            "status": "รออนุมัติ",
+        },
+        {
+            "id": "4",
+            "name": "สมหญิง มาดี",
+            "create_date": "2021-05-18 20:46:06",
+            "status": "รออนุมัติ",
+        }, {
+            "id": "6",
+            "name": "สมศรี มาดี",
+            "create_date": "2021-05-18 20:46:06",
+            "status": "รออนุมัติ",
+        },
+        {
+            "id": "1",
+            "name": "มานี มัจฉะ",
+            "create_date": "2021-04-18 20:46:06",
+            "status": "อนุมัติ",
+        },
+        {
+            "id": "2",
+            "name": "มาโนด มาดี",
+            "create_date": "2021-03-18 20:46:06",
+            "status": "รออนุมัติ",
+        },
+        {
+            "id": "4",
+            "name": "มานัด มาดี",
+            "create_date": "2021-02-18 20:46:06",
+            "status": "รออนุมัติ",
+        }, {
+            "id": "6",
+            "name": "มณี มาดี",
+            "create_date": "2021-01-18 20:46:06",
+            "status": "รออนุมัติ",
+        },
+    ]
 
-                    }
-                },
-                {
-                    "targets": 1,
-                    "data": "create_date",
-                    "render": function (data, type, row, meta) {
-                        return `<div  class="d-flex justify-content-center mt-4"> <p> ${data}</p> </div>`
-                    }
-                },
-                {
-                    "targets": 2,
-                    "data": "status",
-                    "render": function (data, type, row, meta) {
-                        return `<div class=" align-items-center mt-4 text-center">
+    console.log(data);
+
+    $('#table_water_application_management').DataTable({
+        pageLength: 5,
+        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+        data: data,
+        "columnDefs": [{
+            "targets": 0,
+            "data": "name",
+            "render": function (data, type, row, meta) {
+                return '<div class="pl-5 d-flex justify-content-start align-items-center"><i class="bi bi-person-circle" style="font-size: 50px" ></i> &emsp; <span value="' + data + '">' + data + '</span></div>'
+
+            }
+        },
+        {
+            "targets": 1,
+            "data": "create_date",
+            "render": function (data, type, row, meta) {
+                return `<div  class="d-flex justify-content-center mt-4"> <p> ${data}</p> </div>`
+            }
+        },
+        {
+            "targets": 2,
+            "data": "status",
+            "render": function (data, type, row, meta) {
+                return `<div class=" align-items-center mt-4 text-center">
                                         <span class="fs-6 badge ${data == 'รออนุมัติ' ? 'bg-warning' : 'bg-success'}" value="${data}">${data}</span> 
                                     </div>`
-                    }
-                },
-                {
-                    "targets": 3,
-                    "data": "id",
-                    "render": function (data, type, row, meta) {
-                        return `
+            }
+        },
+        {
+            "targets": 3,
+            "data": "id",
+            "render": function (data, type, row, meta) {
+                return `
                         <div class="d-flex justify-content-evenly align-items-center mt-3">
                                 <button type="button" class="btn btn-primary">ดูรายละเอียด</button>
                                 <button type="button" class="btn " style="background-color: #b955f5; color: white"><i class="bi bi-pencil"></i> แก้ไข</button>
                                 <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
                             </div>
                             `
-                    }
-                }
-                ]
-            });
-        });
+            }
+        }
+        ]
+    });
+    $(() => {
+        setTimeout(() => {
+            loadingOverlay().cancel($state.loading);
+        }, 1000);
     });
 </script>

@@ -248,3 +248,10 @@
     </div>
 </div>
 
+<script>
+    $(() => {
+        setTimeout(() => {
+            loadingOverlay().cancel($state.loading);
+        }, 1000);
+    });
+</script>

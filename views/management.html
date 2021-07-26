@@ -44,7 +44,8 @@
     <span class="fs-1">กำลังการผลิตตั้งแต่วันเริ่มต้นจนถึงวันที่ 9 มิถุนายน พ.ศ. 2564</span>
     <div class="row">
         <div class="d-flex justify-content-center flex-wrap">
-            <select class="mt-3 form-select form-select-sm" aria-label=".form-select-sm example" style="max-width: 15rem;">
+            <select class="mt-3 form-select form-select-sm" aria-label=".form-select-sm example"
+                style="max-width: 15rem;">
                 <option selected value="1">ส่วนกลาง</option>
                 <option value="2">เขต 1</option>
                 <option value="3">เขต 2</option>
@@ -52,7 +53,8 @@
             &nbsp;&nbsp;
             <input type="date" class="mt-3  form-control" style="max-width: 15rem;">
             &nbsp;&nbsp;
-            <select class="mt-3  form-select form-select-sm" aria-label=".form-select-sm example" style="max-width: 15rem;">
+            <select class="mt-3  form-select form-select-sm" aria-label=".form-select-sm example"
+                style="max-width: 15rem;">
                 <option selected value="1">สะสมทั้งหมด</option>
                 <option value="2">ขวด 350 มล.</option>
                 <option value="3">ขวด 750 มล.</option>
@@ -290,6 +292,11 @@
 
     $(window).resize(function () {
         drawChart();
+    });
+    $(() => {
+        setTimeout(() => {
+            loadingOverlay().cancel($state.loading);
+        }, 1000);
     });
 </script>
 

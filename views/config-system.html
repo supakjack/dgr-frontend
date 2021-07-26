@@ -11,4 +11,9 @@
         text: 'หน้าจัดการเเบบฟอร์มเขตกำลังอยู่ในช่วงพัฒนา',
         confirmButtonText: 'ตกลง',
     })
+    $(() => {
+        setTimeout(() => {
+            loadingOverlay().cancel($state.loading);
+        }, 1000);
+    });
 </script>

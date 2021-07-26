@@ -127,3 +127,10 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         <button class="btn btn-success">บันทึก</button>
     </div>
 </div>
+<script>
+    $(() => {
+        setTimeout(() => {
+            loadingOverlay().cancel($state.loading);
+        }, 1000);
+    });
+</script>

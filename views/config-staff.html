@@ -9,4 +9,9 @@
         text: 'หน้าตั้งค่าเจ้าหน้าที่เขตกำลังอยู่ในช่วงพัฒนา',
         confirmButtonText: 'ตกลง',
     })
+    $(() => {
+        setTimeout(() => {
+            loadingOverlay().cancel($state.loading);
+        }, 1000);
+    });
 </script>

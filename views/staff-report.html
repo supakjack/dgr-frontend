@@ -60,6 +60,12 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     $(window).resize(function () {
         drawChart();
     });
+
+    $(() => {
+        setTimeout(() => {
+            loadingOverlay().cancel($state.loading);
+        }, 1000);
+    });
 </script>
 
 <style>
