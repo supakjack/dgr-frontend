@@ -1,14 +1,137 @@
-<h1>ตั้งค่าเจ้าหน้าที่เขต</h1>
-<p class="text-danger" style="font-size: 15rem;">กำลังพัฒนา....</p>
+<div class="row" style="background-color: #D9F4E4;">
+    <div class="col-12 ">
+        <div class="card mt-5 ">
+            <div class="card-body d-flex justify-content-between flex-wrap">
+                <span class="mt-2 fs-4">ตั้งค่าเจ้าหน้าที่เขต</span> <button type="button" class="btn btn-success"><i
+                        class="bi bi-plus"></i> เพิ่มเจ้าหน้าที่</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="card  mt-1 mb-5 p-2">
+            <!-- start table user -->
+            <table id="table_water_application_management" class="table display" style="width:100%">
+                <thead>
+                    <tr class="text-center">
+                        <th>ชื่อผู้ใช้งาน</th>
+                        <th>ชื่อ-นามสกุล</th>
+                        <th>เขตที่รับผิดชอบ</th>
+                        <th>สถานะ</th>
+                        <th>เครื่องมือ</th>
+                    </tr>
+                </thead>
+            </table>
+            <!-- end table user -->
+        </div>
+    </div>
+</div>
+
 
 <script>
-    Swal.fire({
-        heightAuto: false,
-        icon: 'warning',
-        title: 'กำลังพัฒนา',
-        text: 'หน้าตั้งค่าเจ้าหน้าที่เขตกำลังอยู่ในช่วงพัฒนา',
-        confirmButtonText: 'ตกลง',
-    })
+    data = [
+        {
+            "id": "1",
+            "username": "Koya_000",
+            "name": "นางสาวกอญ่า มัจฉะ",
+            "area": "ส่วนกลาง (เขต 1)",
+            "status": "ใช้งาน",
+        },
+        {
+            "id": "2",
+            "username": "Koya_002",
+            "name": "นายกอญ่า มัจฉะ",
+            "area": "สุพรรณ (เขต 2)",
+            "status": "ใช้งาน",
+        },
+        {
+            "id": "3",
+            "username": "Koya_003",
+            "name": "นางกอญ่า มัจฉะ",
+            "area": "สระบุรี (เขต 3)",
+            "status": "ปิดการใช้งาน",
+        },
+        {
+            "id": "1",
+            "username": "Koya_004",
+            "name": "นางสาวกอญ่า มัจฉะ",
+            "area": "ส่วนกลาง (เขต 1)",
+            "status": "ใช้งาน",
+        },
+        {
+            "id": "2",
+            "username": "Koya_005",
+            "name": "นายกอญ่า มัจฉะ",
+            "area": "สุพรรณ (เขต 2)",
+            "status": "ใช้งาน",
+        },
+        {
+            "id": "3",
+            "username": "Koya_006",
+            "name": "นางกอญ่า มัจฉะ",
+            "area": "สระบุรี (เขต 3)",
+            "status": "ปิดการใช้งาน",
+        },
+        {
+            "id": "3",
+            "username": "Koya_007",
+            "name": "นางกอญ่า มัจฉะ",
+            "area": "สระบุรี (เขต 3)",
+            "status": "ปิดการใช้งาน",
+        }
+    ]
+
+    console.log(data);
+
+    $('#table_water_application_management').DataTable({
+        pageLength: 5,
+        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+        data: data,
+        "columnDefs": [{
+            "targets": 0,
+            "data": "username",
+            "render": function (data, type, row, meta) {
+                return '<div class="pl-5 d-flex justify-content-start align-items-center"><i class="bi bi-person-circle" style="font-size: 50px" ></i> &emsp; <span value="' + data + '">' + data + '</span></div>'
+
+            }
+        },
+        {
+            "targets": 1,
+            "data": "name",
+            "render": function (data, type, row, meta) {
+                return `<div  class="d-flex justify-content-center mt-4"> <p> ${data}</p> </div>`
+            }
+        },
+        {
+            "targets": 2,
+            "data": "area",
+            "render": function (data, type, row, meta) {
+                return `<div  class="d-flex justify-content-center mt-4"> <p> ${data}</p> </div>`
+            }
+        },
+        {
+            "targets": 3,
+            "data": "status",
+            "render": function (data, type, row, meta) {
+                return `<div class=" align-items-center mt-4 text-center">
+                                        <span class="fs-6 badge ${data == 'ปิดการใช้งาน' ? 'bg-warning' : 'bg-success'}" value="${data}">${data}</span> 
+                                    </div>`
+            }
+        },
+        {
+            "targets": 4,
+            "data": "id",
+            "render": function (data, type, row, meta) {
+                return `
+                        <div class="d-flex justify-content-evenly align-items-center mt-3">
+                                <button type="button" class="btn btn-primary">ดูรายละเอียด</button>
+                                <button type="button" class="btn " style="background-color: #b955f5; color: white"><i class="bi bi-pencil"></i> แก้ไข</button>
+                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
+                            </div>
+                            `
+            }
+        }
+        ]
+    });
     $(() => {
         setTimeout(() => {
             loadingOverlay().cancel($state.loading);

@@ -66,10 +66,10 @@
                 <h2 class="accordion-header" id="headingOne2">
                     <button class="accordion-button fs-2" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
-                        ผู้ดูเเลระบบ
+                        จัดการผู้ดูเเลระบบ
                     </button>
                 </h2>
-                <div id="collapseOne2"class="accordion-collapse collapse show" aria-labelledby="headingOne2"
+                <div id="collapseOne2" class="accordion-collapse collapse show" aria-labelledby="headingOne2"
                     data-bs-parent="#accordionExample2">
                     <div class="accordion-body">
                         <div class="row">
@@ -133,22 +133,10 @@
 
 
 <script>
-    // Swal.fire({
-    //     heightAuto: false,
-    //     icon: 'warning',
-    //     title: 'กำลังพัฒนา',
-    //     text: 'หน้าจัดการเเบบฟอร์มเขตกำลังอยู่ในช่วงพัฒนา',
-    //     confirmButtonText: 'ตกลง',
-    // })
     $(() => {
         setTimeout(() => {
             loadingOverlay().cancel($state.loading);
-        }, 0);
+        }, 1000);
     });
-    // $("html, body").animate({ scrollTop: 0 }, "slow");
+    $("html, body").animate({ scrollTop: 0 }, "slow");
 </script>
-<style>
-    #headingOne2>button {
-        background-color: none;
-    }
-</style>
