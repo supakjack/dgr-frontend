@@ -20,6 +20,7 @@ $.each(router, function (indexInArray, valueOfElement) {
             if (path == 'auth') {
                 window.location = '#/config-system'
                 console.log("admin come to auth");
+                loadingOverlay().cancel($state.loading);
                 return
             }
             $('#header_public').hide();
@@ -30,6 +31,7 @@ $.each(router, function (indexInArray, valueOfElement) {
             if (path == 'auth') {
                 window.location = '#/library'
                 console.log("staff come to auth");
+                loadingOverlay().cancel($state.loading);
                 return
             }
             $('#header_public').hide();
@@ -43,6 +45,8 @@ $.each(router, function (indexInArray, valueOfElement) {
                 console.log($state.user.role);
                 window.location = '#/home'
                 console.log("no permission");
+                loadingOverlay().cancel($state.loading);
+                
                 return
             }
         }
