@@ -1,10 +1,5 @@
 const router = [
     {
-        "path": "demo",
-        "file": "card",
-        "role": "public"
-    },
-    {
         "path": "auth",
         "file": "login",
         "role": "public"
