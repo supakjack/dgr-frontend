@@ -140,7 +140,8 @@
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">รหัสผ่าน</label>
-                            <input type="password" placeholder="กรอกรหัสผ่าน..." value="**********" class="form-control">
+                            <input type="password" placeholder="กรอกรหัสผ่าน..." value="**********"
+                                class="form-control">
                         </div>
                     </div>
 
@@ -213,6 +214,70 @@
                 </div>
                 <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered  modal-xl modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ดูรายละเอียดเจ้าหน้าที่</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">ชื่อผู้ใช้งาน</label>
+                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="Koya_000" class="form-control"
+                                disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">รหัสผ่าน</label>
+                            <input type="password" placeholder="กรอกรหัสผ่าน..." value="**********" class="form-control"
+                                disabled>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">คำนำหน้าชื่อ</label>
+                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="นาย" class="form-control"
+                                disabled>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">ชื่อ</label>
+                            <input type="text" placeholder="กรอกชื่อ..." value="สาวกอญ่า" class="form-control" disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">นามสกุล</label>
+                            <input type="text" placeholder="กรอกนามสกุล..." value="มัจฉะ" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">เขตที่รับผิดชอบ</label>
+                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="ส่วนกลาง (เขต 1)"
+                                class="form-control" disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">สถานะ</label>
+                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="เปิดการใช้งาน"
+                                class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ย้อนกลับ</button>
                 </div>
             </div>
         </div>
@@ -317,9 +382,9 @@
             "render": function (data, type, row, meta) {
                 return `
                         <div class="d-flex justify-content-evenly align-items-center mt-3">
-                                <button type="button" class="btn btn-primary">ดูรายละเอียด</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">ดูรายละเอียด</button>
                                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal2"  style="background-color: #b955f5; color: white"><i class="bi bi-pencil"></i> แก้ไข</button>
-                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
+                                <button type="button" class="btn btn-danger deleteStaff"><i class="bi bi-trash"></i> ลบ</button>
                             </div>
                             `
             }
@@ -332,4 +397,42 @@
         }, 1000);
     });
     $("html, body").animate({ scrollTop: 0 }, "slow");
+
+    $('.deleteStaff').click(function (e) {
+        e.preventDefault();
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'คุณแน่ใจไหม ?',
+            text: "คุณกำลังจะลบ 1 รายการ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'ใช่, ลบเลย!',
+            cancelButtonText: 'ไม่, ยกเลิก!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    'ลบ!',
+                    '1 รายการของคุณถูกลบแล้ว',
+                    'success'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'ยกเลิก',
+                    '1 รายการของคุณไม่ถูกลบ',
+                    'error'
+                )
+            }
+        })
+    });
 </script>

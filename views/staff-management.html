@@ -21,6 +21,84 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     <!-- end table user -->
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered  modal-xl modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ข้อมูลลงทะเบียนขอรับน้ำดื่ม</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">ชื่อ</label>
+                            <input type="text" value="กอญ่า มัจฉะ" class="form-control" disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">เบอร์โทรศัพท์</label>
+                            <input type="text" value="097-6780699" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">ลงวันที่:</label>
+                            <input type="text" value="09/06/2564" class="form-control" disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">สถานะ</label>
+                            <input type="text" value="อนุมัติ" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <label for="exampleFormControlTextarea1" class="form-label">ทีอยู่</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                disabled>169 ถนน ลงหาดบางแสน ตำบลแสนสุข อำเภอเมืองชลบุรี ชลบุรี 20131</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">น้ำขวดขนาด 350 มล.</label>
+                            <input type="number" value="10" class="form-control" disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">น้ำขวดขนาด 750 มล.</label>
+                            <input type="number" value="5" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">น้ำขวดขนาด 1500 มล.</label>
+                            <input type="number" value="10" class="form-control" disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">น้ำแกลอน 5 ล.</label>
+                            <input type="number" value="0" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">น้ำแกลอน 20 ล.</label>
+                            <input type="number" value="0" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ย้อนกลับ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
 
     let data = [
@@ -108,11 +186,15 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
             "data": "id",
             "render": function (data, type, row, meta) {
                 return `
-                        <div class="d-flex justify-content-evenly align-items-center mt-3">
-                                <button type="button" class="btn btn-primary">ดูรายละเอียด</button>
-                                <button type="button" class="btn " style="background-color: #b955f5; color: white"><i class="bi bi-pencil"></i> แก้ไข</button>
-                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
-                            </div>
+                <div class="row">
+                    <div class="d-grid gap-2 col mt-2 mx-auto p-2">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="bi bi-eye"></i> ดูรายละเอียด</button>
+                    </div>
+                    ${row.status == 'รออนุมัติ' ? '<div class="d-grid gap-2 col mt-2 mx-auto p-2"> <button type="button" class="btn approveReq"style="background-color: #b955f5; color: white"><i class="bi bi-check"></i> อนุมัติคำร้อง </button> </div>' : ''}
+                    <div class="d-grid gap-2 col mt-2 mx-auto p-2">
+                        <button type="button" class="btn btn-danger deleteReq"><i class="bi bi-trash"></i> ลบ</button>
+                    </div>
+                </div>
                             `
             }
         }
@@ -124,4 +206,80 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         }, 1000);
     });
     $("html, body").animate({ scrollTop: 0 }, "slow");
+
+    $('.deleteReq').click(function (e) {
+        e.preventDefault();
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'คุณแน่ใจไหม ?',
+            text: "คุณกำลังจะลบ 1 รายการ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'ใช่, ลบเลย!',
+            cancelButtonText: 'ไม่, ยกเลิก!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    'ลบ!',
+                    '1 รายการของคุณถูกลบแล้ว',
+                    'success'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'ยกเลิก',
+                    '1 รายการของคุณไม่ถูกลบ',
+                    'error'
+                )
+            }
+        })
+    });
+
+    $('.approveReq').click(function (e) {
+        e.preventDefault();
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'คุณแน่ใจไหม ?',
+            text: "คุณกำลังจะอนุมัติ 1 รายการ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'ใช่, อนุมัติเลย!',
+            cancelButtonText: 'ไม่, ยกเลิก!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    'อนุมัติ!',
+                    '1 รายการของคุณถูกอนุมัติแล้ว',
+                    'success'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'ยกเลิก',
+                    '1 รายการของคุณไม่ถูกอนุมัติ',
+                    'error'
+                )
+            }
+        })
+    });
 </script>
