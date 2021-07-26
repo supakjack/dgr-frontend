@@ -75,6 +75,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     console.log(data);
 
     $('#table_water_application_management').DataTable({
+        responsive: true,
         pageLength: 5,
         "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
         data: data,
