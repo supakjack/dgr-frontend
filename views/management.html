@@ -249,7 +249,7 @@
     google.charts.load('current', { packages: ['corechart'] })
     google.charts.setOnLoadCallback(drawChart)
     function drawChart() {
-        var data = google.visualization.arrayToDataTable([
+        data = google.visualization.arrayToDataTable([
             ['คุณภาพของน้ำ', 'หน่วย'],
             ['350 มล.', 2000],
             ['750 มล.', 2000],
@@ -268,7 +268,7 @@
         )
         chart.draw(data, options)
 
-        var data = google.visualization.arrayToDataTable([
+        data = google.visualization.arrayToDataTable([
             ['วันที่', 'น้ำดี', 'น้ำเสีย'],
             ['วันที่ 4', 200, 50],
             ['วันที่ 5', 400, 100],
