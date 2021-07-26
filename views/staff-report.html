@@ -22,8 +22,8 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         <span class=" fs-3">กำลังการผลิตน้ำทั้งหมดประจำวันที่ 9 มิถุนายน พ.ศ. 2564</span>&nbsp;&nbsp;&nbsp;
         <button type="button" class="btn btn-primary"><i class="bi bi-cloud-download"></i>&nbsp;ดาวน์โหลด Excel</button>
         &nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn text-light" style="background-color: #6f42c1;"><i
-                class="bi bi-pencil"></i>&nbsp;แก้ไข</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn text-light"
+            style="background-color: #6f42c1;"><i class="bi bi-pencil"></i>&nbsp;แก้ไข</button>
     </div>
     <div class="col-12 text-start mb-1 ">
         <div class="clearfix"></div>
@@ -32,6 +32,142 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
 
 
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered  modal-xl modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">แก้ไขรายการบันทึกข้อมูล</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row pb-5 ">
+
+                    <div class="mb-3">
+                        <label class="form-label">ลงวันที่</label>
+                        <input type="text" value="02/07/2564" class="form-control" disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">หมายเหตุ</label>
+                        <textarea class="form-control" rows="3">หมายเหตุการบันทึกน้ำ
+                        </textarea>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">น้ำขวดขนาด 350 มล.</label>
+                            <input type="text" placeholder="กรอกจำนวน..." value="0" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">คุณภาพของน้ำขวดขนาด 350 มล.</label>
+                            <div class="row">
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำดี</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำเสีย</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">น้ำขวดขนาด 750 มล.</label>
+                            <input type="text" placeholder="กรอกจำนวน..." value="0" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">คุณภาพของน้ำขวดขนาด 750 มล.</label>
+                            <div class="row">
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำดี</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำเสีย</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">น้ำขวดขนาด 1500 มล.</label>
+                            <input type="text" placeholder="กรอกจำนวน..." value="0" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">คุณภาพของน้ำขวดขนาด 1500 มล.</label>
+                            <div class="row">
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำดี</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำเสีย</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">น้ำแกลอนขนาด 5 ล.</label>
+                            <input type="text" placeholder="กรอกจำนวน..." value="0" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">คุณภาพของน้ำแกลอนขนาด 5 ล.</label>
+                            <div class="row">
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำดี</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำเสีย</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">น้ำแกลอนขนาด 20 ล.</label>
+                            <input type="text" placeholder="กรอกจำนวน..." value="0" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">คุณภาพของน้ำแกลอนขนาด 20 ล.</label>
+                            <div class="row">
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำดี</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                                <div class="input-group col">
+                                    <span class="input-group-text">น้ำเสีย</span>
+                                    <input value="0" readonly type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
+                    <button type="button" class="btn btn-success">บันทึก</button>
+                </div>
+                <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script type="text/javascript">
     google.charts.load('current', { packages: ['corechart'] })
