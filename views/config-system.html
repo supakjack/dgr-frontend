@@ -19,39 +19,8 @@
                                     <th scope="col">เครื่องมือ</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th th scope="row">1</th>
-                                    <th>ส่วนกลาง (เขต 1)</th>
-                                    <td>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                                checked>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th th scope="row">2</th>
-                                    <th>สุพรรณ (เขต 2)</th>
-                                    <td>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                                checked>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                <tr>
-                                    <th th scope="row">3</th>
-                                    <th>สระบุรี (เขต 3)</th>
-                                    <td>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                                checked>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tr>
+                            <tbody id="get_areas_table">
+
                             </tbody>
                         </table>
                     </div>
@@ -149,13 +118,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="500" type="number"
-                                                class="form-control">
+                                            <input id="good_water_350_ml" placeholder="กรอกจำนวน..." value="500"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="200" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_350_ml" placeholder="กรอกจำนวน..." value="200"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -167,13 +136,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="900" type="number"
-                                                class="form-control">
+                                            <input id="good_water_750_ml" placeholder="กรอกจำนวน..." value="900"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="600" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_750_ml" placeholder="กรอกจำนวน..." value="600"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -185,13 +154,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="1750" type="number"
-                                                class="form-control">
+                                            <input id="good_water_1500_ml" placeholder="กรอกจำนวน..." value="1750"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="1150" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_1500_ml" placeholder="กรอกจำนวน..." value="1150"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -203,13 +172,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="17500" type="number"
-                                                class="form-control">
+                                            <input id="good_water_5_l" placeholder="กรอกจำนวน..." value="17500"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="11500" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_5_l" placeholder="กรอกจำนวน..." value="11500"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -221,13 +190,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="47500" type="number"
-                                                class="form-control">
+                                            <input id="good_water_20_l" placeholder="กรอกจำนวน..." value="47500"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="41500" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_20_l" placeholder="กรอกจำนวน..." value="41500"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -235,7 +204,8 @@
                             <div class="row mb-3">
                                 <div class="col-xl-6"></div>
                                 <div class="d-grid gap-2 col-xl-6 col-md-12 ">
-                                    <button style="background-color: #b955f5;" class="btn text-light">บันทึก</button>
+                                    <button style="background-color: #b955f5;" onclick="update_configs()"
+                                        class="btn text-light">บันทึก</button>
                                 </div>
                             </div>
                         </div>
@@ -249,6 +219,8 @@
 
 
 <script>
+    get_areas()
+    get_configs()
     $(() => {
         setTimeout(() => {
             loadingOverlay().cancel($state.loading);

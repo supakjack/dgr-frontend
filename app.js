@@ -1,11 +1,36 @@
 const app = Sammy('#app')
+const baseUrlAPI = 'http://localhost/www/dgr-backend/'
 $('#header_admin').hide();
 $('#header_public').hide();
 $('#header_staff').hide();
 
-$state.user.username = localStorage.getItem("username")
-$state.user.token = localStorage.getItem("token")
-$state.user.role = localStorage.getItem("role")
+$state.user.id = localStorage.getItem("id")
+console.log(localStorage.getItem("id"));
+if ($state.user.id) {
+    $.ajax({
+        type: "post",
+        url: baseUrlAPI + "User/get_users/" + $state.user.id,
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response.data[0]);
+            $state.user.username = response.data[0].username
+            $state.user.role = response.data[0].role
+            $state.user.firstname = response.data[0].firstname
+            $state.user.id = response.data[0].id
+            $state.user.lastname = response.data[0].lastname
+            if (response.data[0].permission) {
+                $state.user.permission = response.data[0].permission[0]
+            }
+            if (response.data[0].area) {
+                $state.user.area = response.data[0].area[0]
+            }
+            localStorage.setItem("username", $state.user.username)
+            localStorage.setItem("token", $state.user.token)
+            localStorage.setItem("role", $state.user.role)
+            localStorage.setItem("id", $state.user.id)
+        }
+    });
+}
 
 console.log($state.user);
 
@@ -24,7 +49,7 @@ $.each(router, function (indexInArray, valueOfElement) {
                 return
             } else if (role != 'admin' && role != 'public') {
                 console.log("not admin permission");
-                window.location = '#/config-system'
+                window.location = '#/home'
                 console.log("go to admin home");
                 loadingOverlay().cancel($state.loading);
                 return
@@ -58,7 +83,6 @@ $.each(router, function (indexInArray, valueOfElement) {
                 window.location = '#/home'
                 console.log("no permission");
                 loadingOverlay().cancel($state.loading);
-
                 return
             }
         }

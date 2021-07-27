@@ -1,41 +1,51 @@
-// mock data users
-const users = [
-    {
-        "id": "1",
-        "username": "staff",
-        "password": "dgr@staff",
-        "role": "staff",
-        "token": "tokenstaff",
-    }, {
-        "id": "2",
-        "username": "admin",
-        "password": "dgr@admin",
-        "role": "admin",
-        "token": "tokenadmin",
-    },
-]
-
 // function for login
 function login($username, $password) {
-    const result = users.filter(user => user.username == $username && user.password == $password)
-    if (result.length) {
-        const { username, role, token } = result[0]
-        $state.user.username = username
-        $state.user.token = token
-        $state.user.role = role
-        localStorage.setItem("username", $state.user.username)
-        localStorage.setItem("token", $state.user.token)
-        localStorage.setItem("role", $state.user.role)
-    }
-}
 
-// function for logout
-// function logout($username, $password) {
-//     const result = users.filter(user => user.username == $username && user.password == $password)
-//     if (result.length) {
-//         const { username, role, token } = result[0]
-//         $state.user.username = username
-//         $state.user.token = token
-//         $state.user.role = role
-//     }
-// }
+    $.ajax({
+        type: "post",
+        url: baseUrlAPI + "Auth/login",
+        data: {
+            username: $username,
+            password: $password,
+        },
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response);
+            if (response.data != "Not found") {
+                console.log("เจอ");
+                $state.user.username = response.data.username
+                $state.user.token = response.data.token
+                $state.user.role = response.data.role
+                $state.user.firstname = response.data.firstname
+                $state.user.id = response.data.id
+                $state.user.lastname = response.data.lastname
+                if (response.data.permission) {
+                    $state.user.permission = response.data.permission[0]
+                }
+                if (response.data.area) {
+                    $state.user.area = response.data.area[0]
+                }
+                localStorage.setItem("username", $state.user.username)
+                localStorage.setItem("token", $state.user.token)
+                localStorage.setItem("role", $state.user.role)
+                localStorage.setItem("id", $state.user.id)
+                console.log($state);
+                if ($state.user.role == 'admin') {
+                    app.setLocation('#/config-system');
+                } else {
+                    app.setLocation('#/library');
+                }
+            } else {
+                console.log("การุณาลองใหม่");
+                Swal.fire({
+                    heightAuto: false,
+                    icon: 'error',
+                    title: 'การุณาลองใหม่',
+                    text: 'รหัสผ่านหรือผู้ใช้งานไม่ถูกต้อง',
+                    confirmButtonText: 'ตกลง',
+                })
+            }
+        }
+    });
+
+}
