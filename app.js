@@ -14,12 +14,18 @@ $.each(router, function (indexInArray, valueOfElement) {
     const { path, file, role } = valueOfElement
     $state.path = path
     app.get('#/' + path, function () {
-    $state.loading = loadingOverlay().activate();
+        $state.loading = loadingOverlay().activate();
         if ($state.user.role == 'admin' && path != 'home') {
             console.log("admin come in");
             if (path == 'auth') {
                 window.location = '#/config-system'
                 console.log("admin come to auth");
+                loadingOverlay().cancel($state.loading);
+                return
+            } else if (role != 'admin' && role != 'public') {
+                console.log("not admin permission");
+                window.location = '#/config-system'
+                console.log("go to admin home");
                 loadingOverlay().cancel($state.loading);
                 return
             }
@@ -31,6 +37,12 @@ $.each(router, function (indexInArray, valueOfElement) {
             if (path == 'auth') {
                 window.location = '#/library'
                 console.log("staff come to auth");
+                loadingOverlay().cancel($state.loading);
+                return
+            } else if (role != 'staff' && role != 'public') {
+                console.log("not staff permission");
+                window.location = '#/library'
+                console.log("go to staff home");
                 loadingOverlay().cancel($state.loading);
                 return
             }
@@ -46,7 +58,7 @@ $.each(router, function (indexInArray, valueOfElement) {
                 window.location = '#/home'
                 console.log("no permission");
                 loadingOverlay().cancel($state.loading);
-                
+
                 return
             }
         }
