@@ -78,10 +78,7 @@ function get_areas_select() {
         dataType: "JSON",
         success: function (response) {
             response.data.forEach(element => {
-                console.log(element);
-                $('#add_staff_area_id').append(`
-                   <option ${element.id == "1" ? "checked" : ''} value="${element.id}">${element.title}</option>
-                `);
+                $('#add_staff_area_id').append(new Option(element.title, element.id));
             });
         }
     });
