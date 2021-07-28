@@ -21,7 +21,6 @@ function get_configs() {
 }
 
 function update_configs() {
-
     $.ajax({
         type: "POST",
         url: baseUrlAPI + "Config_water/update_configs",
