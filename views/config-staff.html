@@ -11,7 +11,7 @@
     <div class="col-12">
         <div class="card  mt-1 mb-5 p-2">
             <!-- start table user -->
-            <table id="table_water_application_management" class="table display" style="width:100%">
+            <table id="staff_table" class="table display" style="width:100%">
                 <thead>
                     <tr class="text-center">
                         <th>ชื่อผู้ใช้งาน</th>
@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- add staff Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered  modal-xl modal-fullscreen-sm-down">
         <div class="modal-content">
@@ -40,11 +40,13 @@
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">ชื่อผู้ใช้งาน</label>
-                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." class="form-control">
+                            <input id="add_staff_username" type="text" placeholder="กรอกชื่อผู้ใช้งาน..."
+                                class="form-control">
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">รหัสผ่าน</label>
-                            <input type="password" placeholder="กรอกรหัสผ่าน..." class="form-control">
+                            <input id="add_staff_password" type="text" placeholder="กรอกรหัสผ่าน..."
+                                class="form-control">
                         </div>
                     </div>
 
@@ -53,18 +55,18 @@
                             <label class="form-label">คำนำหน้าชื่อ </label>
                             <br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
+                                <input class="form-check-input-add-staff-titlename" type="radio"
+                                    name="inlineRadioOptions" id="inlineRadio1" value="นาย" checked>
                                 <label class="form-check-label" for="inlineRadio1" check>นาย</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
+                                <input class="form-check-input-add-staff-titlename" type="radio"
+                                    name="inlineRadioOptions" id="inlineRadio2" value="นาง">
                                 <label class="form-check-label" for="inlineRadio2">นาง</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
+                                <input class="form-check-input-add-staff-titlename" type="radio"
+                                    name="inlineRadioOptions" id="inlineRadio3" value="นางสาว">
                                 <label class="form-check-label" for="inlineRadio3">นางสาว</label>
                             </div>
                         </div>
@@ -73,20 +75,19 @@
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">ชื่อ</label>
-                            <input type="text" placeholder="กรอกชื่อ..." class="form-control">
+                            <input id="add_staff_firstname" type="text" placeholder="กรอกชื่อ..." class="form-control">
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">นามสกุล</label>
-                            <input type="text" placeholder="กรอกนามสกุล..." class="form-control">
+                            <input id="add_staff_lastname" type="text" placeholder="กรอกนามสกุล..."
+                                class="form-control">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">เขตที่รับผิดชอบ</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected value="1">ส่วนกลาง (เขต 1)</option>
-                                <option value="2">สุพรรณ (เขต 2)</option>
-                                <option value="3">สระบุรี (เขต 3)</option>
+                            <select id="add_staff_area_id" class="form-select" aria-label="Default select example">
+
                             </select>
                         </div>
 
@@ -96,13 +97,13 @@
                             <label class="form-label">สถานะ</label>
                             <br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions2"
-                                    id="inlineRadio1" value="option1" checked>
+                                <input class="form-check-input-add-staff-status" type="radio" name="inlineRadioOptions1"
+                                    id="inlineRadio1" value="active" checked>
                                 <label class="form-check-label" for="inlineRadio1">ใช้งาน</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions2"
-                                    id="inlineRadio2" value="option2">
+                                <input class="form-check-input-add-staff-status" type="radio" name="inlineRadioOptions2"
+                                    id="inlineRadio2" value="inactive">
                                 <label class="form-check-label" for="inlineRadio2">ปิดการใช้งาน</label>
                             </div>
                         </div>
@@ -113,7 +114,7 @@
             </div>
             <div class="modal-footer">
                 <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
-                    <button type="button" class="btn btn-success">บันทึก</button>
+                    <button onclick="add_staff()" type="button" class="btn btn-success">บันทึก</button>
                 </div>
                 <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
@@ -123,7 +124,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- edit staff Modal -->
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered  modal-xl modal-fullscreen-sm-down">
         <div class="modal-content">
@@ -180,10 +181,8 @@
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">เขตที่รับผิดชอบ</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected value="1">ส่วนกลาง (เขต 1)</option>
-                                <option value="2">สุพรรณ (เขต 2)</option>
-                                <option value="3">สระบุรี (เขต 3)</option>
+                            <select class="form-select selectpicker" aria-label="Default select example">
+
                             </select>
                         </div>
 
@@ -220,7 +219,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- view staff Modal -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered  modal-xl modal-fullscreen-sm-down">
         <div class="modal-content">
@@ -233,44 +232,46 @@
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">ชื่อผู้ใช้งาน</label>
-                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="Koya_000" class="form-control"
-                                disabled>
+                            <input id="staff_view_username" type="text" placeholder="กรอกชื่อผู้ใช้งาน..."
+                                value="Koya_000" class="form-control" disabled>
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">รหัสผ่าน</label>
-                            <input type="password" placeholder="กรอกรหัสผ่าน..." value="**********" class="form-control"
-                                disabled>
+                            <input id="staff_view_password" type="text" placeholder="กรอกรหัสผ่าน..." value="**********"
+                                class="form-control" disabled>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">คำนำหน้าชื่อ</label>
-                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="นาย" class="form-control"
-                                disabled>
+                            <input id="staff_view_titlename" type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="นาย"
+                                class="form-control" disabled>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">ชื่อ</label>
-                            <input type="text" placeholder="กรอกชื่อ..." value="สาวกอญ่า" class="form-control" disabled>
+                            <input id="staff_view_firstname" type="text" placeholder="กรอกชื่อ..." value="สาวกอญ่า"
+                                class="form-control" disabled>
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">นามสกุล</label>
-                            <input type="text" placeholder="กรอกนามสกุล..." value="มัจฉะ" class="form-control" disabled>
+                            <input id="staff_view_lastname" type="text" placeholder="กรอกนามสกุล..." value="มัจฉะ"
+                                class="form-control" disabled>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">เขตที่รับผิดชอบ</label>
-                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="ส่วนกลาง (เขต 1)"
-                                class="form-control" disabled>
+                            <input id="staff_view_area" type="text" placeholder="กรอกชื่อผู้ใช้งาน..."
+                                value="ส่วนกลาง (เขต 1)" class="form-control" disabled>
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">สถานะ</label>
-                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="เปิดการใช้งาน"
-                                class="form-control" disabled>
+                            <input id="staff_view_status" type="text" placeholder="กรอกชื่อผู้ใช้งาน..."
+                                value="เปิดการใช้งาน" class="form-control" disabled>
                         </div>
                     </div>
                 </div>
@@ -286,65 +287,14 @@
 
 
 <script>
-    data = [
-        {
-            "id": "1",
-            "username": "Koya_000",
-            "name": "นางสาวกอญ่า มัจฉะ",
-            "area": "ส่วนกลาง (เขต 1)",
-            "status": "ใช้งาน",
-        },
-        {
-            "id": "2",
-            "username": "Koya_002",
-            "name": "นายกอญ่า มัจฉะ",
-            "area": "สุพรรณ (เขต 2)",
-            "status": "ใช้งาน",
-        },
-        {
-            "id": "3",
-            "username": "Koya_003",
-            "name": "นางกอญ่า มัจฉะ",
-            "area": "สระบุรี (เขต 3)",
-            "status": "ปิดการใช้งาน",
-        },
-        {
-            "id": "1",
-            "username": "Koya_004",
-            "name": "นางสาวกอญ่า มัจฉะ",
-            "area": "ส่วนกลาง (เขต 1)",
-            "status": "ใช้งาน",
-        },
-        {
-            "id": "2",
-            "username": "Koya_005",
-            "name": "นายกอญ่า มัจฉะ",
-            "area": "สุพรรณ (เขต 2)",
-            "status": "ใช้งาน",
-        },
-        {
-            "id": "3",
-            "username": "Koya_006",
-            "name": "นางกอญ่า มัจฉะ",
-            "area": "สระบุรี (เขต 3)",
-            "status": "ปิดการใช้งาน",
-        },
-        {
-            "id": "3",
-            "username": "Koya_007",
-            "name": "นางกอญ่า มัจฉะ",
-            "area": "สระบุรี (เขต 3)",
-            "status": "ปิดการใช้งาน",
-        }
-    ]
-
-    console.log(data);
-
-    $('#table_water_application_management').DataTable({
+    $('#staff_table').DataTable({
         responsive: true,
         pageLength: 5,
         "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
-        data: data,
+        "ajax": {
+            "url": baseUrlAPI + "User/get_staffs",
+            "type": "POST"
+        },
         "columnDefs": [{
             "targets": 0,
             "data": "username",
@@ -355,16 +305,16 @@
         },
         {
             "targets": 1,
-            "data": "name",
+            "data": "firstname",
             "render": function (data, type, row, meta) {
-                return `<div  class="d-flex justify-content-center mt-4"> <p> ${data}</p> </div>`
+                return `<div  class="d-flex justify-content-center mt-4"> <p> ${row.titlename + data + ' ' + row.lastname}</p> </div>`
             }
         },
         {
             "targets": 2,
             "data": "area",
             "render": function (data, type, row, meta) {
-                return `<div  class="d-flex justify-content-center mt-4"> <p> ${data}</p> </div>`
+                return `<div  class="d-flex justify-content-center mt-4"> <p> ${data[0].title}</p> </div>`
             }
         },
         {
@@ -372,7 +322,7 @@
             "data": "status",
             "render": function (data, type, row, meta) {
                 return `<div class=" align-items-center mt-4 text-center">
-                                        <span class="fs-6 badge ${data == 'ปิดการใช้งาน' ? 'bg-warning' : 'bg-success'}" value="${data}">${data}</span> 
+                                        <span class="fs-6 badge ${data == 'inactive' ? 'bg-warning' : 'bg-success'}" value="${data}">${data == 'inactive' ? 'ปิดการใช้งาน' : 'เปิดการใช้งาน'}</span> 
                                     </div>`
             }
         },
@@ -382,9 +332,9 @@
             "render": function (data, type, row, meta) {
                 return `
                         <div class="d-flex justify-content-evenly align-items-center mt-3">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">ดูรายละเอียด</button>
+                                <button onclick="get_staff_by_id('${row.id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">ดูรายละเอียด</button>
                                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal2"  style="background-color: #b955f5; color: white"><i class="bi bi-pencil"></i> แก้ไข</button>
-                                <button type="button" class="btn btn-danger deleteStaff"><i class="bi bi-trash"></i> ลบ</button>
+                                <button onclick="delete_staff_by_id('${row.id}')" type="button" class="btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
                             </div>
                             `
             }
@@ -392,42 +342,7 @@
         ]
     });
     wait_load_page()
-
-    $('.deleteStaff').click(function (e) {
-        e.preventDefault();
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success',
-                cancelButton: 'btn btn-danger'
-            },
-            buttonsStyling: false
-        })
-
-        swalWithBootstrapButtons.fire({
-            title: 'คุณแน่ใจไหม ?',
-            text: "คุณกำลังจะลบ 1 รายการ",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'ใช่, ลบเลย!',
-            cancelButtonText: 'ไม่, ยกเลิก!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire(
-                    'ลบ!',
-                    '1 รายการของคุณถูกลบแล้ว',
-                    'success'
-                )
-            } else if (
-                /* Read more about handling dismissals below */
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire(
-                    'ยกเลิก',
-                    '1 รายการของคุณไม่ถูกลบ',
-                    'error'
-                )
-            }
-        })
+    $(function () {
+        get_areas_select()
     });
 </script>

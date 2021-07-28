@@ -46,7 +46,7 @@ function update_area(target, id) {
 
 }
 
-function get_areas() {
+function get_areas_table() {
     $.ajax({
         type: "post",
         url: baseUrlAPI + "Area/get_areas",
@@ -65,6 +65,22 @@ function get_areas() {
                             </div>
                         </td>
                     </tr>
+                `);
+            });
+        }
+    });
+}
+
+function get_areas_select() {
+    $.ajax({
+        type: "post",
+        url: baseUrlAPI + "Area/get_areas",
+        dataType: "JSON",
+        success: function (response) {
+            response.data.forEach(element => {
+                console.log(element);
+                $('#add_staff_area_id').append(`
+                   <option ${element.id == "1" ? "checked" : ''} value="${element.id}">${element.title}</option>
                 `);
             });
         }
