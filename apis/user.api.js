@@ -190,6 +190,7 @@ function edit_staff_by_id(id) {
             $('#staff_edit_area').val(response.data[0].area[0].title);
             $('#edit_staff_permission_id').val(response.data[0].permission[0].id);
             $('#staff_edit_titlename').val(response.data[0].titlename);
+            const area_id = response.data[0].area[0].id
 
             $.each($('.form-check-input-edit-staff'), function (indexInArray, valueOfElement) {
                 if ($(valueOfElement).val() == response.data[0].titlename) {
@@ -198,7 +199,7 @@ function edit_staff_by_id(id) {
             });
 
             $.each($('.form-check-status-edit-staff'), function (indexInArray, valueOfElement) {
-                if ($(valueOfElement).val() == response.data[0].titlename) {
+                if ($(valueOfElement).val() == response.data[0].status) {
                     $(valueOfElement).click();
                 }
             });
@@ -209,7 +210,7 @@ function edit_staff_by_id(id) {
                 success: function (response) {
                     $('#edit_staff_area_id').children().remove();
                     response.data.forEach(element => {
-                        $('#edit_staff_area_id').append(new Option(element.title, element.id, false, false));
+                        $('#edit_staff_area_id').append(`<option ${area_id == element.id ? 'selected' : ''} value="${element.id}">${element.title}</option>`);
                     });
                 }
             });
@@ -231,7 +232,7 @@ function update_staff_by_id() {
         text: "คุณกำลังจะแก้ไข 1 รายการ",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'ใช่, ลบเลย!',
+        confirmButtonText: 'ใช่, แก้ไขเลย!',
         cancelButtonText: 'ไม่, ยกเลิก!',
         reverseButtons: true
     }).then((result) => {
@@ -239,6 +240,8 @@ function update_staff_by_id() {
 
             console.log($('#edit_staff_area_id').val());
             console.log($('#edit_staff_id').val());
+            console.log($('.form-check-status-edit-staff:checked').val());
+            console.log($('.form-check-input-edit-staff:checked').val());
             if ($('#edit_staff_area_id').val()) {
                 console.log("sele");
             } else {
@@ -254,9 +257,9 @@ function update_staff_by_id() {
                     firstname: $('#staff_edit_firstname').val(),
                     lastname: $('#staff_edit_lastname').val(),
                     password: $('#staff_edit_password').val(),
-                    status: $('#staff_edit_status').val(),
+                    status: $('.form-check-status-edit-staff:checked').val(),
                     area_id: $('#edit_staff_area_id').val(),
-                    titlename: $('#staff_edit_titlename').val(),
+                    titlename: $('.form-check-input-edit-staff:checked').val(),
                     permission_id: $('#edit_staff_permission_id').val(),
                     update_by: $state.user.id
                 },

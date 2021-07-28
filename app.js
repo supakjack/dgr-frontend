@@ -45,13 +45,11 @@ $.each(router, function (indexInArray, valueOfElement) {
             if (path == 'auth') {
                 window.location = '#/config-system'
                 console.log("admin come to auth");
-
                 return
             } else if (role != 'admin' && role != 'public') {
                 console.log("not admin permission");
                 window.location = '#/home'
                 console.log("go to admin home");
-
                 return
             }
             $('#header_public').hide();
@@ -64,13 +62,11 @@ $.each(router, function (indexInArray, valueOfElement) {
             if (path == 'auth') {
                 window.location = '#/library'
                 console.log("staff come to auth");
-
                 return
             } else if (role != 'staff' && role != 'public') {
                 console.log("not staff permission");
                 window.location = '#/library'
                 console.log("go to staff home");
-
                 return
             }
             $('#header_public').hide();
@@ -86,7 +82,6 @@ $.each(router, function (indexInArray, valueOfElement) {
                 console.log($state.user.role);
                 window.location = '#/home'
                 console.log("no permission");
-
                 return
             }
 
@@ -96,14 +91,11 @@ $.each(router, function (indexInArray, valueOfElement) {
             $('#header_public').show();
             $('#header_staff').hide();
             $('#header_admin').hide();
-            loadingOverlay().cancel($state.loading);
 
         } else {
             $('#header_public').hide();
             $('#header_staff').hide();
             $('#header_admin').hide();
-
-
         }
         console.log(this.params, path, file);
         this.$element().load('views/' + file + '.html');
@@ -111,7 +103,6 @@ $.each(router, function (indexInArray, valueOfElement) {
 });
 
 app.notFound = function () {
-    $state.loading = loadingOverlay().activate();
     $('#header_public').hide();
     $('#header_staff').hide();
     $('#header_admin').hide();
