@@ -114,7 +114,8 @@
             </div>
             <div class="modal-footer">
                 <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
-                    <button onclick="add_staff()" type="button" class="btn btn-success">บันทึก</button>
+                    <button onclick="add_staff()" type="button" data-bs-dismiss="modal"
+                        class="btn btn-success">บันทึก</button>
                 </div>
                 <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
@@ -136,13 +137,16 @@
                 <div class="row">
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
+                            <input type="hidden" id="edit_staff_id">
+                            <input type="hidden" id="edit_staff_permission_id">
                             <label class="form-label">ชื่อผู้ใช้งาน</label>
-                            <input type="text" placeholder="กรอกชื่อผู้ใช้งาน..." value="Koya_000" class="form-control">
+                            <input id="staff_edit_username" type="text" placeholder="กรอกชื่อผู้ใช้งาน..."
+                                value="Koya_000" class="form-control">
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">รหัสผ่าน</label>
-                            <input type="password" placeholder="กรอกรหัสผ่าน..." value="**********"
-                                class="form-control">
+                            <input id="staff_edit_password" type="text" placeholder="กรอกรหัสผ่าน..."
+                                value="" class="form-control">
                         </div>
                     </div>
 
@@ -151,18 +155,18 @@
                             <label class="form-label">คำนำหน้าชื่อ </label>
                             <br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
+                                <input class="form-check-input-edit-staff" type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio1" value="นาย">
                                 <label class="form-check-label" for="inlineRadio1" check>นาย</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
+                                <input class="form-check-input-edit-staff" type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio2" value="นาง">
                                 <label class="form-check-label" for="inlineRadio2">นาง</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
+                                <input class="form-check-input-edit-staff" type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio3" value="นางสาว">
                                 <label class="form-check-label" for="inlineRadio3">นางสาว</label>
                             </div>
                         </div>
@@ -171,17 +175,19 @@
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">ชื่อ</label>
-                            <input type="text" placeholder="กรอกชื่อ..." value="สาวกอญ่า" class="form-control">
+                            <input id="staff_edit_firstname" type="text" placeholder="กรอกชื่อ..." value="สาวกอญ่า"
+                                class="form-control">
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">นามสกุล</label>
-                            <input type="text" placeholder="กรอกนามสกุล..." value="มัจฉะ" class="form-control">
+                            <input id="staff_edit_lastname" type="text" placeholder="กรอกนามสกุล..." value="มัจฉะ"
+                                class="form-control">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">เขตที่รับผิดชอบ</label>
-                            <select class="form-select selectpicker" aria-label="Default select example">
+                            <select id="edit_staff_area_id" class="form-select" aria-label="Default select example">
 
                             </select>
                         </div>
@@ -192,13 +198,13 @@
                             <label class="form-label">สถานะ</label>
                             <br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions2"
-                                    id="inlineRadio1" value="option1" checked>
+                                <input class="form-check-status-edit-staff" type="radio" name="inlineRadioOptions2"
+                                    id="inlineRadio1" value="active" checked>
                                 <label class="form-check-label" for="inlineRadio1">ใช้งาน</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions2"
-                                    id="inlineRadio2" value="option2">
+                                <input class="form-check-status-edit-staff" type="radio" name="inlineRadioOptions2"
+                                    id="inlineRadio2" value="inactive">
                                 <label class="form-check-label" for="inlineRadio2">ปิดการใช้งาน</label>
                             </div>
                         </div>
@@ -209,7 +215,7 @@
             </div>
             <div class="modal-footer">
                 <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
-                    <button type="button" class="btn btn-success">บันทึก</button>
+                    <button onclick="update_staff_by_id()" data-bs-dismiss="modal" type="button" class="btn btn-success">บันทึก</button>
                 </div>
                 <div class="d-grid gap-2 col-xl-6 col-md-12 mx-auto p-2">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
@@ -333,7 +339,7 @@
                 return `
                         <div class="d-flex justify-content-evenly align-items-center mt-3">
                                 <button onclick="get_staff_by_id('${row.id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">ดูรายละเอียด</button>
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal2"  style="background-color: #b955f5; color: white"><i class="bi bi-pencil"></i> แก้ไข</button>
+                                <button onclick="edit_staff_by_id('${row.id}')" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal2"  style="background-color: #b955f5; color: white"><i class="bi bi-pencil"></i> แก้ไข</button>
                                 <button onclick="delete_staff_by_id('${row.id}')" type="button" class="btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
                             </div>
                             `
