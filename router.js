@@ -10,6 +10,11 @@ const router = [
         "role": "public"
     },
     {
+        "path": "form",
+        "file": "form",
+        "role": "public"
+    },
+    {
         "path": "people",
         "file": "people",
         "role": "public"
@@ -50,6 +55,16 @@ const router = [
     {
         "path": "config-staff",
         "file": "config-staff",
+        "role": "admin"
+    },
+    {
+        "path": "config-admin",
+        "file": "config-admin",
+        "role": "admin"
+    },
+    {
+        "path": "config-form",
+        "file": "config-form",
         "role": "admin"
     }
 ]

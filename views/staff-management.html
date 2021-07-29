@@ -11,7 +11,13 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     <table id="table_water_application_management" class="table display" style="width:100%">
         <thead>
             <tr class="text-center">
+                <th>จังหวัด</th>
                 <th>ผู้ลงทะเบียน</th>
+                <th>ขวด 350 มล.</th>
+                <th>ขวด 750 มล.</th>
+                <th>ขวด 1500 มล.</th>
+                <th>แกลอน 5 ล.</th>
+                <th>แกลอน 20 ล.</th>
                 <th>วันที่ลงทะเบียน</th>
                 <th>สถานะ</th>
                 <th>เครื่องมือ</th>
@@ -62,12 +68,11 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
 
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
-                            <label class="form-label">น้ำขวดขนาด 350 มล.</label>
-                            <input type="number" value="10" class="form-control" disabled>
-                        </div>
-                        <div class="col-xl-6 col-sm-12">
-                            <label class="form-label">น้ำขวดขนาด 750 มล.</label>
-                            <input type="number" value="5" class="form-control" disabled>
+                            <label class="form-label">น้ำขวดขนาด 350_ml</label>
+                            <input type="number" value="10" class=_mlm-control" disabled>
+                            </di_ml <div class="col-xl-6 col-sm-12">
+                            _l<label class="form-label">น้ำขวดขนาด 750 มล.</label>
+                            _linput type="number" value="5" class="form-control" disabled>
                         </div>
                     </div>
 
@@ -105,46 +110,94 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         {
             "id": "1",
             "name": "กอญ่า มัจฉะ",
+            "province": "ลำปาง",
+            "350_ml": "1",
+            "750_ml": "2",
+            "1500_ml": "3",
+            "5_l": "4",
+            "20_l": "5",
             "create_date": "2021-06-18 20:46:06",
             "status": "อนุมัติ",
         },
         {
             "id": "2",
             "name": "สมชาย มาดี",
+            "province": "เชียงราย",
+            "350_ml": "1",
+            "750_ml": "2",
+            "1500_ml": "3",
+            "5_l": "4",
+            "20_l": "5",
             "create_date": "2021-05-18 20:46:06",
             "status": "รออนุมัติ",
         },
         {
             "id": "4",
             "name": "สมหญิง มาดี",
+            "province": "ลำปาง",
+            "350_ml": "1",
+            "750_ml": "2",
+            "1500_ml": "3",
+            "5_l": "4",
+            "20_l": "5",
             "create_date": "2021-05-18 20:46:06",
             "status": "รออนุมัติ",
         }, {
             "id": "6",
             "name": "สมศรี มาดี",
+            "province": "เชียงราย",
+            "350_ml": "1",
+            "750_ml": "2",
+            "1500_ml": "3",
+            "5_l": "4",
+            "20_l": "5",
             "create_date": "2021-05-18 20:46:06",
             "status": "รออนุมัติ",
         },
         {
             "id": "1",
             "name": "มานี มัจฉะ",
+            "province": "พะเยา",
+            "350_ml": "1",
+            "750_ml": "2",
+            "1500_ml": "3",
+            "5_l": "4",
+            "20_l": "5",
             "create_date": "2021-04-18 20:46:06",
             "status": "อนุมัติ",
         },
         {
             "id": "2",
             "name": "มาโนด มาดี",
+            "province": "ลำปาง",
+            "350_ml": "1",
+            "750_ml": "2",
+            "1500_ml": "3",
+            "5_l": "4",
+            "20_l": "5",
             "create_date": "2021-03-18 20:46:06",
             "status": "รออนุมัติ",
         },
         {
             "id": "4",
             "name": "มานัด มาดี",
+            "province": "ลำปาง",
+            "350_ml": "1",
+            "750_ml": "2",
+            "1500_ml": "3",
+            "5_l": "4",
+            "20_l": "5",
             "create_date": "2021-02-18 20:46:06",
             "status": "รออนุมัติ",
         }, {
             "id": "6",
             "name": "มณี มาดี",
+            "province": "ลำปาง",
+            "350_ml": "1",
+            "750_ml": "2",
+            "1500_ml": "3",
+            "5_l": "4",
+            "20_l": "5",
             "create_date": "2021-01-18 20:46:06",
             "status": "รออนุมัติ",
         },
@@ -166,14 +219,62 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
             }
         },
         {
-            "targets": 1,
+            "targets":1,
+            "data": "province",
+            "render": function (data, type, row, meta) {
+                return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + '</span></div>'
+
+            }
+        },
+        {
+            "targets": 2,
+            "data": "350_ml",
+            "render": function (data, type, row, meta) {
+                return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' ขวด</span></div>'
+
+            }
+        },
+        {
+            "targets": 3,
+            "data": "750_ml",
+            "render": function (data, type, row, meta) {
+                return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' ขวด</span></div>'
+
+            }
+        },
+        {
+            "targets": 4,
+            "data": "1500_ml",
+            "render": function (data, type, row, meta) {
+                return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' ขวด</span></div>'
+
+            }
+        },
+        {
+            "targets": 5,
+            "data": "5_l",
+            "render": function (data, type, row, meta) {
+                return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' แกลอน</span></div>'
+
+            }
+        },
+        {
+            "targets": 6,
+            "data": "20_l",
+            "render": function (data, type, row, meta) {
+                return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' แกลอน</span></div>'
+
+            }
+        },
+        {
+            "targets": 7,
             "data": "create_date",
             "render": function (data, type, row, meta) {
                 return `<div  class="d-flex justify-content-center mt-4"> <p> ${data}</p> </div>`
             }
         },
         {
-            "targets": 2,
+            "targets": 8,
             "data": "status",
             "render": function (data, type, row, meta) {
                 return `<div class=" align-items-center mt-4 text-center">
@@ -182,7 +283,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
             }
         },
         {
-            "targets": 3,
+            "targets": 9,
             "data": "id",
             "render": function (data, type, row, meta) {
                 return `

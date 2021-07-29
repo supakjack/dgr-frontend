@@ -48,12 +48,34 @@
         <h5 class="mb-3">ความรู้ทั่วไป และบริการของกรมทรัพยากรน้ำบาดาล</h5>
     </div>
 </div>
+
+<div class="row text-light d-flex align-items-center">
+    <div class="col-md-12 col-xl-6 home-menu-left2 text-end ">
+        <h1 class="mb-3">ลงทะเบียนขอรับน้ำดื่ม</h1>
+        <button onclick="app.setLocation('#/form')" type="button" class="btn btn-danger mb-3">
+            <span class="fs-5">คลิกที่นี้ เพื่อเข้าสู่ลงทะเบียนขอรับน้ำดื่ม</span>
+        </button>
+        <h5 class="mb-3">ลงทะเบียนขอรับน้ำดื่ม ของกรมทรัพยากรน้ำบาดาล</h5>
+    </div>
+    <div class="col-md-12 col-xl-6 home-menu-right2 text-strat">
+        <h1 class="mb-3">สำหรับเจ้าหน้าที่</h1>
+        <button onclick="app.setLocation('#/auth')" type="button" class="btn btn-danger mb-3"><span
+                class="fs-5">คลิกที่นี้
+                เพื่อเข้าสู่ระบบภายใน</span></button>
+        <h5 class="mb-3">คลังข้อมูลกำลัังผลิตน้ำ จัดการคำนวณกำลังผลิต</h5>
+    </div>
+</div>
+
+
+
 <style>
     img {
         max-width: 500px;
     }
 
     .home-menu-right,
+    .home-menu-right2,
+    .home-menu-left2,
     .home-menu-left {
         padding-top: 10rem;
         min-height: 500px;
@@ -68,9 +90,20 @@
         background-image: url('assets/images/themes/home-menu-right.png');
     }
 
+    .home-menu-right2 {
+        padding-left: 3rem;
+        background-image: url('assets/images/themes/home-menu-right2.png');
+    }
+
+
     .home-menu-left {
         padding-right: 3rem;
         background-image: url('assets/images/themes/home-menu-left.png');
+    }
+
+    .home-menu-left2 {
+        padding-right: 3rem;
+        background-image: url('assets/images/themes/home-menu-left2.png');
     }
 </style>
 
