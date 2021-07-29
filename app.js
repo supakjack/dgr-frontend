@@ -14,7 +14,6 @@ $.each(router, function (indexInArray, valueOfElement) {
     const { path, file, role } = valueOfElement
     $state.path = path
     app.get('#/' + path, function () {
-        $state.loading = loadingOverlay().activate();
         if ($state.user.role == 'admin' && path != 'home') {
             console.log("admin come in");
             if (path == 'auth') {
@@ -78,7 +77,6 @@ $.each(router, function (indexInArray, valueOfElement) {
 });
 
 app.notFound = function () {
-    $state.loading = loadingOverlay().activate();
     $('#header_public').hide();
     $('#header_staff').hide();
     $('#header_admin').hide();

@@ -308,13 +308,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         }
         ]
     });
-    $(() => {
-        setTimeout(() => {
-            loadingOverlay().cancel($state.loading);
-        }, 1000);
-    });
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-
+    wait_load_page()
     $('.deleteReq').click(function (e) {
         e.preventDefault();
         const swalWithBootstrapButtons = Swal.mixin({

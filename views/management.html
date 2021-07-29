@@ -165,12 +165,7 @@
     $(window).resize(function () {
         drawChart();
     });
-    $(() => {
-        setTimeout(() => {
-            loadingOverlay().cancel($state.loading);
-        }, 1000);
-    });
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+    wait_load_page()
 </script>
 
 <style>

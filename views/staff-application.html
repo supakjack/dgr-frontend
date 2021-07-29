@@ -128,10 +128,5 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     </div>
 </div>
 <script>
-    $(() => {
-        setTimeout(() => {
-            loadingOverlay().cancel($state.loading);
-        }, 1000);
-    });
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+    wait_load_page()
 </script>
