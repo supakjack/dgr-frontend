@@ -1,0 +1,231 @@
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="assets/images/themes/people-01.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>สำหรับประชาชน</h5>
+                <p>ความรู้ทั่วไป และบริการของกรมทรัพยากรน้ำบาดาล</p>
+            </div>
+        </div>
+        <div class="carousel-item ">
+            <img src="assets/images/themes/management-01.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>การบริหารจัดการ</h5>
+                <p>กำลังการผลิต สต๊อกขวด การแจกจ่าย การบำรุงรักษา</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="assets/images/themes/data-01.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>คลังข้อมูลกำลังน้ำผลิต</h5>
+                <p>คลังข้อมูลกำลังน้ำผลิตของกรมทรัพยากรน้ำบาดาล</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+<div class="row pb-5 " style="background-color: #E2E9EF;">
+    <div class="col-12 mt-5">
+        <div class="all nook">
+            <div class="card nook">
+                <div class="card-header nook text-center">
+                    <h4 class="line nook fw-bold">
+                        <span class="fs-3">&nbspลงทะเบียนขอรับน้ำดื่ม&nbsp</span>
+                    </h4>
+                </div>
+
+                <div class="card-body nook">
+
+                    <form id="water_application_form">
+                        <div class="row nook g-3">
+                            <div class="col-md-6">
+                                <label for="water_application_district" class="form-label fw-bold">พื้นที่เขต</label>
+                                <select name="water_application_district" id="water_application_district"
+                                    class="form-select" aria-label="Default select example">
+                                    <option selected value="1">ส่วนกลาง (เขต 1)</option>
+                                    <option value="2">สุพรรณ (เขต 2)</option>
+                                    <option value="3">สระบุรี (เขต 3)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="water_application_province" class="form-label fw-bold">จังหวัด</label>
+                                <select name="water_application_province" id="water_application_province"
+                                    class="form-select" aria-label="Default select example">
+                                    <option selected value="1">กรุงเทพมหานคร</option>
+                                    <option value="2">ชลบุรี</option>
+                                    <option value="3">ประจวบคีรีขันธ์</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row nook g-3">
+                            <div class="col-md-6">
+                                <label for="water_application_firstname" class="form-label fw-bold">ชื่อ</label>
+                                <input name="water_application_firstname" type="text" class="form-control"
+                                    id="water_application_firstname" placeholder="กรอกชื่อ...">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="water_application_lastname" class="form-label fw-bold">นามสกุล</label>
+                                <input name="water_application_lastname" type="text" class="form-control"
+                                    id="water_application_lastname" placeholder="กรอกนามสกุล...">
+                            </div>
+                        </div>
+
+                        <div class="row nook g-3">
+                            <div class="col-md-6">
+                                <label for="water_application_telephone"
+                                    class="form-label fw-bold">เบอร์โทรศัพท์</label>
+                                <input name="water_application_telephone" type="text" class="form-control"
+                                    id="water_application_telephone" placeholder="กรอกเบอร์โทรศัพท์...">
+                            </div>
+                        </div>
+
+                        <div class="row nook g-3">
+                            <div class="col-md-12">
+                                <label for="water_application_address" class="form-label fw-bold">ที่อยู่</label>
+                                <textarea name="water_application_address" class="form-control"
+                                    id="water_application_address" rows="3" placeholder="กรอกที่อยู่..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row nook g-3">
+                            <div class="col-md-6">
+                                <label for="water_application_20_l" class="form-label fw-bold">น้ำขวดขนาด 20
+                                    ลิตร</label>
+                                <input name="water_application_20_l" type="number" class="form-control"
+                                    id="water_application_20_l" placeholder="กรอกจำนวน">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="water_application_5_l" class="form-label fw-bold">น้ำขวดขนาด 5 ลิตร</label>
+                                <input name="water_application_5_l" type="number" class="form-control"
+                                    id="water_application_5_l" placeholder="กรอกจำนวน">
+                            </div>
+                        </div>
+
+                        <div class="row nook g-3">
+
+                            <div class="col-md-6">
+                                <label for="water_application_1500_ml" class="form-label fw-bold">น้ำขวดขนาด 1500
+                                    มิลลิลิตร</label>
+                                <input name="water_application_1500_ml" type="number" class="form-control"
+                                    id="water_application_1500_ml" placeholder="กรอกจำนวน">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="water_application_750_ml" class="form-label fw-bold">น้ำขวดขนาด 750
+                                    มิลลิลิตร</label>
+                                <input name="water_application_750_ml" type="number" class="form-control"
+                                    id="water_application_750_ml" placeholder="กรอกจำนวน">
+                            </div>
+
+                        </div>
+
+                        <div class="row nook g-3">
+                            <div class="col-md-6">
+                                <label for="water_application_350_ml" class="form-label fw-bold">น้ำขวดขนาด 350
+                                    มิลลิลิตร</label>
+                                <input name="water_application_350_ml" type="number" class="form-control"
+                                    id="water_application_350_ml" placeholder="กรอกจำนวน">
+                            </div>
+                        </div>
+
+                        <div class="row nook g-3">
+                            <div class="col-md-6">
+                                <div class="form-check nook">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label fw-bold" for="gridCheck">
+                                        ข้าพเจ้ายอมรับทุกอย่างว่าเป็นความจริง
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                    <div class="card-footer nook text-center">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-success" id="water_application_form_submit">บันทึก</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    wait_load_page()
+
+</script>
+
+<style>
+    .border-3d {
+        box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
+        border-radius: 10px;
+        margin-left: 3rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .card.nook {
+        margin-left: 8%;
+        margin-right: 8%;
+        border: none;
+    }
+
+    .card-header.nook,
+    .card-body.nook,
+    .card-footer.nook {
+        border: none;
+        background-color: #e2e9ef;
+    }
+
+    .row.nook {
+        padding: 5px;
+    }
+
+    .all.nook {
+        background-color: #e2e9ef;
+    }
+
+    .line.nook {
+        display: block;
+        height: 10px;
+        border-bottom: solid 3px gray;
+        text-align: center;
+        margin-top: 30px;
+        padding-bottom: 15px;
+    }
+
+    .line.nook span {
+        display: inline-block;
+        background-color: #e2e9ef;
+    }
+
+    .form-check.nook {
+        padding-top: 5px;
+    }
+</style>

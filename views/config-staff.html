@@ -338,19 +338,19 @@
             "data": "id",
             "render": function (data, type, row, meta) {
                 return `
-                            <div class="d-flex flex-wrap justify-content-evenly align-items-center">
+                        <div class="d-flex flex-wrap justify-content-evenly align-items-center">
                                 <button style="min-width:155px;" class="mt-3 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-tools"></i> &nbspดำเนินการ
                                 </button>
                                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
                                         <li >
-                                                <a onclick="get_staff_by_id('${row.id}')" class="dropdown-item" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal3" href="#"><i class="bi bi-eye"></i> ดูรายละเอียด</a>
+                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal3" href="#"><i class="bi bi-eye"></i> ดูรายละเอียด</a>
                                             </li>
                                         <li>
-                                                <a onclick="edit_staff_by_id('${row.id}')" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2"  href="#"><i class="bi bi-pencil"></i> แก้ไข</a>
+                                                <a  class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2"  href="#"><i class="bi bi-pencil"></i> แก้ไข</a>
                                             </li>
                                     </ul>
-                                <button onclick="delete_staff_by_id('${row.id}')" style="min-width:155px;" type="button" class="mt-3 btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
+                                <button  style="min-width:155px;" type="button" class="mt-3 btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
                             </div>
                             `
             }
@@ -358,6 +358,7 @@
         ]
     });
     wait_load_page()
+
     $(function () {
         get_areas_select()
     });
