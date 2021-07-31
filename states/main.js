@@ -3,8 +3,8 @@ const $state = {
         username: '',
         token: '',
         role: '',
-        permission: {},
-        area: {},
+        area_id: '',
+        title: '',
         firstname: '',
         id: '',
         lastname: ''

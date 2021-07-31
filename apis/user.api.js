@@ -1,8 +1,9 @@
 function get_admin() {
     $.ajax({
         type: "post",
-        url: baseUrlAPI + "User/get_admin",
+        url: baseUrlAPI + "User/get_users?role=admin",
         dataType: "JSON",
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
             console.log(response.data);
             $('#admin_id').val(response.data[0].id);
@@ -30,8 +31,9 @@ function update_admin() {
                 firstname: $('#admin_firstname').val(),
                 lastname: $('#admin_lastname').val(),
             },
-            url: baseUrlAPI + "User/update_admin",
+            url: baseUrlAPI + "User/update_user",
             dataType: "JSON",
+            beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
             success: function (response) {
                 console.log(response.data);
                 Swal.fire({
@@ -53,8 +55,9 @@ function update_admin() {
                 firstname: $('#admin_firstname').val(),
                 lastname: $('#admin_lastname').val(),
             },
-            url: baseUrlAPI + "User/update_admin",
+            url: baseUrlAPI + "User/update_user",
             dataType: "JSON",
+            beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
             success: function (response) {
                 console.log(response.data);
                 Swal.fire({
@@ -74,8 +77,9 @@ function get_staff_by_id(id) {
     console.log(id);
     $.ajax({
         type: "post",
-        url: baseUrlAPI + "User/get_staffs/" + id,
+        url: baseUrlAPI + "User/get_users/" + id + "?role=staff",
         dataType: "JSON",
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
             console.log(response.data);
             console.log(response.data[0].username);
@@ -83,8 +87,8 @@ function get_staff_by_id(id) {
             $('#staff_view_firstname').val(response.data[0].firstname);
             $('#staff_view_lastname').val(response.data[0].lastname);
             $('#staff_view_password').val(response.data[0].password);
-            $('#staff_view_status').val(response.data[0].status == 'active' ? 'เปิดการใช้งาน' : 'ปิดการใช้งาน');
-            $('#staff_view_area').val(response.data[0].area[0].title);
+            $('#staff_view_status').val(response.data[0].user_status == 'active' ? 'เปิดการใช้งาน' : 'ปิดการใช้งาน');
+            $('#staff_view_area').val(response.data[0].title);
             $('#staff_view_titlename').val(response.data[0].titlename);
 
         }
@@ -111,12 +115,13 @@ function delete_staff_by_id(id) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "post",
-                url: baseUrlAPI + "User/update_staff/",
+                url: baseUrlAPI + "User/update_user/",
                 data: {
                     id: id,
                     status: "delete"
                 },
                 dataType: "JSON",
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
                 success: function (response) {
                     swalWithBootstrapButtons.fire(
                         'ลบ!',
@@ -156,8 +161,9 @@ function add_staff() {
             status: $('input.form-check-input-add-staff-status:checked').val(),
             titlename: $('input.form-check-input-add-staff-titlename:checked').val()
         },
-        url: baseUrlAPI + "User/add_staff",
+        url: baseUrlAPI + "Auth/register",
         dataType: "JSON",
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
             console.log(response.data);
             Swal.fire({
@@ -177,20 +183,22 @@ function edit_staff_by_id(id) {
     console.log(id);
     $.ajax({
         type: "post",
-        url: baseUrlAPI + "User/get_staffs/" + id,
+        url: baseUrlAPI + "User/get_users/" + id + "?role=staff",
         dataType: "JSON",
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
             console.log(response.data);
             console.log(response.data[0].username);
             $('#staff_edit_username').val(response.data[0].username);
-            $('#edit_staff_id').val(response.data[0].id);
+            $('#edit_staff_id').val(response.data[0].user_id);
             $('#staff_edit_firstname').val(response.data[0].firstname);
             $('#staff_edit_lastname').val(response.data[0].lastname);
             $('#staff_edit_status').val(response.data[0].status == 'active' ? 'เปิดการใช้งาน' : 'ปิดการใช้งาน');
-            $('#staff_edit_area').val(response.data[0].area[0].title);
-            $('#edit_staff_permission_id').val(response.data[0].permission[0].id);
+            // $('#staff_edit_area').val(response.data[0].area[0].title);
+            $('#edit_staff_area_id').val(response.data[0].area_id);
             $('#staff_edit_titlename').val(response.data[0].titlename);
-            const area_id = response.data[0].area[0].id
+            const area_id = response.data[0].area_id
+            console.log(area_id);
 
             $.each($('.form-check-input-edit-staff'), function (indexInArray, valueOfElement) {
                 if ($(valueOfElement).val() == response.data[0].titlename) {
@@ -207,10 +215,12 @@ function edit_staff_by_id(id) {
                 type: "post",
                 url: baseUrlAPI + "Area/get_areas",
                 dataType: "JSON",
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
                 success: function (response) {
-                    $('#edit_staff_area_id').children().remove();
+                    $('#edit_staff_select_area_id').children().remove();
                     response.data.forEach(element => {
-                        $('#edit_staff_area_id').append(`<option ${area_id == element.id ? 'selected' : ''} value="${element.id}">${element.title}</option>`);
+                        console.log(area_id == element.id);
+                        $('#edit_staff_select_area_id').append(`<option ${area_id == element.id ? 'selected' : ''} value="${element.id}">${element.title}</option>`);
                     });
                 }
             });
@@ -238,11 +248,11 @@ function update_staff_by_id() {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            console.log($('#edit_staff_area_id').val());
+            console.log($('#edit_staff_select_area_id').val());
             console.log($('#edit_staff_id').val());
             console.log($('.form-check-status-edit-staff:checked').val());
             console.log($('.form-check-input-edit-staff:checked').val());
-            if ($('#edit_staff_area_id').val()) {
+            if ($('#edit_staff_select_area_id').val()) {
                 console.log("sele");
             } else {
                 console.log("nosele");
@@ -250,7 +260,7 @@ function update_staff_by_id() {
 
             $.ajax({
                 type: "post",
-                url: baseUrlAPI + "User/update_staff/",
+                url: baseUrlAPI + "User/update_user/",
                 data: {
                     username: $('#staff_edit_username').val(),
                     id: $('#edit_staff_id').val(),
@@ -258,12 +268,12 @@ function update_staff_by_id() {
                     lastname: $('#staff_edit_lastname').val(),
                     password: $('#staff_edit_password').val(),
                     status: $('.form-check-status-edit-staff:checked').val(),
-                    area_id: $('#edit_staff_area_id').val(),
+                    area_id: $('#edit_staff_select_area_id').val(),
                     titlename: $('.form-check-input-edit-staff:checked').val(),
-                    permission_id: $('#edit_staff_permission_id').val(),
                     update_by: $state.user.id
                 },
                 dataType: "JSON",
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
                 success: function (response) {
                     swalWithBootstrapButtons.fire(
                         'บันทึก!',

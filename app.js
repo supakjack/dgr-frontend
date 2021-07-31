@@ -5,29 +5,28 @@ $('#header_public').hide();
 $('#header_staff').hide();
 
 $state.user.id = localStorage.getItem("id")
+$state.user.token = localStorage.getItem("token")
 console.log(localStorage.getItem("id"));
+console.log(localStorage.getItem("token"));
 if ($state.user.id) {
     $.ajax({
         type: "post",
         url: baseUrlAPI + "User/get_users/" + $state.user.id,
         dataType: "JSON",
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
             console.log(response.data[0]);
-            $state.user.username = response.data[0].username
-            $state.user.role = response.data[0].role
-            $state.user.firstname = response.data[0].firstname
-            $state.user.id = response.data[0].id
-            $state.user.lastname = response.data[0].lastname
-            if (response.data[0].permission) {
-                $state.user.permission = response.data[0].permission[0]
+            $state.user.username = response.data ? response.data[0].username : null
+            $state.user.role = response.data ? response.data[0].role : null
+            $state.user.firstname = response.data ? response.data[0].firstname : null
+            $state.user.id = response.data ? response.data[0].id : null
+            $state.user.lastname = response.data ? response.data[0].lastname : null
+            if (response.data[0].area_id) {
+                $state.user.area_id = response.data[0].area_id
             }
-            if (response.data[0].area) {
-                $state.user.area = response.data[0].area[0]
+            if (response.data[0].title) {
+                $state.user.title = response.data[0].title
             }
-            localStorage.setItem("username", $state.user.username)
-            localStorage.setItem("token", $state.user.token)
-            localStorage.setItem("role", $state.user.role)
-            localStorage.setItem("id", $state.user.id)
         }
     });
 }

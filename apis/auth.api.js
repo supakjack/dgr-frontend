@@ -28,6 +28,10 @@ function login($username, $password) {
                 localStorage.setItem("token", $state.user.token)
                 localStorage.setItem("role", $state.user.role)
                 localStorage.setItem("id", $state.user.id)
+                console.log(localStorage.getItem("id"));
+                console.log(localStorage.getItem("token"));
+                console.log(localStorage.getItem("username"));
+                console.log(localStorage.getItem("role"));
                 console.log($state);
                 if ($state.user.role == 'admin') {
                     app.setLocation('#/config-system');

@@ -12,6 +12,7 @@ function update_area(target, id) {
                 id: id
             },
             dataType: "JSON",
+            beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
             success: function (response) {
                 console.log(response);
                 Swal.fire({
@@ -31,6 +32,7 @@ function update_area(target, id) {
                 open_request_status: 'close',
                 id: id
             },
+            beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
             dataType: "JSON",
             success: function (response) {
                 console.log(response);
@@ -51,6 +53,7 @@ function get_areas_table() {
         type: "post",
         url: baseUrlAPI + "Area/get_areas",
         dataType: "JSON",
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
             console.log(response);
             response.data.forEach(element => {
@@ -76,6 +79,7 @@ function get_areas_select() {
         type: "post",
         url: baseUrlAPI + "Area/get_areas",
         dataType: "JSON",
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
             response.data.forEach(element => {
                 $('#add_staff_area_id').append(new Option(element.title, element.id));

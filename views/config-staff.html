@@ -138,7 +138,7 @@
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <input type="hidden" id="edit_staff_id">
-                            <input type="hidden" id="edit_staff_permission_id">
+                            <input type="hidden" id="edit_staff_area_id">
                             <label class="form-label">ชื่อผู้ใช้งาน</label>
                             <input id="staff_edit_username" type="text" placeholder="กรอกชื่อผู้ใช้งาน..."
                                 value="Koya_000" class="form-control">
@@ -187,7 +187,8 @@
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">เขตที่รับผิดชอบ</label>
-                            <select id="edit_staff_area_id" class="form-select" aria-label="Default select example">
+                            <select id="edit_staff_select_area_id" class="form-select"
+                                aria-label="Default select example">
 
                             </select>
                         </div>
@@ -299,8 +300,10 @@
         pageLength: 5,
         "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
         "ajax": {
-            "url": baseUrlAPI + "User/get_staffs",
-            "type": "POST"
+            "url": baseUrlAPI + "User/get_users/?role=staff",
+            "type": "POST",
+            "beforeSend": function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
+
         },
         "columnDefs": [{
             "targets": 0,
@@ -319,14 +322,14 @@
         },
         {
             "targets": 2,
-            "data": "area",
+            "data": "title",
             "render": function (data, type, row, meta) {
-                return `<div  class="d-flex justify-content-center mt-4"> <p> ${data[0].title}</p> </div>`
+                return `<div  class="d-flex justify-content-center mt-4"> <p> ${data}</p> </div>`
             }
         },
         {
             "targets": 3,
-            "data": "status",
+            "data": "user_status",
             "render": function (data, type, row, meta) {
                 return `<div class=" align-items-center mt-4 text-center">
                                         <span class="fs-6 badge ${data == 'inactive' ? 'bg-warning' : 'bg-success'}" value="${data}">${data == 'inactive' ? 'ปิดการใช้งาน' : 'เปิดการใช้งาน'}</span> 
@@ -335,7 +338,7 @@
         },
         {
             "targets": 4,
-            "data": "id",
+            "data": "user_id",
             "render": function (data, type, row, meta) {
                 return `
                         <div class="d-flex flex-wrap justify-content-evenly align-items-center">
@@ -344,13 +347,13 @@
                                 </button>
                                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
                                         <li >
-                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal3" href="#"><i class="bi bi-eye"></i> ดูรายละเอียด</a>
+                                                <a onclick="get_staff_by_id('${data}')" class="pointer dropdown-item" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal3" ><i class="bi bi-eye"></i> ดูรายละเอียด</a>
                                             </li>
                                         <li>
-                                                <a  class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2"  href="#"><i class="bi bi-pencil"></i> แก้ไข</a>
+                                                <a onclick="edit_staff_by_id('${data}')" class="pointer dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2"  ><i class="bi bi-pencil"></i> แก้ไข</a>
                                             </li>
                                     </ul>
-                                <button  style="min-width:155px;" type="button" class="mt-3 btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
+                                <button onclick="delete_staff_by_id('${data}')"  style="min-width:155px;" type="button" class="mt-3 btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
                             </div>
                             `
             }
