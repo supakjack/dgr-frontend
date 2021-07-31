@@ -192,7 +192,9 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     }
 
     $(window).resize(function () {
-        drawChart();
+        if ($('#bar_hart2')[0]) {
+            drawChart();
+        }
     });
 
     wait_load_page()

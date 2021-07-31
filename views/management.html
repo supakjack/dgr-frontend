@@ -157,23 +157,25 @@
             ['2021-01-18 20:46:06', 800, 200],
         ])
 
-         options = {
+        options = {
             title: 'คุณภาพของน้ำทั้งหมด',
             // titlePosition: 'none',
             curveType: 'function',
             legend: { position: 'bottom' }
         }
 
-         chart = new google.visualization.LineChart(
+        chart = new google.visualization.LineChart(
             document.getElementById('curve_chart')
         )
 
         chart.draw(data, options)
     }
-
     $(window).resize(function () {
-        drawChart();
+        if ($('#bar_hart')[0]) {
+            drawChart();
+        }
     });
+
     wait_load_page()
 </script>
 
