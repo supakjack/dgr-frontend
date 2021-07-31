@@ -1,6 +1,107 @@
 <div class="row" style="background-color: #D9F4E4;">
 
     <div class="col-12">
+        <div class="accordion mt-5" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button fs-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        จัดการเเบบฟอร์ม
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ลำดับ</th>
+                                    <th scope="col">พื้นที่เขต</th>
+                                    <th scope="col">เครื่องมือ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="get_areas_table">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="accordion mt-5 mb-5" id="accordionExample2">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne2">
+                    <button class="accordion-button fs-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+                        จัดการผู้ดูเเลระบบ
+                    </button>
+                </h2>
+                <div id="collapseOne2" class="accordion-collapse collapse show" aria-labelledby="headingOne2"
+                    data-bs-parent="#accordionExample2">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="row mb-3">
+                                <div class="col-xl-6 col-sm-12">
+                                    <input id="admin_id" type="hidden" value="">
+                                    <label class="form-label">ชื่อผู้ใช้งาน</label>
+                                    <input id="admin_username" type="text" placeholder="กรอกชื่อผู้ใช้งาน..." class="form-control">
+                                </div>
+                                <div class="col-xl-6 col-sm-12">
+                                    <label class="form-label">รหัสผ่าน</label>
+                                    <input  id="admin_password" type="text" placeholder="กรอกรหัสผ่าน..." class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-xl-6 col-sm-6">
+                                    <label class="form-label">คำนำหน้าชื่อ </label>
+                                    <br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input-admin" type="radio" name="inlineRadioOptionsAdmin"
+                                            id="inlineRadio1" value="นาย">
+                                        <label class="form-check-label" for="inlineRadio1">นาย</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input-admin" type="radio" name="inlineRadioOptionsAdmin"
+                                            id="inlineRadio2" value="นาง">
+                                        <label class="form-check-label" for="inlineRadio2">นาง</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input-admin" type="radio" name="inlineRadioOptionsAdmin"
+                                            id="inlineRadio3" value="นางสาว">
+                                        <label class="form-check-label" for="inlineRadio3">นางสาว</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-xl-6 col-sm-12">
+                                    <label class="form-label">ชื่อ</label>
+                                    <input id="admin_firstname" type="text" placeholder="กรอกชื่อ..." class="form-control">
+                                </div>
+                                <div class="col-xl-6 col-sm-12">
+                                    <label  class="form-label">นามสกุล</label>
+                                    <input id="admin_lastname" type="text" placeholder="กรอกนามสกุล..." class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-xl-6"></div>
+                                <div class="d-grid gap-2 col-xl-6 col-md-12 ">
+                                    <button onclick="update_admin()" style="background-color: #b955f5;" class="btn text-light">บันทึก</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
         <div class="accordion mb-5 mt-5" id="accordionExample3">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne3">
@@ -19,13 +120,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="500" type="number"
-                                                class="form-control">
+                                            <input id="good_water_350_ml" placeholder="กรอกจำนวน..." value="500"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="200" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_350_ml" placeholder="กรอกจำนวน..." value="200"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -37,13 +138,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="900" type="number"
-                                                class="form-control">
+                                            <input id="good_water_750_ml" placeholder="กรอกจำนวน..." value="900"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="600" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_750_ml" placeholder="กรอกจำนวน..." value="600"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -55,13 +156,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="1750" type="number"
-                                                class="form-control">
+                                            <input id="good_water_1500_ml" placeholder="กรอกจำนวน..." value="1750"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="1150" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_1500_ml" placeholder="กรอกจำนวน..." value="1150"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -73,13 +174,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="17500" type="number"
-                                                class="form-control">
+                                            <input id="good_water_5_l" placeholder="กรอกจำนวน..." value="17500"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="11500" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_5_l" placeholder="กรอกจำนวน..." value="11500"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -91,13 +192,13 @@
                                     <div class="row">
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำดี</span>
-                                            <input placeholder="กรอกจำนวน..." value="47500" type="number"
-                                                class="form-control">
+                                            <input id="good_water_20_l" placeholder="กรอกจำนวน..." value="47500"
+                                                type="number" class="form-control">
                                         </div>
                                         <div class="input-group col">
                                             <span class="input-group-text">น้ำเสีย</span>
-                                            <input placeholder="กรอกจำนวน..." value="41500" type="number"
-                                                class="form-control">
+                                            <input id="bad_water_20_l" placeholder="กรอกจำนวน..." value="41500"
+                                                type="number" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +206,8 @@
                             <div class="row mb-3">
                                 <div class="col-xl-6"></div>
                                 <div class="d-grid gap-2 col-xl-6 col-md-12 ">
-                                    <button style="background-color: #b955f5;" class="btn text-light">บันทึก</button>
+                                    <button style="background-color: #b955f5;" onclick="update_configs()"
+                                        class="btn text-light">บันทึก</button>
                                 </div>
                             </div>
                         </div>
@@ -119,5 +221,8 @@
 
 
 <script>
+    get_areas_table()
+    get_configs()
     wait_load_page()
+    get_admin()
 </script>

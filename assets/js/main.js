@@ -37,3 +37,4 @@ $(document).on('click', '#goLogout', (e) => {
     localStorage.clear()
     app.setLocation('#/home');
 })
+

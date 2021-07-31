@@ -58,20 +58,6 @@
 
     $('#btn_auth').click(function () {
         login($('#user_username').val(), $('#user_password').val())
-        console.log($state);
-        if ($state.user.role == 'admin') {
-            app.setLocation('#/config-system');
-        } else if ($state.user.role == 'staff') {
-            app.setLocation('#/library');
-        } else {
-            Swal.fire({
-                heightAuto: false,
-                icon: 'error',
-                title: 'การุณาลองใหม่',
-                text: 'รหัสผ่านหรือผู้ใช้งานไม่ถูกต้อง',
-                confirmButtonText: 'ตกลง',
-            })
-        }
     })
     wait_load_page()
 </script>
