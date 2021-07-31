@@ -1,4 +1,3 @@
-// function for login
 function login($username, $password) {
     $.ajax({
         type: "post",

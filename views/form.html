@@ -58,20 +58,15 @@
                         <div class="row nook g-3">
                             <div class="col-md-6">
                                 <label for="water_application_district" class="form-label fw-bold">พื้นที่เขต</label>
-                                <select name="water_application_district" id="water_application_district"
+                                <select name="water_application_district" id="water_application_area_id"
                                     class="form-select" aria-label="Default select example">
-                                    <option selected value="1">ส่วนกลาง (เขต 1)</option>
-                                    <option value="2">สุพรรณ (เขต 2)</option>
-                                    <option value="3">สระบุรี (เขต 3)</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="water_application_province" class="form-label fw-bold">จังหวัด</label>
-                                <select name="water_application_province" id="water_application_province"
+                                <select name="water_application_province" id="water_application_province_id"
                                     class="form-select" aria-label="Default select example">
-                                    <option selected value="1">กรุงเทพมหานคร</option>
-                                    <option value="2">ชลบุรี</option>
-                                    <option value="3">ประจวบคีรีขันธ์</option>
+
                                 </select>
                             </div>
                         </div>
@@ -111,13 +106,13 @@
                                 <label for="water_application_20_l" class="form-label fw-bold">น้ำขวดขนาด 20
                                     ลิตร</label>
                                 <input name="water_application_20_l" type="number" class="form-control"
-                                    id="water_application_20_l" placeholder="กรอกจำนวน">
+                                    id="water_application_water_20_l" placeholder="กรอกจำนวน">
                             </div>
 
                             <div class="col-md-6">
                                 <label for="water_application_5_l" class="form-label fw-bold">น้ำขวดขนาด 5 ลิตร</label>
                                 <input name="water_application_5_l" type="number" class="form-control"
-                                    id="water_application_5_l" placeholder="กรอกจำนวน">
+                                    id="water_application_water_5_l" placeholder="กรอกจำนวน">
                             </div>
                         </div>
 
@@ -127,14 +122,14 @@
                                 <label for="water_application_1500_ml" class="form-label fw-bold">น้ำขวดขนาด 1500
                                     มิลลิลิตร</label>
                                 <input name="water_application_1500_ml" type="number" class="form-control"
-                                    id="water_application_1500_ml" placeholder="กรอกจำนวน">
+                                    id="water_application_water_1500_ml" placeholder="กรอกจำนวน">
                             </div>
 
                             <div class="col-md-6">
                                 <label for="water_application_750_ml" class="form-label fw-bold">น้ำขวดขนาด 750
                                     มิลลิลิตร</label>
                                 <input name="water_application_750_ml" type="number" class="form-control"
-                                    id="water_application_750_ml" placeholder="กรอกจำนวน">
+                                    id="water_application_water_750_ml" placeholder="กรอกจำนวน">
                             </div>
 
                         </div>
@@ -144,7 +139,7 @@
                                 <label for="water_application_350_ml" class="form-label fw-bold">น้ำขวดขนาด 350
                                     มิลลิลิตร</label>
                                 <input name="water_application_350_ml" type="number" class="form-control"
-                                    id="water_application_350_ml" placeholder="กรอกจำนวน">
+                                    id="water_application_water_350_ml" placeholder="กรอกจำนวน">
                             </div>
                         </div>
 
@@ -163,7 +158,7 @@
 
                     <div class="card-footer nook text-center">
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <button class="btn btn-success" id="water_application_form_submit">บันทึก</button>
+                            <button onclick="insert_request_form()" class="btn btn-success">บันทึก</button>
                         </div>
                     </div>
                 </div>
@@ -177,7 +172,10 @@
 
 <script type="text/javascript">
     wait_load_page()
-
+    $(function () {
+        get_areas_select('#water_application_area_id')
+        get_province_select('#water_application_province_id')
+    });
 </script>
 
 <style>

@@ -1,4 +1,3 @@
-// function for login
 function get_configs() {
     $.ajax({
         type: "post",

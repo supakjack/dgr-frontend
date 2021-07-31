@@ -74,15 +74,14 @@ function get_areas_table() {
     });
 }
 
-function get_areas_select() {
+function get_areas_select($name_id) {
     $.ajax({
         type: "post",
         url: baseUrlAPI + "Area/get_areas",
         dataType: "JSON",
-        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
             response.data.forEach(element => {
-                $('#add_staff_area_id').append(new Option(element.title, element.id));
+                $($name_id).append(new Option(element.title, element.id));
             });
         }
     });
