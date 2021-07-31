@@ -37,3 +37,7 @@ $(document).on('click', '#goLogout', (e) => {
     localStorage.clear()
     app.setLocation('#/home');
 })
+
+$.getJSON("https://api.countapi.xyz/hit/supakjack.github.iodgr-frontend", function(response) {
+    $("#visits").text(response.value);
+});
