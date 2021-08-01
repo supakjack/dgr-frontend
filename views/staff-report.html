@@ -1,17 +1,17 @@
 <p class="text-light" style="z-index: 1; position: absolute;left: 20px;
 top: 110px;"><a href="#/library" class="text-light text-decoration-none">คลังข้อมูลกำลัังผลิตน้ำ</a> &nbsp;/&nbsp;<a
-        class="text-light" href="#/staff-report">รายการบันทึกข้อมูลกำลังผลิตน้ำส่วนกลางล่าสุด</a></p>
+        class="text-light" href="#/staff-report">รายการบันทึกข้อมูลกำลังผลิตน้ำ<span class="title_area"></span></a></p>
 <img src="assets/images/themes/staff-report-01.jpg" class="img-fluid" alt="...">
 <div class="text-center mt-5 mb-5 ">
-    <span class="fs-1">รายการบันทึกข้อมูลกำลังผลิตน้ำส่วนกลางล่าสุด</span>
+    <span class="fs-1">รายการบันทึกข้อมูลกำลังผลิตน้ำ <span class="title_area"></span> </span>
     <!-- <div class="d-flex flex-row justify-content-center  col-md-12"> -->
     <br>
     <br>
     <br>
     <div class="d-flex justify-content-center">
-        <input type="date" class="form-control" style="max-width: 15rem;">
+        <input type="date" class="form-control selector_date" style="max-width: 15rem;">
         &nbsp;&nbsp;
-        <button type="button" class=" btn btn-success">ค้นหา</button>
+        <button onclick="get_by_date()" type="button" class=" btn btn-success">ค้นหา</button>
     </div>
 
     <!-- </div> -->
@@ -19,8 +19,9 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
 
 <div class="row pb-5 ">
     <div class="col-12 text-center d-flex align-items-center justify-content-center">
-        <span class=" fs-3">กำลังการผลิตน้ำทั้งหมดประจำวันที่ 9 มิถุนายน พ.ศ. 2564</span>&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-primary"><i class="bi bi-cloud-download"></i>&nbsp;ดาวน์โหลด Excel</button>
+        <span class=" fs-3">กำลังการผลิตน้ำทั้งหมดประจำวันที่ <span class="showDate"></span></span>&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary dnt"><i class="bi bi-cloud-download"></i>&nbsp;ดาวน์โหลด
+            Excel</button>
         &nbsp;&nbsp;&nbsp;
         <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn text-light"
             style="background-color: #6f42c1;"><i class="bi bi-pencil"></i>&nbsp;แก้ไข</button>
@@ -170,16 +171,21 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
 
 
 <script type="text/javascript">
+    water_5_l = 0
+    water_20_l = 0
+    water_350_ml = 0
+    water_750_ml = 0
+    water_1500_ml = 0
     google.charts.load('current', { packages: ['corechart'] })
     google.charts.setOnLoadCallback(drawChart)
     function drawChart() {
         data = google.visualization.arrayToDataTable([
             ['ขนาดบรรจุภัณฑ์', 'กำลังการผลิต(หน่วย)', { role: 'style' }],
-            ['ขวด 350 มล.', 1000, '#3366cc'],            // RGB value
-            ['ขวด 750 มล.', 500, '#dc3912'],            // English color name
-            ['ขวด 1500 มล.', 250, '#ff9900'],
-            ['แกลอน 5 ล.', 125, '#109618'], // CSS-style declaration
-            ['แกลอน 20 ล.', 75, '#990099'], // CSS-style declaration
+            ['ขวด 350 มล.', water_350_ml, '#3366cc'],            // RGB value
+            ['ขวด 750 มล.', water_750_ml, '#dc3912'],            // English color name
+            ['ขวด 1500 มล.', water_1500_ml, '#ff9900'],
+            ['แกลอน 5 ล.', water_5_l, '#109618'], // CSS-style declaration
+            ['แกลอน 20 ล.', water_20_l, '#990099'], // CSS-style declaration
         ]);
 
         options = {
@@ -190,14 +196,29 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         chart = new google.visualization.BarChart(document.getElementById('bar_hart2'));
         chart.draw(data, options)
     }
+    $('.title_area').text($state.user.title)
+    date = new Date().toISOString().substr(0, 10)
+    $('.selector_date').val(date);
+    date2 = new Date(...date.split("-"))
+    result2date = date2.toLocaleDateString('th-TH', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    })
+    $('.showDate').text(result2date)
 
     $(window).resize(function () {
         if ($('#bar_hart2')[0]) {
             drawChart();
         }
     });
-
+    get_by_date()
     wait_load_page()
+    $('.dnt').click(function (e) {
+        e.preventDefault();
+
+        window.open(baseUrlAPI + 'Input_application/report_execel/' + $state.user.id + '/' + $('.selector_date').val(), '_blank').focus();
+    });
 </script>
 
 <style>

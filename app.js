@@ -7,6 +7,9 @@ $('#header_staff').hide();
 $state.user.id = localStorage.getItem("id")
 $state.user.token = localStorage.getItem("token")
 console.log(localStorage.getItem("id"));
+console.log(localStorage.getItem("id"));
+console.log(localStorage.getItem("id"));
+console.log(localStorage.getItem("id"));
 console.log(localStorage.getItem("token"));
 if ($state.user.id) {
     $.ajax({
