@@ -1,9 +1,9 @@
 <p class="text-light" style="z-index: 1; position: absolute;left: 20px;
 top: 110px;"><a href="#/library" class="text-light text-decoration-none">คลังข้อมูลกำลัังผลิตน้ำ</a> &nbsp;/&nbsp;<a
-        class="text-light" href="#/staff-management">รายการลงทะเบียนขอรับน้ำดื่มส่วนกลาง</a></p>
+        class="text-light" href="#/staff-management">รายการลงทะเบียนขอรับน้ำดื่ม<span class="title_area"></span></a></p>
 <img src="assets/images/themes/staff-report-01.jpg" class="img-fluid" alt="...">
 <div class="text-center mt-5 mb-5 ">
-    <span class="fs-1">รายการลงทะเบียนขอรับน้ำดื่มส่วนกลาง</span>
+    <span class="fs-1">รายการลงทะเบียนขอรับน้ำดื่ม<span class="title_area"></span></span>
 </div>
 
 <div class="row pb-5 ">
@@ -37,31 +37,43 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
             </div>
             <div class="modal-body">
                 <div class="row">
+
+                    <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">เขตพื่นที่</label>
+                            <input id="name_area" type="text" value="กอญ่า มัจฉะ" class="form-control" disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">จังหวัด</label>
+                            <input id="province" type="text" value="097-6780699" class="form-control" disabled>
+                        </div>
+                    </div>
+
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">ชื่อ</label>
-                            <input type="text" value="กอญ่า มัจฉะ" class="form-control" disabled>
+                            <input id="name" type="text" value="กอญ่า มัจฉะ" class="form-control" disabled>
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">เบอร์โทรศัพท์</label>
-                            <input type="text" value="097-6780699" class="form-control" disabled>
+                            <input id="telephone" type="text" value="097-6780699" class="form-control" disabled>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">ลงวันที่:</label>
-                            <input type="text" value="09/06/2564" class="form-control" disabled>
+                            <input id="create_date" type="text" value="09/06/2564" class="form-control" disabled>
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">สถานะ</label>
-                            <input type="text" value="อนุมัติ" class="form-control" disabled>
+                            <input id="status" type="text" value="อนุมัติ" class="form-control" disabled>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-sm-12">
                             <label for="exampleFormControlTextarea1" class="form-label">ทีอยู่</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            <textarea class="form-control" id="address" rows="3"
                                 disabled>169 ถนน ลงหาดบางแสน ตำบลแสนสุข อำเภอเมืองชลบุรี ชลบุรี 20131</textarea>
                         </div>
                     </div>
@@ -69,29 +81,29 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">น้ำขวดขนาด 350 มล.</label>
-                            <input type="number" value="10" class="form-control" disabled>
+                            <input id="water_350_ml" type="number" value="10" class="form-control" disabled>
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">น้ำขวดขนาด 750 มล.</label>
-                            <input type="number" value="0" class="form-control" disabled>
+                            <input id="water_750_ml" type="number" value="0" class="form-control" disabled>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">น้ำขวดขนาด 1500 มล.</label>
-                            <input type="number" value="10" class="form-control" disabled>
+                            <input id="water_1500_ml" type="number" value="10" class="form-control" disabled>
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">น้ำแกลอน 5 ล.</label>
-                            <input type="number" value="0" class="form-control" disabled>
+                            <input id="water_5_l" type="number" value="0" class="form-control" disabled>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">น้ำแกลอน 20 ล.</label>
-                            <input type="number" value="0" class="form-control" disabled>
+                            <input id="water_20_l" type="number" value="0" class="form-control" disabled>
                         </div>
                     </div>
                 </div>
@@ -106,111 +118,15 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
 </div>
 
 <script>
-
-    data = [
-        {
-            "id": "1",
-            "name": "กอญ่า มัจฉะ",
-            "province": "ลำปาง",
-            "350_ml": "1",
-            "750_ml": "2",
-            "1500_ml": "3",
-            "5_l": "4",
-            "20_l": "5",
-            "create_date": "2021-06-18 20:46:06",
-            "status": "อนุมัติ",
-        },
-        {
-            "id": "2",
-            "name": "สมชาย มาดี",
-            "province": "เชียงราย",
-            "350_ml": "1",
-            "750_ml": "2",
-            "1500_ml": "3",
-            "5_l": "4",
-            "20_l": "5",
-            "create_date": "2021-05-18 20:46:06",
-            "status": "รออนุมัติ",
-        },
-        {
-            "id": "4",
-            "name": "สมหญิง มาดี",
-            "province": "ลำปาง",
-            "350_ml": "1",
-            "750_ml": "2",
-            "1500_ml": "3",
-            "5_l": "4",
-            "20_l": "5",
-            "create_date": "2021-05-18 20:46:06",
-            "status": "รออนุมัติ",
-        }, {
-            "id": "6",
-            "name": "สมศรี มาดี",
-            "province": "เชียงราย",
-            "350_ml": "1",
-            "750_ml": "2",
-            "1500_ml": "3",
-            "5_l": "4",
-            "20_l": "5",
-            "create_date": "2021-05-18 20:46:06",
-            "status": "รออนุมัติ",
-        },
-        {
-            "id": "1",
-            "name": "มานี มัจฉะ",
-            "province": "พะเยา",
-            "350_ml": "1",
-            "750_ml": "2",
-            "1500_ml": "3",
-            "5_l": "4",
-            "20_l": "5",
-            "create_date": "2021-04-18 20:46:06",
-            "status": "อนุมัติ",
-        },
-        {
-            "id": "2",
-            "name": "มาโนด มาดี",
-            "province": "ลำปาง",
-            "350_ml": "1",
-            "750_ml": "2",
-            "1500_ml": "3",
-            "5_l": "4",
-            "20_l": "5",
-            "create_date": "2021-03-18 20:46:06",
-            "status": "รออนุมัติ",
-        },
-        {
-            "id": "4",
-            "name": "มานัด มาดี",
-            "province": "ลำปาง",
-            "350_ml": "1",
-            "750_ml": "2",
-            "1500_ml": "3",
-            "5_l": "4",
-            "20_l": "5",
-            "create_date": "2021-02-18 20:46:06",
-            "status": "รออนุมัติ",
-        }, {
-            "id": "6",
-            "name": "มณี มาดี",
-            "province": "ลำปาง",
-            "350_ml": "1",
-            "750_ml": "2",
-            "1500_ml": "3",
-            "5_l": "4",
-            "20_l": "5",
-            "create_date": "2021-01-18 20:46:06",
-            "status": "รออนุมัติ",
-        },
-    ]
-
-    console.log(data);
-
     $('#table_water_application_management').DataTable({
         responsive: true,
         pageLength: 5,
         "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
-        data: data,
+        "ajax": {
+            "url": baseUrlAPI + "Request_application/get_forms/?area_id=" + $state.user.area_id,
+            "type": "POST",
+            "beforeSend": function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
+        },
         "columnDefs": [{
             "targets": 0,
             "data": "name",
@@ -220,7 +136,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
             }
         },
         {
-            "targets":1,
+            "targets": 1,
             "data": "province",
             "render": function (data, type, row, meta) {
                 return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + '</span></div>'
@@ -229,7 +145,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         },
         {
             "targets": 2,
-            "data": "350_ml",
+            "data": "water_350_ml",
             "render": function (data, type, row, meta) {
                 return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' ขวด</span></div>'
 
@@ -237,7 +153,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         },
         {
             "targets": 3,
-            "data": "750_ml",
+            "data": "water_750_ml",
             "render": function (data, type, row, meta) {
                 return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' ขวด</span></div>'
 
@@ -245,7 +161,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         },
         {
             "targets": 4,
-            "data": "1500_ml",
+            "data": "water_1500_ml",
             "render": function (data, type, row, meta) {
                 return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' ขวด</span></div>'
 
@@ -253,7 +169,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         },
         {
             "targets": 5,
-            "data": "5_l",
+            "data": "water_5_l",
             "render": function (data, type, row, meta) {
                 return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' แกลอน</span></div>'
 
@@ -261,7 +177,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         },
         {
             "targets": 6,
-            "data": "20_l",
+            "data": "water_20_l",
             "render": function (data, type, row, meta) {
                 return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + ' แกลอน</span></div>'
 
@@ -279,7 +195,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
             "data": "status",
             "render": function (data, type, row, meta) {
                 return `<div class=" align-items-center mt-4 text-center">
-                                        <span class="fs-6 badge ${data == 'รออนุมัติ' ? 'bg-warning' : 'bg-success'}" value="${data}">${data}</span> 
+                                        <span class="fs-6 badge ${data == 'unapprove' ? 'bg-warning' : 'bg-success'}" >${data == 'approve' ? 'อนุมัติ' : 'รออนุมัติ'}</span> 
                                     </div>`
             }
         },
@@ -296,10 +212,10 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
                                 <li >
-                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="bi bi-eye"></i> ดูรายละเอียด</a>
+                                        <a onclick="get_request_form_by_id('${row.id}')" class="dropdown-item pointer" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye"></i> ดูรายละเอียด</a>
                                     </li>
                                 <li>
-                                        ${row.status == 'รออนุมัติ' ? '<a class="dropdown-item approveReq" href="#"><i class="bi bi-check"></i> อนุมัติคำร้อง </a> ' : ''}
+                                        ${row.status == 'unapprove' ? '<a onclick="approve_request_form_by_id(' + row.id + ')" class="dropdown-item  pointer"><i class="bi bi-check"></i> อนุมัติคำร้อง </a> ' : ''}
                                     </li>
                             </ul>
                         <button style="min-width:155px;" type="button" class="mt-3 btn btn-danger deleteReq"><i class="bi bi-trash"></i> ลบ</button>
@@ -311,7 +227,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
         ]
     });
     wait_load_page()
-
+    $('.title_area').text($state.user.title)
 
     $('.deleteReq').click(function (e) {
         e.preventDefault();
@@ -345,44 +261,6 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
                 swalWithBootstrapButtons.fire(
                     'ยกเลิก',
                     '1 รายการของคุณไม่ถูกลบ',
-                    'error'
-                )
-            }
-        })
-    });
-
-    $('.approveReq').click(function (e) {
-        e.preventDefault();
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success',
-                cancelButton: 'btn btn-danger'
-            },
-            buttonsStyling: false
-        })
-
-        swalWithBootstrapButtons.fire({
-            title: 'คุณแน่ใจไหม ?',
-            text: "คุณกำลังจะอนุมัติ 1 รายการ",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'ใช่, อนุมัติเลย!',
-            cancelButtonText: 'ไม่, ยกเลิก!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire(
-                    'อนุมัติ!',
-                    '1 รายการของคุณถูกอนุมัติแล้ว',
-                    'success'
-                )
-            } else if (
-                /* Read more about handling dismissals below */
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire(
-                    'ยกเลิก',
-                    '1 รายการของคุณไม่ถูกอนุมัติ',
                     'error'
                 )
             }

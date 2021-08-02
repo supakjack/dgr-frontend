@@ -6,11 +6,6 @@ $('#header_staff').hide();
 
 $state.user.id = localStorage.getItem("id")
 $state.user.token = localStorage.getItem("token")
-console.log(localStorage.getItem("id"));
-console.log(localStorage.getItem("id"));
-console.log(localStorage.getItem("id"));
-console.log(localStorage.getItem("id"));
-console.log(localStorage.getItem("token"));
 if ($state.user.id) {
     $.ajax({
         type: "post",
@@ -18,6 +13,7 @@ if ($state.user.id) {
         dataType: "JSON",
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
+            console.log("response.data[0]");
             console.log(response.data[0]);
             $state.user.username = response.data ? response.data[0].username : null
             $state.user.role = response.data ? response.data[0].role : null

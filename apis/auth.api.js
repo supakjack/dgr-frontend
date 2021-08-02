@@ -17,12 +17,6 @@ function login($username, $password) {
                 $state.user.firstname = response.data.firstname
                 $state.user.id = response.data.id
                 $state.user.lastname = response.data.lastname
-                if (response.data.permission) {
-                    $state.user.permission = response.data.permission[0]
-                }
-                if (response.data.area) {
-                    $state.user.area = response.data.area[0]
-                }
                 localStorage.setItem("username", $state.user.username)
                 localStorage.setItem("token", $state.user.token)
                 localStorage.setItem("role", $state.user.role)

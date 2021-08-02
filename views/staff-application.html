@@ -1,14 +1,13 @@
 <p class="text-light" style="z-index: 1; position: absolute;left: 20px;
 top: 110px;"><a href="#/library" class="text-light text-decoration-none">คลังข้อมูลกำลัังผลิตน้ำ</a> &nbsp;/&nbsp;<a
-        class="text-light" href="#/staff-application">แบบฟอร์มบันทึกข้อมูลกำลังผลิตน้ำ</a></p>
+        class="text-light" href="#/staff-application">แบบฟอร์มบันทึกข้อมูลกำลังผลิตน้ำ<span class="title_area"></span></a></p>
 <img src="assets/images/themes/staff-report-01.jpg" class="img-fluid" alt="...">
 <div class="text-center mt-5 mb-5 ">
-    <span class="fs-1">แบบฟอร์มบันทึกข้อมูลกำลังผลิตน้ำ</span>
+    <span class="fs-1">แบบฟอร์มบันทึกข้อมูลกำลังผลิตน้ำ<span class="title_area"></span></span>
     <!-- <div class="d-flex flex-row justify-content-center  col-md-12"> -->
     <br>
     <br>
     <br>
-
     <!-- </div> -->
 </div>
 
@@ -16,29 +15,29 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
 
     <div class="mb-3">
         <label class="form-label">ลงวันที่</label>
-        <input type="date" class="form-control">
+        <input type="date" class="form-control selector_date">
     </div>
 
     <div class="mb-3">
         <label class="form-label">หมายเหตุ</label>
-        <textarea class="form-control" rows="3"></textarea>
+        <textarea id="water_input_description" class="form-control" rows="3"></textarea>
     </div>
 
     <div class="row mb-3">
         <div class="col">
             <label class="form-label">น้ำขวดขนาด 350 มล.</label>
-            <input type="text" placeholder="กรอกจำนวน..." class="form-control">
+            <input id="water_input_350_ml" type="text" placeholder="กรอกจำนวน..." class="form-control input_form">
         </div>
         <div class="col">
             <label class="form-label">คุณภาพของน้ำขวดขนาด 350 มล.</label>
             <div class="row">
                 <div class="input-group col">
                     <span class="input-group-text">น้ำดี</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="good_water_350_ml" value="0" readonly type="text" class="form-control">
                 </div>
                 <div class="input-group col">
                     <span class="input-group-text">น้ำเสีย</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="bad_water_350_ml" value="0" readonly type="text" class="form-control">
                 </div>
             </div>
         </div>
@@ -47,18 +46,18 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     <div class="row mb-3">
         <div class="col">
             <label class="form-label">น้ำขวดขนาด 750 มล.</label>
-            <input type="text" placeholder="กรอกจำนวน..." class="form-control">
+            <input id="water_input_750_ml" type="text" placeholder="กรอกจำนวน..." class="form-control input_form">
         </div>
         <div class="col">
             <label class="form-label">คุณภาพของน้ำขวดขนาด 750 มล.</label>
             <div class="row">
                 <div class="input-group col">
                     <span class="input-group-text">น้ำดี</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="good_water_750_ml" value="0" readonly type="text" class="form-control">
                 </div>
                 <div class="input-group col">
                     <span class="input-group-text">น้ำเสีย</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="bad_water_750_ml" value="0" readonly type="text" class="form-control">
                 </div>
             </div>
         </div>
@@ -67,18 +66,18 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     <div class="row mb-3">
         <div class="col">
             <label class="form-label">น้ำขวดขนาด 1500 มล.</label>
-            <input type="text" placeholder="กรอกจำนวน..." class="form-control">
+            <input id="water_input_1500_ml" type="text" placeholder="กรอกจำนวน..." class="form-control input_form">
         </div>
         <div class="col">
             <label class="form-label">คุณภาพของน้ำขวดขนาด 1500 มล.</label>
             <div class="row">
                 <div class="input-group col">
                     <span class="input-group-text">น้ำดี</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="good_water_1500_ml" value="0" readonly type="text" class="form-control">
                 </div>
                 <div class="input-group col">
                     <span class="input-group-text">น้ำเสีย</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="bad_water_1500_ml" value="0" readonly type="text" class="form-control">
                 </div>
             </div>
         </div>
@@ -87,18 +86,18 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     <div class="row mb-3">
         <div class="col">
             <label class="form-label">น้ำแกลอนขนาด 5 ล.</label>
-            <input type="text" placeholder="กรอกจำนวน..." class="form-control">
+            <input id="water_input_5_l" type="text" placeholder="กรอกจำนวน..." class="form-control input_form">
         </div>
         <div class="col">
             <label class="form-label">คุณภาพของน้ำแกลอนขนาด 5 ล.</label>
             <div class="row">
                 <div class="input-group col">
                     <span class="input-group-text">น้ำดี</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="good_water_5_l" value="0" readonly type="text" class="form-control">
                 </div>
                 <div class="input-group col">
                     <span class="input-group-text">น้ำเสีย</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="bad_water_5_l" value="0" readonly type="text" class="form-control">
                 </div>
             </div>
         </div>
@@ -107,26 +106,63 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     <div class="row mb-3">
         <div class="col">
             <label class="form-label">น้ำแกลอนขนาด 20 ล.</label>
-            <input type="text" placeholder="กรอกจำนวน..." class="form-control">
+            <input id="water_input_20_l" type="text" placeholder="กรอกจำนวน..." class="form-control input_form">
         </div>
         <div class="col">
             <label class="form-label">คุณภาพของน้ำแกลอนขนาด 20 ล.</label>
             <div class="row">
                 <div class="input-group col">
                     <span class="input-group-text">น้ำดี</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="good_water_20_l" value="0" readonly type="text" class="form-control">
                 </div>
                 <div class="input-group col">
                     <span class="input-group-text">น้ำเสีย</span>
-                    <input value="0" readonly type="text" class="form-control">
+                    <input id="bad_water_20_l" value="0" readonly type="text" class="form-control">
                 </div>
             </div>
         </div>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-success">บันทึก</button>
+        <button onclick="submit_add_input_form()" class="btn btn-success">บันทึก</button>
     </div>
 </div>
 <script>
+    $('.title_area').text($state.user.title)
+    config_water_id = 0
+    water_5_l = 0
+    water_20_l = 0
+    water_350_ml = 0
+    water_750_ml = 0
+    water_1500_ml = 0
+    bad_water_5_l = 0
+    bad_water_20_l = 0
+    bad_water_350_ml = 0
+    bad_water_750_ml = 0
+    bad_water_1500_ml = 0
+    good_water_5_l = 0
+    good_water_20_l = 0
+    good_water_350_ml = 0
+    good_water_750_ml = 0
+    good_water_1500_ml = 0
+    date = new Date().toISOString().substr(0, 10)
+    $('.selector_date').val(date);
+    get_configs_for_add()
     wait_load_page()
+    $(document).on('input', '.input_form', function () {
+        water_350_ml = $('#water_input_350_ml').val()
+        water_750_ml = $('#water_input_750_ml').val()
+        water_1500_ml = $('#water_input_1500_ml').val()
+        water_5_l = $('#water_input_5_l').val()
+        water_20_l = $('#water_input_20_l').val()
+        $('#good_water_350_ml').val(Number(good_water_350_ml) * Number(water_350_ml))
+        $('#bad_water_350_ml').val(Number(bad_water_350_ml) * Number(water_350_ml))
+        $('#good_water_5_l').val(Number(good_water_5_l) * Number(water_5_l))
+        $('#bad_water_5_l').val(Number(bad_water_5_l) * Number(water_5_l))
+        $('#good_water_20_l').val(Number(good_water_20_l) * Number(water_20_l))
+        $('#bad_water_20_l').val(Number(bad_water_20_l) * Number(water_20_l))
+        $('#good_water_1500_ml').val(Number(good_water_1500_ml) * Number(water_1500_ml))
+        $('#bad_water_1500_ml').val(Number(bad_water_1500_ml) * Number(water_1500_ml))
+        $('#good_water_750_ml').val(Number(good_water_750_ml) * Number(water_750_ml))
+        $('#bad_water_750_ml').val(Number(bad_water_750_ml) * Number(water_750_ml))
+    });
 </script>
