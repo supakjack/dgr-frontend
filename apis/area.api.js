@@ -74,15 +74,37 @@ function get_areas_table() {
     });
 }
 
-function get_areas_select($name_id) {
+function get_areas_select($name_id, $disbled = false) {
     $.ajax({
         type: "post",
         url: baseUrlAPI + "Area/get_areas",
         dataType: "JSON",
         success: function (response) {
             response.data.forEach(element => {
-                $($name_id).append(new Option(element.title, element.id));
+                if ($disbled) {
+                    if (element.open_request_status == 'open') {
+                        $($name_id).append(new Option(element.title, element.id));
+                    }
+                } else {
+                    $($name_id).append(new Option(element.title, element.id));
+                }
             });
-        }
+            const checkOpen = response.data.filter(data => data.open_request_status == 'open')
+            console.log(checkOpen);
+            if (checkOpen.length == 0) {
+                Swal.fire({
+                    title: 'ปิดให้บริการ',
+                    text: "ไม่มีพื้นที่เขตเปิดให้บริการร้องขอน้ำดื่ม",
+                    icon: 'warning',
+                    showCancelButton: false,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'กลับสู่หน้าหลัก'
+                }).then((result) => {
+                    app.setLocation('#/home')
+                })
+            }
+        },
+
     });
 }

@@ -5,6 +5,11 @@ const router = [
         "role": "public"
     },
     {
+        "path": "tracking",
+        "file": "tracking",
+        "role": "public"
+    },
+    {
         "path": "home",
         "file": "home",
         "role": "public"

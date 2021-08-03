@@ -291,29 +291,29 @@ function get_summary_by_date() {
         success: function (response) {
             console.log(response);
             console.log(response.data);
-            $('#dashboard_sum_water_350_ml').text(response.data.dashboard.sum_water_350_ml)
-            $('#dashboard_sum_water_750_ml').text(response.data.dashboard.sum_water_750_ml)
-            $('#dashboard_sum_water_1500_ml').text(response.data.dashboard.sum_water_1500_ml)
-            $('#dashboard_sum_water_5_l').text(response.data.dashboard.sum_water_5_l)
-            $('#dashboard_sum_water_20_l').text(response.data.dashboard.sum_water_20_l)
+            $('#dashboard_sum_water_350_ml').text(response.data.dashboard.sum_water_350_ml ? response.data.dashboard.sum_water_350_ml : 0)
+            $('#dashboard_sum_water_750_ml').text(response.data.dashboard.sum_water_750_ml ? response.data.dashboard.sum_water_750_ml : 0)
+            $('#dashboard_sum_water_1500_ml').text(response.data.dashboard.sum_water_1500_ml ? response.data.dashboard.sum_water_1500_ml : 0)
+            $('#dashboard_sum_water_5_l').text(response.data.dashboard.sum_water_5_l ? response.data.dashboard.sum_water_5_l : 0)
+            $('#dashboard_sum_water_20_l').text(response.data.dashboard.sum_water_20_l ? response.data.dashboard.sum_water_20_l : 0)
             $('#dashboard_sum_all_water').text(
-                Number(response.data.dashboard.sum_water_350_ml) +
-                Number(response.data.dashboard.sum_water_750_ml) +
-                Number(response.data.dashboard.sum_water_1500_ml) +
-                Number(response.data.dashboard.sum_water_5_l) +
-                Number(response.data.dashboard.sum_water_20_l)
+                Number(response.data.dashboard.sum_water_350_ml ? response.data.dashboard.sum_water_350_ml : 0) +
+                Number(response.data.dashboard.sum_water_750_ml ? response.data.dashboard.sum_water_750_ml : 0) +
+                Number(response.data.dashboard.sum_water_1500_ml ? response.data.dashboard.sum_water_1500_ml : 0) +
+                Number(response.data.dashboard.sum_water_5_l ? response.data.dashboard.sum_water_5_l : 0) +
+                Number(response.data.dashboard.sum_water_20_l ? response.data.dashboard.sum_water_20_l : 0)
             )
-            dashboard_sum_water_350_ml = Number(response.data.dashboard.sum_water_350_ml)
-            dashboard_sum_water_750_ml = Number(response.data.dashboard.sum_water_750_ml)
-            dashboard_sum_water_1500_ml = Number(response.data.dashboard.sum_water_1500_ml)
-            dashboard_sum_water_5_l = Number(response.data.dashboard.sum_water_5_l)
-            dashboard_sum_water_20_l = Number(response.data.dashboard.sum_water_20_l)
+            dashboard_sum_water_350_ml = Number(response.data.dashboard.sum_water_350_ml ? response.data.dashboard.sum_water_350_ml : 0)
+            dashboard_sum_water_750_ml = Number(response.data.dashboard.sum_water_750_ml ? response.data.dashboard.sum_water_750_ml : 0)
+            dashboard_sum_water_1500_ml = Number(response.data.dashboard.sum_water_1500_ml ? response.data.dashboard.sum_water_1500_ml : 0)
+            dashboard_sum_water_5_l = Number(response.data.dashboard.sum_water_5_l ? response.data.dashboard.sum_water_5_l : 0)
+            dashboard_sum_water_20_l = Number(response.data.dashboard.sum_water_20_l ? response.data.dashboard.sum_water_20_l : 0)
             dashboard_sum_all_water =
-                Number(response.data.dashboard.sum_water_350_ml) +
-                Number(response.data.dashboard.sum_water_750_ml) +
-                Number(response.data.dashboard.sum_water_1500_ml) +
-                Number(response.data.dashboard.sum_water_5_l) +
-                Number(response.data.dashboard.sum_water_20_l)
+                Number(response.data.dashboard.sum_water_350_ml ? response.data.dashboard.sum_water_350_ml : 0) +
+                Number(response.data.dashboard.sum_water_750_ml ? response.data.dashboard.sum_water_750_ml : 0) +
+                Number(response.data.dashboard.sum_water_1500_ml ? response.data.dashboard.sum_water_1500_ml : 0) +
+                Number(response.data.dashboard.sum_water_5_l ? response.data.dashboard.sum_water_5_l : 0) +
+                Number(response.data.dashboard.sum_water_20_l ? response.data.dashboard.sum_water_20_l : 0)
 
             response.data.quality.map((row, index) => {
                 const good_water_5_l = Number(row.water_5_l) * Number(row.good_water_5_l)
@@ -338,6 +338,7 @@ function get_summary_by_date() {
                     bad_water_350_ml +
                     bad_water_750_ml +
                     bad_water_1500_ml
+                console.log(row);
                 line_data.push([row.create_date, Number(good_water), Number(bad_water)])
             })
             console.log(line_data);

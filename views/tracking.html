@@ -1,0 +1,129 @@
+<div class="row pb-5 pt-5" style="background-color: #D9F4E4;">
+    <div class="col-xl-3 col-md-12 ">
+        <div class="card  d-flex justify-content-evenly mb-2" style="min-height: 550px; ">
+            <div class="p-1">
+                <img style="max-height: 550px; " id="qrcode" src="..." class="card-img-top" alt="...">
+            </div>
+            <div class="p-1">
+                <div class="d-grid gap-2">
+                    <button id="cpurl" class="btn btn-primary" type="button">คัดลอกลิงค์การติดตาม</button>
+                    <a id="qrdownload" href="..." class="btn btn-primary" target="_blank">ดาวน์โหลด QR Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-9 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <p class="fs-1">
+                    ติดตามข้อมูลการลงทะเบียนขอรับน้ำดื่ม
+                </p>
+                <hr>
+                <p class="card-text fs-3">วันที่ลงทะเบียน <span class="card-text"><small class="text-muted fs-5"
+                            id="create_date">3
+                            กันยายน 2564</small></span></p>
+
+                <p class="card-text fs-3">พื้นที่เขต <span class="card-text"><small class="text-muted fs-5"
+                            id="title">สำนักทรัพยากรน้ำบาดาล เขต 1
+                            (ลำปาง)</small></span></p>
+
+                <p class="card-text fs-3">จังหวัด <span class="card-text"><small class="text-muted fs-5"
+                            id="province">จังหวัดลำปาง</small></span></p>
+                <p class="card-text fs-3">ชื่อ-นามสกุล <span class="card-text"><small class="text-muted fs-5"
+                            id="name">สมชาย
+                            รักโรงพยาบาล</small></span></p>
+                <p class="card-text fs-3">เบอร์โทรศัพท์ <span class="card-text"><small class="text-muted fs-5"
+                            id="telephone">
+                            0998740877</small></span></p>
+                <p class="card-text fs-3">ที่อยู่ <span class="card-text"><small class="text-muted fs-5" id="address">
+                            30 2 ถ. เพชรเกษม ตำบลหัวหิน อำเภอหัวหิน
+                            ประจวบคีรีขันธ์ 77110</small></span></p>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-6 col-md-12 fs-3 ">
+                        <p class="card-text"> สถานะการดำเนินการ <span class="card-text"><small class="text-muted fs-2"
+                                    id="status">รออนุมัติ</small></span></p>
+                    </div>
+                    <div class="col-xl-6 col-md-12 fs-3 ">
+                        <p class="card-text"> จำนวนทั้งหมด <span class="card-text"><small class="text-muted fs-2"
+                                    id="sum_water"> 5
+                                </small></span> หน่วย </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-around flex-wrap p-3">
+        <div class="card mt-2 " style="min-width: 20rem;">
+            <img src="assets/images/water_sizes/350ml.jpg" style="max-height: 250px;" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <h5 class="card-title">ขวด 350 มิลลิลิตร</h5>
+                <p class="card-text fs-3">จำนวน <span id="water_350_ml">0</span> ขวด</p>
+
+            </div>
+        </div>
+        <div class="card mt-2 " style="min-width: 20rem;">
+            <img src="assets/images/water_sizes/750ml.jpg" style="max-height: 250px;" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <h5 class="card-title">ขวด 750 มิลลิลิตร</h5>
+                <p class="card-text fs-3">จำนวน <span id="water_750_ml">0</span> ขวด</p>
+
+            </div>
+        </div>
+        <div class="card mt-2 " style="min-width: 20rem;">
+            <img src="assets/images/water_sizes/1500ml.png" style="max-height: 250px;" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <h5 class="card-title">ขวด 1500 มิลลิลิตร</h5>
+                <p class="card-text fs-3">จำนวน <span id="water_1500_ml">0</span> ขวด</p>
+
+            </div>
+        </div>
+        <div class="card mt-2 " style="min-width: 20rem;">
+            <img src="assets/images/water_sizes/5l.jpg" style="max-height: 250px;" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <h5 class="card-title">ขวด 5 ลิตร</h5>
+                <p class="card-text fs-3">จำนวน <span id="water_5_l">0</span> แกลอน</p>
+
+            </div>
+        </div>
+        <div class="card mt-2 " style="min-width: 20rem;">
+            <img src="assets/images/water_sizes/20l.jpg" style="max-height: 250px;" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <h5 class="card-title">ขวด 20 ลิตร</h5>
+                <p class="card-text fs-3">จำนวน <span id="water_20_l">0</span> แกลอน</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $state.loading = loadingOverlay().activate();
+    get_request_form_for_tracking_by_id(window.location.href.replace('http://localhost/www/dgr-frontend/#/tracking?reg_id=', ''))
+    $('#qrcode').attr('src', `https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=http%3A%2F%2Flocalhost%2Fwww%2Fdgr-frontend%2F%23%2Ftracking%3Freg_id%3D${window.location.href.replace('http://localhost/www/dgr-frontend/#/tracking?reg_id=', '')}`);
+    $('#qrdownload').attr('href', `https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=http%3A%2F%2Flocalhost%2Fwww%2Fdgr-frontend%2F%23%2Ftracking%3Freg_id%3D${window.location.href.replace('http://localhost/www/dgr-frontend/#/tracking?reg_id=', '')}`);
+
+    $('#qrcode').on("load", () => {
+        loadingOverlay().cancel($state.loading);
+    })
+
+
+
+    $('#cpurl').click(function (e) {
+        e.preventDefault();
+        copyToClipboard(window.location.href)
+        Swal.fire({
+            icon: 'success',
+            title: 'คัดลอกสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    });
+
+</script>
+
+<style></style>

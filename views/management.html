@@ -80,35 +80,35 @@
     <div class="card col-xl-6 col-md-12  border-3d p-0" style="width: 24rem;">
         <img src="assets/images/themes/band-water-2.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
-            <p class="card-title">ขวด 350 มล.</ย>
+            <p class="card-title">ขวด 350 มิลลิลิตร</ย>
             <h1 class="card-text"><span id="dashboard_sum_water_350_ml"></span> ขวด</h1>
         </div>
     </div>
     <div class="card col-xl-6 col-md-12  border-3d p-0" style="width: 24rem;">
         <img src="assets/images/themes/band-water-2.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
-            <p class="card-title">ขวด 750 มล.</p>
+            <p class="card-title">ขวด 750 มิลลิลิตร</p>
             <h1 class="card-text"><span id="dashboard_sum_water_750_ml"></span> ขวด</h1>
         </div>
     </div>
     <div class="card col-xl-6 col-md-12  border-3d p-0" style="width: 24rem;">
         <img src="assets/images/themes/band-water-2.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
-            <p class="card-title">ขวด 1500 มล.</p>
+            <p class="card-title">ขวด 1500 มิลลิลิตร</p>
             <h1 class="card-text"><span id="dashboard_sum_water_1500_ml"></span> ขวด</h1>
         </div>
     </div>
     <div class="card col-xl-6 col-md-12  border-3d p-0" style="width: 24rem;">
         <img src="assets/images/themes/band-water-3.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
-            <p class="card-title">แกลอน 5 ล.</p>
+            <p class="card-title">แกลอน 5 ลิตร</p>
             <h1 class="card-text"><span id="dashboard_sum_water_5_l"></span> แกลอน</h1>
         </div>
     </div>
     <div class="card col-xl-6 col-md-12  border-3d p-0" style="width: 24rem;">
         <img src="assets/images/themes/band-water-3.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
-            <p class="card-title">แกลอน 20 ล.</p>
+            <p class="card-title">แกลอน 20 ลิตร</p>
             <h1 class="card-text"><span id="dashboard_sum_water_20_l"></span> แกลอน</h1>
         </div>
     </div>
@@ -134,14 +134,7 @@
     dashboard_sum_water_5_l = 0
     dashboard_sum_water_20_l = 0
     dashboard_sum_all_water = 0
-    // set01 = ['0000-00-00 00:00:00', 0, 0]
-    // set02 = ['0000-00-00 00:00:00', 0, 0]
-    // set03 = ['0000-00-00 00:00:00', 0, 0]
-    // set04 = ['0000-00-00 00:00:00', 0, 0]
-    // set05 = ['0000-00-00 00:00:00', 0, 0]
-    // set06 = ['0000-00-00 00:00:00', 0, 0]
-    // set07 = ['0000-00-00 00:00:00', 0, 0]
-    line_data = []
+    line_data = [['0000-00-00 00:00:00', Number(0), Number(0)]]
 
     google.charts.load('current', { packages: ['corechart'] })
     google.charts.setOnLoadCallback(drawChart)
@@ -162,6 +155,11 @@
 
         chart = new google.visualization.BarChart(document.getElementById('bar_hart'));
         chart.draw(data, options)
+
+        if (line_data.length == 0) {
+            line_data = [['0000-00-00 00:00:00', Number(0), Number(0)]]
+        }
+
 
         data = google.visualization.arrayToDataTable([
             ['วันที่', 'น้ำดี', 'น้ำเสีย'],
