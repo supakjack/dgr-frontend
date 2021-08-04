@@ -59,7 +59,7 @@ function get_request_form_for_tracking_by_id(id) {
             $('#lastname').text(response.data.lastname)
             $('#name').text(response.data.name)
             $('#province').text(response.data.province)
-            $('#status').text(response.data.status == 'unapprove' ? 'รออนุมัติ' : response.data.status == 'approve' ? 'อนุมัติ' : 'คำข้อถูกลบ')
+            $('#status').text(response.data.system_status == 'delete' ? 'คำร้องขอถูกลบ' : response.data.status == 'approve' ? 'อนุมัติ' : 'รออนุมัติ')
             $('#telephone').text(response.data.telephone)
             $('#title').text(response.data.title)
             $('#water_5_l').text(response.data.water_5_l)
@@ -71,3 +71,141 @@ function get_request_form_for_tracking_by_id(id) {
     });
 
 }
+
+
+function get_request_form_by_id(id) {
+    $.ajax({
+        type: "post",
+        url: baseUrlAPI + "Request_application/get_forms?area_id=" + $state.user.area_id + "&id=" + id,
+        dataType: "JSON",
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
+        success: function (response) {
+            console.log("Request_application/get_forms");
+            console.log(response.data);
+            console.log(baseUrlAPI + "Request_application/get_forms?area_id=" + $state.user.area_id + "&id=" + id);
+            $('#address').val(response.data[0].address)
+            $('#create_date').val(response.data[0].create_date)
+            $('#name').val(response.data[0].name)
+            $('#province').val(response.data[0].province)
+            $('#name_area').val($state.user.title)
+            $('#status').val(response.data[0].status == 'unapprove' ? 'รออนุมัติ' : 'อนุมัติ')
+            $('#telephone').val(response.data[0].telephone)
+            $('#water_5_l').val(response.data[0].water_5_l)
+            $('#water_20_l').val(response.data[0].water_20_l)
+            $('#water_350_ml').val(response.data[0].water_350_ml)
+            $('#water_750_ml').val(response.data[0].water_750_ml)
+            $('#water_1500_ml').val(response.data[0].water_1500_ml)
+        }
+    });
+}
+
+
+function approve_request_form_by_id(id) {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'คุณแน่ใจไหม ?',
+        text: "คุณกำลังจะอนุมัติ 1 รายการ",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'ใช่, อนุมัติเลย!',
+        cancelButtonText: 'ไม่, ยกเลิก!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            $.ajax({
+                type: "post",
+                url: baseUrlAPI + "Request_application/approve_request_form_by_id?id=" + id,
+                dataType: "JSON",
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
+                success: function (response) {
+                    console.log("Request_application/approve_request_form_by_id");
+                    console.log(response.data);
+
+                }
+                ,
+                complete: function () {
+                    $('#table_water_application_management').DataTable().ajax.reload()
+                }
+            });
+
+            swalWithBootstrapButtons.fire(
+                'อนุมัติ!',
+                '1 รายการของคุณถูกอนุมัติแล้ว',
+                'success'
+            )
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'ยกเลิก',
+                '1 รายการของคุณไม่ถูกอนุมัติ',
+                'error'
+            )
+        }
+    })
+}
+
+
+function delete_request_form_by_id(id) {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'คุณแน่ใจไหม ?',
+        text: "คุณกำลังจะลบ 1 รายการ",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'ใช่, ลบเลย!',
+        cancelButtonText: 'ไม่, ยกเลิก!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            $.ajax({
+                type: "post",
+                url: baseUrlAPI + "Request_application/delete_request_form_by_id?id=" + id,
+                dataType: "JSON",
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
+                success: function (response) {
+                    console.log("Request_application/delete_request_form_by_id");
+                    console.log(response.data);
+
+                }
+                ,
+                complete: function () {
+                    $('#table_water_application_management').DataTable().ajax.reload()
+                }
+            });
+
+            swalWithBootstrapButtons.fire(
+                'ลบ!',
+                '1 รายการของคุณถูกลบแล้ว',
+                'success'
+            )
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'ยกเลิก',
+                '1 รายการของคุณไม่ถูกลบ',
+                'error'
+            )
+        }
+    })
+}
+

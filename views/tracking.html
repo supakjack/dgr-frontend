@@ -7,7 +7,8 @@
             <div class="p-1">
                 <div class="d-grid gap-2">
                     <button id="cpurl" class="btn btn-primary" type="button">คัดลอกลิงค์การติดตาม</button>
-                    <a id="qrdownload" href="..." class="btn btn-primary" target="_blank">ดาวน์โหลด QR Code</a>
+                    <a id="qrdownload" onclick="qrdownload()" class="btn btn-primary" target="_blank">ดาวน์โหลด QR
+                        Code</a>
                 </div>
             </div>
         </div>
@@ -74,7 +75,7 @@
             </div>
         </div>
         <div class="card mt-2 " style="min-width: 20rem;">
-            <img src="assets/images/water_sizes/1500ml.png" style="max-height: 250px;" class="card-img-top" alt="...">
+            <img src="assets/images/water_sizes/1500ml.jpeg" style="max-height: 250px;" class="card-img-top" alt="...">
             <div class="card-body text-center">
                 <h5 class="card-title">ขวด 1500 มิลลิลิตร</h5>
                 <p class="card-text fs-3">จำนวน <span id="water_1500_ml">0</span> ขวด</p>
@@ -105,12 +106,33 @@
     $state.loading = loadingOverlay().activate();
     get_request_form_for_tracking_by_id(window.location.href.replace('http://localhost/www/dgr-frontend/#/tracking?reg_id=', ''))
     $('#qrcode').attr('src', `https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=http%3A%2F%2Flocalhost%2Fwww%2Fdgr-frontend%2F%23%2Ftracking%3Freg_id%3D${window.location.href.replace('http://localhost/www/dgr-frontend/#/tracking?reg_id=', '')}`);
-    $('#qrdownload').attr('href', `https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=http%3A%2F%2Flocalhost%2Fwww%2Fdgr-frontend%2F%23%2Ftracking%3Freg_id%3D${window.location.href.replace('http://localhost/www/dgr-frontend/#/tracking?reg_id=', '')}`);
 
     $('#qrcode').on("load", () => {
         loadingOverlay().cancel($state.loading);
     })
 
+
+    function qrdownload() {
+        fetch(`https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=http%3A%2F%2Flocalhost%2Fwww%2Fdgr-frontend%2F%23%2Ftracking%3Freg_id%3D${window.location.href.replace('http://localhost/www/dgr-frontend/#/tracking?reg_id=', '')}`, {
+            method: 'GET',
+        })
+            .then(response => response.blob())
+            .then(blob => {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = `qrcode${new Date().toISOString()}.png`;
+                document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
+                a.click();
+                a.remove();  //afterwards we remove the element again 
+                Swal.fire({
+                    icon: 'success',
+                    title: 'ดาวน์โหลดสำเร็จ',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            });
+    }
 
 
     $('#cpurl').click(function (e) {

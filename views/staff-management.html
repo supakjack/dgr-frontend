@@ -1,5 +1,5 @@
 <p class="text-light" style="z-index: 1; position: absolute;left: 20px;
-top: 110px;"><a href="#/library" class="text-light text-decoration-none">คลังข้อมูลกำลัังผลิตน้ำ</a> &nbsp;/&nbsp;<a
+top: 110px;"><a href="#/library" class="text-light text-decoration-none">คลังข้อมูลกำลังผลิตน้ำ</a> &nbsp;/&nbsp;<a
         class="text-light" href="#/staff-management">รายการลงทะเบียนขอรับน้ำดื่ม<span class="title_area"></span></a></p>
 <img src="assets/images/themes/staff-report-01.jpg" class="img-fluid" alt="...">
 <div class="text-center mt-5 mb-5 ">
@@ -218,7 +218,7 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
                                         ${row.status == 'unapprove' ? '<a onclick="approve_request_form_by_id(' + row.id + ')" class="dropdown-item  pointer"><i class="bi bi-check"></i> อนุมัติคำร้อง </a> ' : ''}
                                     </li>
                             </ul>
-                        <button style="min-width:155px;" type="button" class="mt-3 btn btn-danger deleteReq"><i class="bi bi-trash"></i> ลบ</button>
+                        <button onclick="delete_request_form_by_id('${row.id}')" style="min-width:155px;" type="button" class="mt-3 btn btn-danger"><i class="bi bi-trash"></i> ลบ</button>
                     </div>
                             `
 
@@ -228,42 +228,4 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
     });
     wait_load_page()
     $('.title_area').text($state.user.title)
-
-    $('.deleteReq').click(function (e) {
-        e.preventDefault();
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success',
-                cancelButton: 'btn btn-danger'
-            },
-            buttonsStyling: false
-        })
-
-        swalWithBootstrapButtons.fire({
-            title: 'คุณแน่ใจไหม ?',
-            text: "คุณกำลังจะลบ 1 รายการ",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'ใช่, ลบเลย!',
-            cancelButtonText: 'ไม่, ยกเลิก!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire(
-                    'ลบ!',
-                    '1 รายการของคุณถูกลบแล้ว',
-                    'success'
-                )
-            } else if (
-                /* Read more about handling dismissals below */
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire(
-                    'ยกเลิก',
-                    '1 รายการของคุณไม่ถูกลบ',
-                    'error'
-                )
-            }
-        })
-    });
 </script>
