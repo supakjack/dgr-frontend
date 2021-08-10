@@ -1,4 +1,4 @@
-<div class="row" style="background-color: #D9F4E4;">
+<div class="row">
     <div class="col-12">
         <div class="accordion mb-5 mt-5" id="accordionExample3">
             <div class="accordion-item">
@@ -101,6 +101,25 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label class="form-label">น้ำขนาดอื่น ๆ ต่อ 1 หน่วย</label>
+                                    <div class="row">
+                                        <div class="input-group col">
+                                            <span class="input-group-text">น้ำดี</span>
+                                            <input id="good_water_else_l" placeholder="กรอกจำนวน..." value="1"
+                                                type="number" class="form-control">
+                                        </div>
+                                        <div class="input-group col">
+                                            <span class="input-group-text">น้ำเสีย</span>
+                                            <input id="bad_water_else_l" placeholder="กรอกจำนวน..." value="1"
+                                                type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="row mb-3">
                                 <div class="col-xl-6"></div>
                                 <div class="d-grid gap-2 col-xl-6 col-md-12 ">
@@ -122,3 +141,9 @@
     get_configs()
     wait_load_page()
 </script>
+
+<style>
+    body {
+        background-color: #D9F4E4;
+    }
+</style>

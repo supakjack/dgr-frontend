@@ -63,10 +63,26 @@ function get_request_form_for_tracking_by_id(id) {
             $('#telephone').text(response.data.telephone)
             $('#title').text(response.data.title)
             $('#water_5_l').text(response.data.water_5_l)
+            if (response.data.water_5_l != 0) {
+                $('.5l').show()
+                console.log('response.data.water_5_l != 0');
+            }
             $('#water_20_l').text(response.data.water_20_l)
+            if (response.data.water_20_l != 0) {
+                $('.20l').show()
+            }
             $('#water_350_ml').text(response.data.water_350_ml)
+            if (response.data.water_350_ml != 0) {
+                $('.350ml').show()
+            }
             $('#water_750_ml').text(response.data.water_750_ml)
+            if (response.data.water_750_ml != 0) {
+                $('.750ml').show()
+            }
             $('#water_1500_ml').text(response.data.water_1500_ml)
+            if (response.data.water_1500_ml != 0) {
+                $('.1500ml').show()
+            }
         }
     });
 

@@ -1,13 +1,6 @@
-<p class="text-light" style="z-index: 1; position: absolute;left: 20px;
-top: 110px;"><a href="#/library" class="text-light text-decoration-none">คลังข้อมูลกำลังผลิตน้ำ</a> &nbsp;/&nbsp;<a
-        class="text-light" href="#/staff-application">แบบฟอร์มบันทึกข้อมูลกำลังผลิตน้ำ<span class="title_area"></span></a></p>
-<img src="assets/images/themes/staff-report-01.jpg" class="img-fluid" alt="...">
-<div class="text-center mt-5 mb-5 ">
+<div class="text-center mt-5 mb-1 ">
     <span class="fs-1">แบบฟอร์มบันทึกข้อมูลกำลังผลิตน้ำ<span class="title_area"></span></span>
     <!-- <div class="d-flex flex-row justify-content-center  col-md-12"> -->
-    <br>
-    <br>
-    <br>
     <!-- </div> -->
 </div>
 
@@ -38,6 +31,26 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
                 <div class="input-group col">
                     <span class="input-group-text">น้ำเสีย</span>
                     <input id="bad_water_350_ml" value="0" readonly type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">น้ำขวดขนาด 500 มล.</label>
+            <input id="water_input_500_ml" type="text" placeholder="กรอกจำนวน..." class="form-control input_form">
+        </div>
+        <div class="col">
+            <label class="form-label">คุณภาพของน้ำขวดขนาด 500 มล.</label>
+            <div class="row">
+                <div class="input-group col">
+                    <span class="input-group-text">น้ำดี</span>
+                    <input id="good_water_500_ml" value="0" readonly type="text" class="form-control">
+                </div>
+                <div class="input-group col">
+                    <span class="input-group-text">น้ำเสีย</span>
+                    <input id="bad_water_500_ml" value="0" readonly type="text" class="form-control">
                 </div>
             </div>
         </div>
@@ -122,6 +135,29 @@ top: 110px;"><a href="#/library" class="text-light text-decoration-none">คล�
             </div>
         </div>
     </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">น้ำขนาดขนาดอื่น ๆ </label>
+            <input id="water_input_else" type="text" placeholder="กรอกปริมาณมิลลิลิตร..."
+                class="form-control input_form">
+        </div>
+        <div class="col">
+            <label class="form-label">คุณภาพของน้ำขนาดขนาดอื่น ๆ </label>
+            <div class="row">
+                <div class="input-group col">
+                    <span class="input-group-text">น้ำดี</span>
+                    <input id="good_water_else" value="0" readonly type="text" class="form-control">
+                </div>
+                <div class="input-group col">
+                    <span class="input-group-text">น้ำเสีย</span>
+                    <input id="bad_water_else" value="0" readonly type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="d-grid gap-2 col-6 mx-auto">
         <button onclick="submit_add_input_form()" class="btn btn-success">บันทึก</button>
     </div>

@@ -52,24 +52,25 @@ $.each(router, function (indexInArray, valueOfElement) {
             }
             $('#header_public').hide();
             $('#header_staff').hide();
+            $('#app_footer').hide();
             $('#header_admin').show();
-
 
         } else if ($state.user.role == 'staff' && path != 'home') {
             console.log("staff come in");
             if (path == 'auth') {
-                window.location = '#/library'
+                window.location = '#/staff-application'
                 console.log("staff come to auth");
                 return
             } else if (role != 'staff' && role != 'public') {
                 console.log("not staff permission");
-                window.location = '#/library'
+                window.location = '#/staff-application'
                 console.log("go to staff home");
                 return
             }
             $('#header_public').hide();
-            $('#header_staff').show();
+            $('#app_footer').hide();
             $('#header_admin').hide();
+            $('#header_staff').show();
 
 
         } else if (role != 'public') {
@@ -87,6 +88,7 @@ $.each(router, function (indexInArray, valueOfElement) {
         }
         else if (path != 'home') {
             $('#header_public').show();
+            $('#app_footer').show();
             $('#header_staff').hide();
             $('#header_admin').hide();
 
@@ -94,6 +96,7 @@ $.each(router, function (indexInArray, valueOfElement) {
             $('#header_public').hide();
             $('#header_staff').hide();
             $('#header_admin').hide();
+            $('#app_footer').show();
         }
         console.log(this.params, path, file);
         this.$element().load('views/' + file + '.html');
@@ -104,6 +107,7 @@ app.notFound = function () {
     $('#header_public').hide();
     $('#header_staff').hide();
     $('#header_admin').hide();
+    $('#app_footer').show();
     this.$element().load('views/home.html');
 }
 

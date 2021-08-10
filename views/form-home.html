@@ -1,0 +1,60 @@
+<div class="row pb-5 ">
+    <div class="col-12 mt-1">
+        <div class="row text-light d-flex align-items-center">
+            <div class="col-md-12 col-xl-6 home-menu-left text-center ">
+                <h1 class="mb-3">ลงทะเบียนสำหรับเจ้าหน้าที่สำนักงาน</h1>
+                <button onclick="app.setLocation('#/management')" type="button" class="btn btn-danger mb-3 col-3">
+                    <span class="fs-5">คลิกที่นี่ </span>
+                </button>
+            </div>
+            <div class="col-md-12 col-xl-6 home-menu-right text-center">
+                <h1 class="mb-3">ลงทะเบียนสำหรับประชาชน</h1>
+                <button onclick="app.setLocation('#/people')" type="button" class="btn btn-danger mb-3 col-3"><span
+                        class="fs-5">คลิกที่นี่ </span></button>
+            </div>
+        </div>
+        <br>
+        <div class="row text-black d-flex align-items-center">
+            <div class="col-12 fs-1 text-center">ติดตามสถานะคำร้องขอน้ำดื่ม</div>
+            <div class="d-flex justify-content-center">
+                <div class="col-3">
+                    <label for="inputPassword2" class="visually-hidden">Password</label>
+                    <input type="text" class="form-control" id="inputPassword2"
+                        placeholder="กรอกรหัสติดตามสถานะ เช่น dgr-1 , dgr-2 และ dgr-3 เป็นต้น">
+                </div>
+                <button type="submit" class=" btn btn-primary mb-3 col-1">ค้นหา</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    wait_load_page()
+
+</script>
+
+<style>
+    img {
+        max-width: 500px;
+    }
+
+    .home-menu-right,
+    .home-menu-left {
+        padding-top: 12rem;
+        min-height: 500px;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .home-menu-right {
+        padding-left: 3rem;
+        background-image: url('assets/images/forms/home-menu-right.jpg');
+    }
+
+    .home-menu-left {
+        padding-right: 3rem;
+        background-image: url('assets/images/forms/home-menu-left.jpg');
+    }
+</style>

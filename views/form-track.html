@@ -1,0 +1,159 @@
+<div class="row pb-5 pt-4">
+
+    <div class="col-xl-12 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-10">
+                        <p class="fs-2">
+                            ติดตามสถานะการลงทะเบียนขอรับน้ำดื่ม
+                        </p>
+                    </div>
+                    <div class="col text-end">
+                        <button onclick="window.print()" type="button" class="btn btn-success"><i
+                                class="bi bi-printer"></i> &nbspพิมพ์</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <p class="card-text fs-4">วันที่ลงทะเบียน <span class="card-text"><small class="text-muted fs-6"
+                                    id="create_date">3
+                                    กันยายน 2564</small></span></p>
+                    </div>
+                    <div class="col">
+                        <p class="card-text fs-4">รหัสลงทะเบียน <span class="card-text"><small class="text-muted fs-6"
+                                    id="create_date">dgr-1</small></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="card-text fs-4">พื้นที่เขต <span class="card-text"><small class="text-muted fs-6"
+                                    id="title">สำนักทรัพยากรน้ำบาดาล เขต 1
+                                    (ลำปาง)</small></span></p>
+                    </div>
+                    <div class="col">
+                        <p class="card-text fs-4">จังหวัด <span class="card-text"><small class="text-muted fs-6"
+                                    id="province">จังหวัดลำปาง</small></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="card-text fs-4">ชื่อ-นามสกุล <span class="card-text"><small class="text-muted fs-6"
+                                    id="name">สมชาย
+                                    รักโรงพยาบาล</small></span></p>
+                    </div>
+                    <div class="col">
+                        <p class="card-text fs-4">เบอร์โทรศัพท์ <span class="card-text"><small class="text-muted fs-6"
+                                    id="telephone">
+                                    0998740877</small></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="card-text fs-4">ที่อยู่ <span class="card-text"><small class="text-muted fs-6"
+                                    id="address">
+                                    30 2 ถ. เพชรเกษม ตำบลหัวหิน อำเภอหัวหิน
+                                    ประจวบคีรีขันธ์ 77110</small></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="card-text fs-4"> จำนวนทั้งหมด <span class="card-text"><small class="text-muted fs-6"
+                                    id="sum_water"> 5
+                                </small></span> หน่วย </p>
+                    </div>
+                    <div class="col">
+                        <p class="card-text fs-4"> สถานะการดำเนินการ <span class="card-text"><small
+                                    class="text-muted fs-6" id="status">รออนุมัติ</small></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row  mt-1 d-flex justify-content-around">
+        <div class="card col-xl-6 col-md-12 350ml  border-3d m-1" style="width: 18rem; display: none;  ">
+            <img src="assets/images/water_sizes/350ml.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <label for="water_application_350_ml" class="form-label fw-bold">น้ำขวดขนาด 350
+                    มิลลิลิตร</label>
+                <p class="card-text fs-3">จำนวน <span id="water_350_ml">0</span> ขวด</p>
+            </div>
+        </div>
+
+        <div class="card col-xl-6 col-md-12 350ml  border-3d m-1" style="width: 18rem; display: none;  ">
+            <img src="assets/images/water_sizes/350ml.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <label for="water_application_500_ml" class="form-label fw-bold">น้ำขวดขนาด 500
+                    มิลลิลิตร</label>
+                <p class="card-text fs-3">จำนวน <span id="water_350_ml">0</span> ขวด</p>
+            </div>
+        </div>
+
+        <div class="card col-xl-6 col-md-12 750ml  border-3d m-1" style="width: 18rem; display: none;  ">
+            <img src="assets/images/water_sizes/750ml.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <label for="water_application_750_ml" class="form-label fw-bold">น้ำขวดขนาด 750
+                    มิลลิลิตร</label>
+                <p class="card-text fs-3">จำนวน <span id="water_750_ml">0</span> ขวด</p>
+            </div>
+        </div>
+
+        <div class="card col-xl-6 col-md-12 1500ml  border-3d m-1" style="width: 18rem; display: none;  ">
+            <img src="assets/images/water_sizes/1500ml.jpeg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <label for="water_application_1500_ml" class="form-label fw-bold">น้ำขวดขนาด 1500
+                    มิลลิลิตร</label>
+                <p class="card-text fs-3">จำนวน <span id="water_1500_ml">0</span> ขวด</p>
+            </div>
+        </div>
+
+        <div class="card col-xl-6 col-md-12 5l  border-3d m-1" style="width: 18rem; display: none;  ">
+            <img src="assets/images/water_sizes/5l.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <label for="water_application_5_l" class="form-label fw-bold">น้ำแกลลอนขนาด 5
+                    ลิตร</label>
+                <p class="card-text fs-3">จำนวน <span id="water_5_l">0</span> แกลอน</p>
+            </div>
+        </div>
+
+
+        <div class="card col-xl-6 col-md-12 20l  border-3d m-1" style="width: 18rem; display: none;  ">
+            <img src="assets/images/water_sizes/20l.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <label for="water_application_20_l" class="form-label fw-bold">น้ำแกลลอนขนาด 20
+                    ลิตร</label>
+                <p class="card-text fs-3">จำนวน <span id="water_20_l">0</span> แกลอน</p>
+            </div>
+        </div>
+
+        <div class="card col-xl-6 col-md-12 else  border-3d m-1" style="width: 18rem; display: none;  ">
+            <img src="assets/images/water_sizes/else.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <label for="water_application_5_l" class="form-label fw-bold">อื่น ๆ</label>
+                <p class="card-text fs-3">จำนวน <span id="water_5_l">0</span> แกลอน</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    $('#app_footer').hide();
+    loadingOverlay().cancel($state.loading);
+
+    // $state.loading = loadingOverlay().activate();
+    get_request_form_for_tracking_by_id(window.location.href.replace('http://localhost/www/dgr-frontend/#/form-track?reg_id=', ''))
+    // $('#qrcode').attr('src', `https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=http%3A%2F%2Flocalhost%2Fwww%2Fdgr-frontend%2F%23%2Ftracking%3Freg_id%3D${window.location.href.replace('http://localhost/www/dgr-frontend/#/tracking?reg_id=', '')}`);
+
+
+</script>
+
+<style>
+    body {
+        background-color: #D9F4E4;
+    }
+</style>

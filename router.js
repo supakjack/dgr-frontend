@@ -15,6 +15,26 @@ const router = [
         "role": "public"
     },
     {
+        "path": "form-home",
+        "file": "form-home",
+        "role": "public"
+    },
+    {
+        "path": "form-people",
+        "file": "form-people",
+        "role": "public"
+    },
+    {
+        "path": "form-track",
+        "file": "form-track",
+        "role": "public"
+    },
+    {
+        "path": "form-staff",
+        "file": "form-staff",
+        "role": "public"
+    },
+    {
         "path": "form",
         "file": "form",
         "role": "public"
@@ -28,11 +48,6 @@ const router = [
         "path": "management",
         "file": "management",
         "role": "public"
-    },
-    {
-        "path": "library",
-        "file": "library",
-        "role": "staff"
     },
     {
         "path": "staff-report",

@@ -55,7 +55,7 @@
                             <a class="nav-link" href="#/management">การบริหารจัดการ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#/form">ลงทะเบียนขอรับน้ำดื่ม</a>
+                            <a class="nav-link" href="#/form-home">ลงทะเบียนขอรับน้ำดื่ม</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#/people">สำหรับประชาชน</a>
@@ -97,14 +97,25 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#" id="goHome">หน้าแรก </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#/library">คลังข้อมูลกำลังผลิตน้ำ</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                คลังข้อมูลกำลังผลิตน้ำ
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item"
+                                        href="#/staff-application">แบบฟอร์มบันทึกข้อมูลกำลังผลิตน้ำ</a></li>
+                                <li><a class="dropdown-item" href="#/staff-report">รายการบันทึกข้อมูลกำลังผลิตน้ำ</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#/staff-management">รายการลงทะเบียนขอรับน้ำดื่ม</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#/management">การบริหารจัดการ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#/form">ลงทะเบียนขอรับน้ำดื่ม</a>
+                            <a class="nav-link" href="#/form-home">ลงทะเบียนขอรับน้ำดื่ม</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#/people">สำหรับประชาชน</a>
@@ -146,23 +157,31 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#" id="goHome">หน้าแรก </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#/config-system">ตั้งค่าคำนวณการผลิตน้ำ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#/config-admin">ตั้งค่าผู้ดูแลระบบ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#/config-staff">ตั้งค่าเจ้าหน้าที่</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#/config-form">ตั้งค่าแบบฟอร์ม</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                ตั้งค่าระบบ
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#/config-system">ตั้งค่าการผลิตน้ำ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#/config-admin">ตั้งค่าผู้ดูแลระบบ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#/config-staff">ตั้งค่าเจ้าหน้าที่</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#/config-form">ตั้งค่าแบบฟอร์ม</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#/management">การบริหารจัดการ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#/form">ลงทะเบียนขอรับน้ำดื่ม</a>
+                            <a class="nav-link" href="#/form-home">ลงทะเบียนขอรับน้ำดื่ม</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#/people">สำหรับประชาชน</a>
@@ -182,7 +201,7 @@
     <router-application id="app"> </router-application>
     <!-- injection app -->
 
-    <footer>
+    <footer id="app_footer">
         <div class="row mt-4">
             <div class="col">
                 <p class="text-success h3">ติดต่อกรม</p>
