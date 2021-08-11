@@ -28,6 +28,20 @@
                             <input name="water_application_telephone" type="text" class="form-control"
                                 id="water_application_telephone" placeholder="กรอกเบอร์โทรศัพท์...">
                         </div>
+                        <div class="col-md-6">
+                            <label for="water_application_organization_name"
+                                class="form-label fw-bold">ชื่อหน่วยงาน</label>
+                            <input name="water_application_organization_name" type="text" class="form-control"
+                                id="water_application_organization_name" placeholder="กรอกชื่อหน่วยงาน...">
+                        </div>
+                    </div>
+
+                    <div class="row nook ">
+                        <div class="col-md-12">
+                            <label for="water_application_description" class="form-label fw-bold">หมายเหตุ</label>
+                            <textarea name="water_application_description" class="form-control"
+                                id="water_application_description" rows="3" placeholder="กรอกหมายเหตุ..."></textarea>
+                        </div>
                     </div>
 
                     <div class="row nook ">
@@ -102,9 +116,9 @@
                         <div class="card col-xl-4 col-md-12  border-3d p-0" style="width: 18rem;">
                             <img src="assets/images/water_sizes/else.jpg" class="card-img-top" alt="...">
                             <div class="card-body text-center">
-                                <label for="water_application_5_l" class="form-label fw-bold">อื่น ๆ</label>
-                                <input name="water_application_5_l" type="number" class="form-control"
-                                    id="water_application_water_5_l" placeholder="กรอกจำนวนมิลลิลิตร...">
+                                <label for="water_application_else_l" class="form-label fw-bold">อื่น ๆ</label>
+                                <input name="water_application_else_l" type="number" class="form-control"
+                                    id="water_application_water_else_l" placeholder="กรอกจำนวนลิตร...">
                             </div>
                         </div>
 
@@ -113,7 +127,7 @@
 
                 <div class="card-footer nook text-center">
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button onclick="insert_request_form()" class="btn btn-success">บันทึก</button>
+                        <button onclick="insert_request_form_staff()" class="btn btn-success">บันทึก</button>
                     </div>
                 </div>
             </div>
@@ -155,7 +169,7 @@
         background-color: #e2e9ef;
     }
 
-  
+
 
     .line.nook {
         display: block;
@@ -170,5 +184,4 @@
         display: inline-block;
         background-color: #e2e9ef;
     }
-
 </style>

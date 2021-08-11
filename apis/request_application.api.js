@@ -1,4 +1,4 @@
-function insert_request_form() {
+function insert_request_form_people() {
     $.ajax({
         type: "POST",
         url: baseUrlAPI + "Request_application/submit",
@@ -7,9 +7,11 @@ function insert_request_form() {
             province_id: $('#water_application_province_id').val(),
             firstname: $('#water_application_firstname').val(),
             lastname: $('#water_application_lastname').val(),
+            water_else_l: $('#water_application_water_else_l').val(),
             water_5_l: $('#water_application_water_5_l').val(),
             water_20_l: $('#water_application_water_20_l').val(),
             water_350_ml: $('#water_application_water_350_ml').val(),
+            water_500_ml: $('#water_application_water_500_ml').val(),
             water_750_ml: $('#water_application_water_750_ml').val(),
             water_1500_ml: $('#water_application_water_1500_ml').val(),
             telephone: $('#water_application_telephone').val(),
@@ -24,7 +26,44 @@ function insert_request_form() {
                 showConfirmButton: false,
                 timer: 1500
             }).then((result) => {
-                app.setLocation('#/tracking?reg_id=' + response.data.reg_id)
+                app.setLocation('#/form-track?reg_id=' + response.data.reg_id)
+            })
+        }
+    });
+
+}
+
+function insert_request_form_staff() {
+    $.ajax({
+        type: "POST",
+        url: baseUrlAPI + "Request_application/submit",
+        data: {
+            area_id: $('#water_application_area_id').val(),
+            province_id: $('#water_application_province_id').val(),
+            firstname: $('#water_application_firstname').val(),
+            organization_name: $('#water_application_organization_name').val(),
+            description: $('#water_application_description').val(),
+            lastname: $('#water_application_lastname').val(),
+            water_else_l: $('#water_application_water_else_l').val(),
+            water_5_l: $('#water_application_water_5_l').val(),
+            water_20_l: $('#water_application_water_20_l').val(),
+            water_350_ml: $('#water_application_water_350_ml').val(),
+            water_500_ml: $('#water_application_water_500_ml').val(),
+            water_750_ml: $('#water_application_water_750_ml').val(),
+            water_1500_ml: $('#water_application_water_1500_ml').val(),
+            telephone: $('#water_application_telephone').val(),
+            address: $('#water_application_address').val(),
+        },
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response.data);
+            Swal.fire({
+                icon: 'success',
+                title: 'บันทึกสำเร็จ ,กำลังสร้างการติดตาม',
+                showConfirmButton: false,
+                timer: 1500
+            }).then((result) => {
+                app.setLocation('#/form-track?reg_id=' + response.data.reg_id)
             })
         }
     });
@@ -32,6 +71,12 @@ function insert_request_form() {
 }
 
 function get_request_form_for_tracking_by_id(id) {
+    console.log(id);
+    console.log(id);
+    console.log(id);
+    console.log(id);
+    console.log(id);
+    console.log(id);
     $.ajax({
         type: "POST",
         url: baseUrlAPI + "Request_application/get_request_form_for_tracking_by_id",
@@ -40,7 +85,6 @@ function get_request_form_for_tracking_by_id(id) {
         },
         dataType: "JSON",
         success: function (response) {
-            console.log(response.data);
             $('#address').text(response.data.address)
             $('#area_id').text(response.data.area_id)
 
@@ -62,26 +106,48 @@ function get_request_form_for_tracking_by_id(id) {
             $('#status').text(response.data.system_status == 'delete' ? 'คำร้องขอถูกลบ' : response.data.status == 'approve' ? 'อนุมัติ' : 'รออนุมัติ')
             $('#telephone').text(response.data.telephone)
             $('#title').text(response.data.title)
+            $('#organization_name').text(response.data.organization_name)
+            $('#description').text(response.data.description)
+
+            if (response.data.id) {
+                $('#show-data').show();
+                $('#show-notfound').hide();
+            }
+
+            if (response.data.organization_name) {
+                $('#row-staff').show();
+            } else {
+                $('#row-people').show();
+            }
+
             $('#water_5_l').text(response.data.water_5_l)
-            if (response.data.water_5_l != 0) {
+            if (Number(response.data.water_5_l) != 0) {
                 $('.5l').show()
                 console.log('response.data.water_5_l != 0');
             }
             $('#water_20_l').text(response.data.water_20_l)
-            if (response.data.water_20_l != 0) {
+            if (Number(response.data.water_20_l) != 0) {
                 $('.20l').show()
             }
             $('#water_350_ml').text(response.data.water_350_ml)
-            if (response.data.water_350_ml != 0) {
+            if (Number(response.data.water_350_ml) != 0) {
                 $('.350ml').show()
             }
             $('#water_750_ml').text(response.data.water_750_ml)
-            if (response.data.water_750_ml != 0) {
+            if (Number(response.data.water_750_ml) != 0) {
                 $('.750ml').show()
             }
             $('#water_1500_ml').text(response.data.water_1500_ml)
-            if (response.data.water_1500_ml != 0) {
+            if (Number(response.data.water_1500_ml) != 0) {
                 $('.1500ml').show()
+            }
+            $('#water_else_l').text(response.data.water_else_l)
+            if (Number(response.data.water_else_l) != 0) {
+                $('.else_l').show()
+            }
+            $('#water_500_ml').text(response.data.water_500_ml)
+            if (Number(response.data.water_500_ml) != 0) {
+                $('.500ml').show()
             }
         }
     });

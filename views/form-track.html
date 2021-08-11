@@ -1,7 +1,17 @@
 <div class="row pb-5 pt-4">
 
     <div class="col-xl-12 col-md-12">
-        <div class="card">
+        <div class="card" id="show-notfound">
+            <div class="card-body">
+                <div class="row text-center">
+                    <h1>ไม่พบรายการที่ค้นหา โปรดตรวจสอบและลองค้นหาใหม่</h1>
+
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <div class="card" id="show-data" style="display: none;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-10">
@@ -26,7 +36,7 @@
                                     id="create_date">dgr-1</small></span></p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="row-people" style="display: none;">
                     <div class="col">
                         <p class="card-text fs-4">พื้นที่เขต <span class="card-text"><small class="text-muted fs-6"
                                     id="title">สำนักทรัพยากรน้ำบาดาล เขต 1
@@ -35,6 +45,17 @@
                     <div class="col">
                         <p class="card-text fs-4">จังหวัด <span class="card-text"><small class="text-muted fs-6"
                                     id="province">จังหวัดลำปาง</small></span></p>
+                    </div>
+                </div>
+
+                <div class="row" id="row-staff" style="display: none;">
+                    <div class="col">
+                        <p class="card-text fs-4">ชื่อหน่วยงาน <span class="card-text"><small class="text-muted fs-6"
+                                    id="organization_name">organization_name</small></span></p>
+                    </div>
+                    <div class="col">
+                        <p class="card-text fs-4">หมายเหตุ <span class="card-text"><small class="text-muted fs-6"
+                                    id="description">จังหวัดลำปาง</small></span></p>
                     </div>
                 </div>
                 <div class="row">
@@ -51,7 +72,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p class="card-text fs-4">ที่อยู่ <span class="card-text"><small class="text-muted fs-6"
+                        <p class="card-text fs-4">ที่อยู่จัดส่ง <span class="card-text"><small class="text-muted fs-6"
                                     id="address">
                                     30 2 ถ. เพชรเกษม ตำบลหัวหิน อำเภอหัวหิน
                                     ประจวบคีรีขันธ์ 77110</small></span></p>
@@ -82,12 +103,12 @@
             </div>
         </div>
 
-        <div class="card col-xl-6 col-md-12 350ml  border-3d m-1" style="width: 18rem; display: none;  ">
+        <div class="card col-xl-6 col-md-12 500ml  border-3d m-1" style="width: 18rem; display: none;  ">
             <img src="assets/images/water_sizes/350ml.jpg" class="card-img-top" alt="...">
             <div class="card-body text-center">
                 <label for="water_application_500_ml" class="form-label fw-bold">น้ำขวดขนาด 500
                     มิลลิลิตร</label>
-                <p class="card-text fs-3">จำนวน <span id="water_350_ml">0</span> ขวด</p>
+                <p class="card-text fs-3">จำนวน <span id="water_500_ml">0</span> ขวด</p>
             </div>
         </div>
 
@@ -128,11 +149,11 @@
             </div>
         </div>
 
-        <div class="card col-xl-6 col-md-12 else  border-3d m-1" style="width: 18rem; display: none;  ">
+        <div class="card col-xl-6 col-md-12 else_l  border-3d m-1" style="width: 18rem; display: none;  ">
             <img src="assets/images/water_sizes/else.jpg" class="card-img-top" alt="...">
             <div class="card-body text-center">
-                <label for="water_application_5_l" class="form-label fw-bold">อื่น ๆ</label>
-                <p class="card-text fs-3">จำนวน <span id="water_5_l">0</span> แกลอน</p>
+                <label for="water_application_else_l" class="form-label fw-bold">อื่น ๆ</label>
+                <p class="card-text fs-3">จำนวน <span id="water_else_l">0</span> แกลอน</p>
             </div>
         </div>
 
@@ -144,9 +165,8 @@
 <script>
     $('#app_footer').hide();
     loadingOverlay().cancel($state.loading);
-
     // $state.loading = loadingOverlay().activate();
-    get_request_form_for_tracking_by_id(window.location.href.replace('http://localhost/www/dgr-frontend/#/form-track?reg_id=', ''))
+    get_request_form_for_tracking_by_id(window.location.href.replace(baseUrlFrontend + 'form-track?reg_id=', ''))
     // $('#qrcode').attr('src', `https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=http%3A%2F%2Flocalhost%2Fwww%2Fdgr-frontend%2F%23%2Ftracking%3Freg_id%3D${window.location.href.replace('http://localhost/www/dgr-frontend/#/tracking?reg_id=', '')}`);
 
 

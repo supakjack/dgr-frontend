@@ -1,5 +1,6 @@
 const app = Sammy('#app')
 const baseUrlAPI = 'http://localhost/www/dgr-backend/'
+const baseUrlFrontend = 'http://localhost/www/dgr-frontend/#/'
 $('#header_admin').hide();
 $('#header_public').hide();
 $('#header_staff').hide();
