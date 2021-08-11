@@ -16,6 +16,10 @@ function get_configs() {
             $('#good_water_350_ml').val(response.data.good_water_350_ml);
             $('#good_water_750_ml').val(response.data.good_water_750_ml);
             $('#good_water_1500_ml').val(response.data.good_water_1500_ml);
+            $('#good_water_else_l').val(response.data.good_water_else_l);
+            $('#bad_water_else_l').val(response.data.bad_water_else_l);
+            $('#good_water_500_ml').val(response.data.good_water_500_ml);
+            $('#bad_water_500_ml').val(response.data.bad_water_500_ml);
         }
     });
 }
@@ -30,6 +34,10 @@ function insert_configs() {
             bad_water_350_ml: $('#bad_water_350_ml').val(),
             bad_water_750_ml: $('#bad_water_750_ml').val(),
             bad_water_1500_ml: $('#bad_water_1500_ml').val(),
+            bad_water_else_l: $('#bad_water_else_l').val(),
+            good_water_else_l: $('#good_water_else_l').val(),
+            bad_water_500_ml: $('#bad_water_500_ml').val(),
+            good_water_500_ml: $('#good_water_500_ml').val(),
             good_water_5_l: $('#good_water_5_l').val(),
             good_water_20_l: $('#good_water_20_l').val(),
             good_water_350_ml: $('#good_water_350_ml').val(),

@@ -99,6 +99,7 @@ function get_request_form_for_tracking_by_id(id) {
             $('#create_date').text(result2date)
 
             $('#firstname').text(response.data.firstname)
+            $('#id-track').text(response.data.id);
             $('#id').text(response.data.id)
             $('#lastname').text(response.data.lastname)
             $('#name').text(response.data.name)
@@ -122,33 +123,52 @@ function get_request_form_for_tracking_by_id(id) {
 
             $('#water_5_l').text(response.data.water_5_l)
             if (Number(response.data.water_5_l) != 0) {
+                sum_water++
                 $('.5l').show()
                 console.log('response.data.water_5_l != 0');
             }
             $('#water_20_l').text(response.data.water_20_l)
             if (Number(response.data.water_20_l) != 0) {
+                sum_water++
+
                 $('.20l').show()
             }
             $('#water_350_ml').text(response.data.water_350_ml)
             if (Number(response.data.water_350_ml) != 0) {
                 $('.350ml').show()
             }
+            $('#water_500_ml').text(response.data.water_500_ml)
+            if (Number(response.data.water_350_ml) != 0) {
+                sum_water++
+
+                $('.500ml').show()
+            }
             $('#water_750_ml').text(response.data.water_750_ml)
             if (Number(response.data.water_750_ml) != 0) {
+                sum_water++
+
                 $('.750ml').show()
             }
             $('#water_1500_ml').text(response.data.water_1500_ml)
             if (Number(response.data.water_1500_ml) != 0) {
+                sum_water++
+
                 $('.1500ml').show()
             }
             $('#water_else_l').text(response.data.water_else_l)
             if (Number(response.data.water_else_l) != 0) {
+                sum_water++
+
                 $('.else_l').show()
             }
             $('#water_500_ml').text(response.data.water_500_ml)
             if (Number(response.data.water_500_ml) != 0) {
+                sum_water++
+
                 $('.500ml').show()
             }
+
+            $('#sum_water').text(sum_water);
         }
     });
 

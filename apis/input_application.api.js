@@ -39,13 +39,17 @@ function get_by_date() {
                 water_5_l = Number(response.data.water_5_l)
                 water_20_l = Number(response.data.water_20_l)
                 water_350_ml = Number(response.data.water_350_ml)
+                water_500_ml = Number(response.data.water_500_ml)
                 water_750_ml = Number(response.data.water_750_ml)
                 water_1500_ml = Number(response.data.water_1500_ml)
+                water_else_l = Number(response.data.water_else_l)
                 water_input_id = response.data.id
                 config_water_id = response.data.config_water_id
                 $('#water_input_id').val(water_input_id)
                 $('#water_input_20_l').val(water_20_l)
                 $('#water_input_350_ml').val(water_350_ml)
+                $('#water_input_500_ml').val(water_500_ml)
+                $('#water_input_else_l').val(water_else_l)
                 $('#water_input_750_ml').val(water_750_ml)
                 $('#water_input_1500_ml').val(water_1500_ml)
                 $('#water_input_5_l').val(water_5_l)
@@ -75,11 +79,15 @@ function edit_input_form() {
             bad_water_350_ml = response.data.bad_water_350_ml
             bad_water_750_ml = response.data.bad_water_750_ml
             bad_water_1500_ml = response.data.bad_water_1500_ml
+            bad_water_500_ml = response.data.bad_water_500_ml
+            bad_water_else_l = response.data.bad_water_else_l
             good_water_5_l = response.data.good_water_5_l
             good_water_20_l = response.data.good_water_20_l
             good_water_350_ml = response.data.good_water_350_ml
             good_water_750_ml = response.data.good_water_750_ml
             good_water_1500_ml = response.data.good_water_1500_ml
+            good_water_500_ml = response.data.good_water_500_ml
+            good_water_else_l = response.data.good_water_else_l
             $('#good_water_5_l').val(Number(good_water_5_l) * Number(water_5_l))
             $('#bad_water_5_l').val(Number(bad_water_5_l) * Number(water_5_l))
             $('#good_water_20_l').val(Number(good_water_20_l) * Number(water_20_l))
@@ -90,6 +98,10 @@ function edit_input_form() {
             $('#bad_water_750_ml').val(Number(bad_water_750_ml) * Number(water_750_ml))
             $('#good_water_350_ml').val(Number(good_water_350_ml) * Number(water_350_ml))
             $('#bad_water_350_ml').val(Number(bad_water_350_ml) * Number(water_350_ml))
+            $('#good_water_500_ml').val(Number(good_water_500_ml) * Number(water_500_ml))
+            $('#bad_water_500_ml').val(Number(bad_water_500_ml) * Number(water_500_ml))
+            $('#good_water_else_l').val(Number(good_water_else_l) * Number(water_else_l))
+            $('#bad_water_else_l').val(Number(bad_water_else_l) * Number(water_else_l))
         }
     });
 }
@@ -110,6 +122,8 @@ function submit_edit_input_form() {
             water_1500_ml: water_1500_ml,
             water_5_l: water_5_l,
             water_20_l: water_20_l,
+            water_else_l: water_else_l,
+            water_500_ml: water_500_ml,
         },
         dataType: "JSON",
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
@@ -147,6 +161,10 @@ function get_configs_for_add() {
             good_water_350_ml = response.data.good_water_350_ml
             good_water_750_ml = response.data.good_water_750_ml
             good_water_1500_ml = response.data.good_water_1500_ml
+            good_water_else_l = response.data.good_water_else_l
+            bad_water_else_l = response.data.bad_water_else_l
+            good_water_500_ml = response.data.good_water_500_ml
+            bad_water_500_ml = response.data.bad_water_500_ml
         }
     });
 }
@@ -164,10 +182,12 @@ function submit_add_input_form() {
             description: $('#water_input_description').val(),
             config_water_id: config_water_id,
             water_350_ml: water_350_ml,
+            water_500_ml: water_500_ml,
             water_750_ml: water_750_ml,
             water_1500_ml: water_1500_ml,
             water_5_l: water_5_l,
             water_20_l: water_20_l,
+            water_else_l: water_else_l
         },
         dataType: "JSON",
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },

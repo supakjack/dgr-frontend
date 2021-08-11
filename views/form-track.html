@@ -33,7 +33,7 @@
                     </div>
                     <div class="col">
                         <p class="card-text fs-4">รหัสลงทะเบียน <span class="card-text"><small class="text-muted fs-6"
-                                    id="create_date">dgr-1</small></span></p>
+                                    id="create_date">dgr-<span id="id-track"></span></small></span></p>
                     </div>
                 </div>
                 <div class="row" id="row-people" style="display: none;">
@@ -81,8 +81,8 @@
                 <div class="row">
                     <div class="col">
                         <p class="card-text fs-4"> จำนวนทั้งหมด <span class="card-text"><small class="text-muted fs-6"
-                                    id="sum_water"> 5
-                                </small></span> หน่วย </p>
+                                    id="sum_water"> 0
+                                </small></span> รายการ </p>
                     </div>
                     <div class="col">
                         <p class="card-text fs-4"> สถานะการดำเนินการ <span class="card-text"><small
@@ -163,6 +163,7 @@
 
 
 <script>
+    sum_water = 0
     $('#app_footer').hide();
     loadingOverlay().cancel($state.loading);
     // $state.loading = loadingOverlay().activate();
