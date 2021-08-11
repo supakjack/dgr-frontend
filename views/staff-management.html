@@ -45,6 +45,17 @@
                         </div>
                     </div>
 
+                    <div class="row mb-3" id="row-staff">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">ชื่อหน่วยงาน</label>
+                            <input id="organization_name" type="text" value="-" class="form-control" disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">หมายเหตุ</label>
+                            <input id="description" type="text" value="-" class="form-control" disabled>
+                        </div>
+                    </div>
+
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">ชื่อ</label>
@@ -68,7 +79,7 @@
 
                     <div class="row mb-3">
                         <div class="col-sm-12">
-                            <label for="exampleFormControlTextarea1" class="form-label">ทีอยู่</label>
+                            <label for="exampleFormControlTextarea1" class="form-label">ทีอยู่จัดส่ง</label>
                             <textarea class="form-control" id="address" rows="3"
                                 disabled>169 ถนน ลงหาดบางแสน ตำบลแสนสุข อำเภอเมืองชลบุรี ชลบุรี 20131</textarea>
                         </div>
@@ -80,26 +91,37 @@
                             <input id="water_350_ml" type="number" value="10" class="form-control" disabled>
                         </div>
                         <div class="col-xl-6 col-sm-12">
-                            <label class="form-label">น้ำขวดขนาด 750 มล.</label>
-                            <input id="water_750_ml" type="number" value="0" class="form-control" disabled>
+                            <label class="form-label">น้ำขวดขนาด 500 มล.</label>
+                            <input id="water_500_ml" type="number" value="0" class="form-control" disabled>
                         </div>
                     </div>
 
                     <div class="row mb-3">
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">น้ำขวดขนาด 750 มล.</label>
+                            <input id="water_750_ml" type="number" value="0" class="form-control" disabled>
+                        </div>
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">น้ำขวดขนาด 1500 มล.</label>
                             <input id="water_1500_ml" type="number" value="10" class="form-control" disabled>
                         </div>
+                    </div>
+
+                    <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
                             <label class="form-label">น้ำแกลอน 5 ล.</label>
                             <input id="water_5_l" type="number" value="0" class="form-control" disabled>
+                        </div>
+                        <div class="col-xl-6 col-sm-12">
+                            <label class="form-label">น้ำแกลอน 20 ล.</label>
+                            <input id="water_20_l" type="number" value="0" class="form-control" disabled>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-xl-6 col-sm-12">
-                            <label class="form-label">น้ำแกลอน 20 ล.</label>
-                            <input id="water_20_l" type="number" value="0" class="form-control" disabled>
+                            <label class="form-label">น้ำขนาดอื่น ๆ ล.</label>
+                            <input id="water_else_l" type="number" value="0" class="form-control" disabled>
                         </div>
                     </div>
                 </div>

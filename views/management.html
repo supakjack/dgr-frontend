@@ -3,8 +3,9 @@
     <div class="row">
         <div class="d-flex justify-content-center flex-wrap">
             <select id="area_id_select" class="mt-3 form-select form-select-sm" aria-label=".form-select-sm example"
-                style="max-width: 20rem;">
-                <option selected value="1">สำนักทรัพยากรน้ำบาดาล เขต 1 (ลำปาง)</option>
+                style="max-width: 25rem;">
+                <option selected value="13">สำนักทรัพยากรน้ำบาดาล ส่วนกลาง (กรุงเทพมหานคร)</option>
+                <option value="1">สำนักทรัพยากรน้ำบาดาล เขต 1 (ลำปาง)</option>
                 <option value="2">สำนักทรัพยากรน้ำบาดาล เขต 2 (สุพรรณบุรี)</option>
                 <option value="3">สำนักทรัพยากรน้ำบาดาล เขต 3 (สระบุรี)</option>
                 <option value="4">สำนักทรัพยากรน้ำบาดาล เขต 4 (ขอนแก่น)</option>
@@ -21,6 +22,10 @@
             <input type="date" class="mt-3  form-control selector_date" style="max-width: 15rem;">
 
             &nbsp;&nbsp;
+            <button style="max-width: 15rem;" type="button" class="mt-3  col-12 btn btn-primary dnt"><i
+                    class="bi bi-cloud-download"></i>&nbsp;ดาวน์โหลด
+                Excel</button>
+            &nbsp;&nbsp;&nbsp;
             <button onclick="get_summary_by_date()" style="max-width: 15rem;" type="button"
                 class="mt-3  col-12 btn btn-success">ค้นหา</button>
         </div>
@@ -46,7 +51,7 @@
         <img src="assets/images/water_sizes/750ml.jpg" style="max-height: 20rem;" class="card-img-top" alt="...">
         <div class="card-body text-center">
             <p class="card-title">ขวด 500 มิลลิลิตร</p>
-            <h3 class="card-text"><span id="dashboard_sum_water_750_ml"></span> ขวด</h3>
+            <h3 class="card-text"><span id="dashboard_sum_water_500_ml"></span> ขวด</h3>
         </div>
     </div>
     <div class="card col-xl-3 col-md-12  border-3d p-0" style="width: 18rem;">
@@ -81,7 +86,7 @@
         <img src="assets/images/water_sizes/else.jpg" clas style="max-height: 20rem;" s="card-img-top" alt="...">
         <div class="card-body text-center">
             <p class="card-title">ขนาดอื่น ๆ </p>
-            <h3 class="card-text"><span id="dashboard_sum_water_20_l"></span>1000 ลิตร</h3>
+            <h3 class="card-text"><span id="dashboard_sum_water_else_l"></span> ลิตร</h3>
         </div>
     </div>
 </div>
@@ -101,10 +106,12 @@
 
 <script type="text/javascript">
     dashboard_sum_water_350_ml = 0
+    dashboard_sum_water_500_ml = 0
     dashboard_sum_water_750_ml = 0
     dashboard_sum_water_1500_ml = 0
     dashboard_sum_water_5_l = 0
     dashboard_sum_water_20_l = 0
+    dashboard_sum_water_else_l = 0
     dashboard_sum_all_water = 0
     line_data = [['0000-00-00 00:00:00', Number(0), Number(0)]]
 
@@ -114,10 +121,12 @@
         data = google.visualization.arrayToDataTable([
             ['ขนาดบรรจุภัณฑ์', 'กำลังการผลิต(หน่วย)', { role: 'style' }],
             ['ขวด 350 มล.', dashboard_sum_water_350_ml, '#3366cc'],            // RGB value
+            ['ขวด 500 มล.', dashboard_sum_water_500_ml, '#4477cc'],            // RGB value
             ['ขวด 750 มล.', dashboard_sum_water_750_ml, '#dc3912'],            // English color name
             ['ขวด 1500 มล.', dashboard_sum_water_1500_ml, '#ff9900'],
             ['แกลอน 5 ล.', dashboard_sum_water_5_l, '#109618'], // CSS-style declaration
             ['แกลอน 20 ล.', dashboard_sum_water_20_l, '#990099'], // CSS-style declaration
+            ['ขนาดอื่น ๆ ล.', dashboard_sum_water_else_l, '#880088'], // CSS-style declaration
         ]);
 
         options = {
@@ -169,6 +178,11 @@
     })
     $('.showDate').text(result2date)
     get_summary_by_date()
+    $('.dnt').click(function (e) {
+        e.preventDefault();
+
+        window.open(baseUrlAPI + 'Input_application/sum_report_execel/' + $('#area_id_select').val() + '/' + $('.selector_date').val(), '_blank').focus();
+    });
 </script>
 
 <style>

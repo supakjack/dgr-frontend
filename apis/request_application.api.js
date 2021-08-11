@@ -38,8 +38,8 @@ function insert_request_form_staff() {
         type: "POST",
         url: baseUrlAPI + "Request_application/submit",
         data: {
-            area_id: $('#water_application_area_id').val(),
-            province_id: $('#water_application_province_id').val(),
+            area_id: "13",
+            province_id: "1",
             firstname: $('#water_application_firstname').val(),
             organization_name: $('#water_application_organization_name').val(),
             description: $('#water_application_description').val(),
@@ -176,6 +176,7 @@ function get_request_form_for_tracking_by_id(id) {
 
 
 function get_request_form_by_id(id) {
+    $('#row-staff').hide();
     $.ajax({
         type: "post",
         url: baseUrlAPI + "Request_application/get_forms?area_id=" + $state.user.area_id + "&id=" + id,
@@ -196,6 +197,13 @@ function get_request_form_by_id(id) {
             $('#water_20_l').val(response.data[0].water_20_l)
             $('#water_350_ml').val(response.data[0].water_350_ml)
             $('#water_750_ml').val(response.data[0].water_750_ml)
+            $('#water_500_ml').val(response.data[0].water_500_ml)
+            $('#water_else_l').val(response.data[0].water_else_l)
+            $('#organization_name').val(response.data[0].organization_name)
+            if (response.data[0].organization_name) {
+                $('#row-staff').show();
+            }
+            $('#description').val(response.data[0].description)
             $('#water_1500_ml').val(response.data[0].water_1500_ml)
         }
     });

@@ -4,6 +4,6 @@ function wait_load_page() {
     $(() => {
         setTimeout(() => {
             loadingOverlay().cancel($state.loading);
-        }, 1000);
+        }, 100);
     });
 }
