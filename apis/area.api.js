@@ -56,10 +56,10 @@ function get_areas_table() {
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', $state.user.token); },
         success: function (response) {
             console.log(response);
-            response.data.forEach(element => {
+            response.data.forEach((element,index) => {
                 $('#get_areas_table').append(`
                     <tr>
-                        <th th scope="row">${element.number}</th>
+                        <th th scope="row">${index+1}</th>
                         <th>${element.title}</th>
                         <td>
                             <div class="form-check form-switch">

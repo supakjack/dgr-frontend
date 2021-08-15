@@ -11,7 +11,7 @@
                 <th>จังหวัด</th>
                 <th>ขวด 350 มล.</th>
                 <th>ขวด 750 มล.</th>
-                <th>ขวด 1500 มล.</th>
+                <th>ขวด 1,500 มล.</th>
                 <th>แกลอน 5 ล.</th>
                 <th>แกลอน 20 ล.</th>
                 <th>วันที่ลงทะเบียน</th>
@@ -157,7 +157,8 @@
             "targets": 1,
             "data": "province",
             "render": function (data, type, row, meta) {
-                return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data + '</span></div>'
+                data = data?data:'จังหวัดกรุงเทพมหานคร'
+                return '<div class="pl-5 d-flex justify-content-center align-items-center">' + data?data:'จังหวัดกรุงเทพมหานคร' + '</span></div>'
 
             }
         },

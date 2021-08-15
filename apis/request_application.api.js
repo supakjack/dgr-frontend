@@ -1,72 +1,143 @@
 function insert_request_form_people() {
-    $.ajax({
-        type: "POST",
-        url: baseUrlAPI + "Request_application/submit",
-        data: {
-            area_id: $('#water_application_area_id').val(),
-            province_id: $('#water_application_province_id').val(),
-            firstname: $('#water_application_firstname').val(),
-            lastname: $('#water_application_lastname').val(),
-            water_else_l: $('#water_application_water_else_l').val(),
-            water_5_l: $('#water_application_water_5_l').val(),
-            water_20_l: $('#water_application_water_20_l').val(),
-            water_350_ml: $('#water_application_water_350_ml').val(),
-            water_500_ml: $('#water_application_water_500_ml').val(),
-            water_750_ml: $('#water_application_water_750_ml').val(),
-            water_1500_ml: $('#water_application_water_1500_ml').val(),
-            telephone: $('#water_application_telephone').val(),
-            address: $('#water_application_address').val(),
-        },
-        dataType: "JSON",
-        success: function (response) {
-            console.log(response.data);
-            Swal.fire({
-                icon: 'success',
-                title: 'บันทึกสำเร็จ ,กำลังสร้างการติดตาม',
-                showConfirmButton: false,
-                timer: 1500
-            }).then((result) => {
-                app.setLocation('#/form-track?reg_id=' + response.data.reg_id)
-            })
-        }
-    });
+
+    if (
+        $('#water_application_address').val() &&
+        $('#water_application_telephone').val() &&
+        $('#water_application_firstname').val() &&
+        $('#water_application_lastname').val() &&
+        (
+            (($('#water_application_area_id').val() == '0') && ($('#water_application_province_id').val() == '-1')) ||
+            ($('#water_application_province_id').val() != '-1')
+        ) &&
+        $('#water_application_area_id').val() &&
+        validatePhone($('#water_application_telephone').val()) &&
+        (
+            (Number($('#water_application_water_else_l').val()) +
+                Number($('#water_application_water_5_l').val()) +
+                Number($('#water_application_water_20_l').val()) +
+                Number($('#water_application_water_350_ml').val()) +
+                Number($('#water_application_water_500_ml').val()) +
+                Number($('#water_application_water_750_ml').val()) +
+                Number($('#water_application_water_1500_ml').val())) != 0
+
+        )
+    ) {
+
+        $.ajax({
+            type: "POST",
+            url: baseUrlAPI + "Request_application/submit",
+            data: {
+                area_id: $('#water_application_area_id').val(),
+                province_id: $('#water_application_province_id').val(),
+                firstname: $('#water_application_firstname').val(),
+                lastname: $('#water_application_lastname').val(),
+                water_else_l: $('#water_application_water_else_l').val(),
+                water_5_l: $('#water_application_water_5_l').val(),
+                water_20_l: $('#water_application_water_20_l').val(),
+                water_350_ml: $('#water_application_water_350_ml').val(),
+                water_500_ml: $('#water_application_water_500_ml').val(),
+                water_750_ml: $('#water_application_water_750_ml').val(),
+                water_1500_ml: $('#water_application_water_1500_ml').val(),
+                telephone: $('#water_application_telephone').val(),
+                address: $('#water_application_address').val(),
+            },
+            dataType: "JSON",
+            success: function (response) {
+                console.log(response.data);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'บันทึกสำเร็จ ,กำลังสร้างการติดตาม',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then((result) => {
+                    app.setLocation('#/form-track?reg_id=' + response.data.reg_id)
+                })
+            }
+        });
+
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'โปรดตรวจสอบใหม่ ข้อมูลไม่ถูกต้อง',
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+    }
+
+
+
 
 }
 
 function insert_request_form_staff() {
-    $.ajax({
-        type: "POST",
-        url: baseUrlAPI + "Request_application/submit",
-        data: {
-            area_id: "13",
-            province_id: "1",
-            firstname: $('#water_application_firstname').val(),
-            organization_name: $('#water_application_organization_name').val(),
-            description: $('#water_application_description').val(),
-            lastname: $('#water_application_lastname').val(),
-            water_else_l: $('#water_application_water_else_l').val(),
-            water_5_l: $('#water_application_water_5_l').val(),
-            water_20_l: $('#water_application_water_20_l').val(),
-            water_350_ml: $('#water_application_water_350_ml').val(),
-            water_500_ml: $('#water_application_water_500_ml').val(),
-            water_750_ml: $('#water_application_water_750_ml').val(),
-            water_1500_ml: $('#water_application_water_1500_ml').val(),
-            telephone: $('#water_application_telephone').val(),
-            address: $('#water_application_address').val(),
-        },
-        dataType: "JSON",
-        success: function (response) {
-            console.log(response.data);
-            Swal.fire({
-                icon: 'success',
-                title: 'บันทึกสำเร็จ ,กำลังสร้างการติดตาม',
-                showConfirmButton: false,
-                timer: 1500
-            }).then((result) => {
-                app.setLocation('#/form-track?reg_id=' + response.data.reg_id)
-            })
-        }
-    });
+
+    if (
+        $('#water_application_address').val() &&
+        $('#water_application_organization_name').val() &&
+        $('#water_application_telephone').val() &&
+        $('#water_application_firstname').val() &&
+        $('#water_application_lastname').val() &&
+        validatePhone($('#water_application_telephone').val()) &&
+        (
+            ($('#water_application_area_id').val() == '0' && ($('#water_application_province_id').val() == '-1')) ||
+            ($('#water_application_province_id').val() != '-1')
+        ) &&
+        (
+            (Number($('#water_application_water_else_l').val()) +
+                Number($('#water_application_water_5_l').val()) +
+                Number($('#water_application_water_20_l').val()) +
+                Number($('#water_application_water_350_ml').val()) +
+                Number($('#water_application_water_500_ml').val()) +
+                Number($('#water_application_water_750_ml').val()) +
+                Number($('#water_application_water_1500_ml').val())) != 0
+
+        )
+    ) {
+
+        $.ajax({
+            type: "POST",
+            url: baseUrlAPI + "Request_application/submit",
+            data: {
+                area_id: "0",
+                province_id: "1",
+                firstname: $('#water_application_firstname').val(),
+                organization_name: $('#water_application_organization_name').val(),
+                description: $('#water_application_description').val(),
+                lastname: $('#water_application_lastname').val(),
+                water_else_l: $('#water_application_water_else_l').val(),
+                water_5_l: $('#water_application_water_5_l').val(),
+                water_20_l: $('#water_application_water_20_l').val(),
+                water_350_ml: $('#water_application_water_350_ml').val(),
+                water_500_ml: $('#water_application_water_500_ml').val(),
+                water_750_ml: $('#water_application_water_750_ml').val(),
+                water_1500_ml: $('#water_application_water_1500_ml').val(),
+                telephone: $('#water_application_telephone').val(),
+                address: $('#water_application_address').val(),
+            },
+            dataType: "JSON",
+            success: function (response) {
+                console.log(response.data);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'บันทึกสำเร็จ ,กำลังสร้างการติดตาม',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then((result) => {
+                    app.setLocation('#/form-track?reg_id=' + response.data.reg_id)
+                })
+            }
+        });
+
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'โปรดตรวจสอบใหม่ ข้อมูลไม่ถูกต้อง',
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+    }
 
 }
 
@@ -189,7 +260,7 @@ function get_request_form_by_id(id) {
             $('#address').val(response.data[0].address)
             $('#create_date').val(response.data[0].create_date)
             $('#name').val(response.data[0].name)
-            $('#province').val(response.data[0].province)
+            $('#province').val(response.data[0].province ? response.data[0].province : 'จังหวัดกรุงเทพมหานคร')
             $('#name_area').val($state.user.title)
             $('#status').val(response.data[0].status == 'unapprove' ? 'รออนุมัติ' : 'อนุมัติ')
             $('#telephone').val(response.data[0].telephone)
