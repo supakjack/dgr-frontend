@@ -10,9 +10,14 @@ function get_province_select($name_id) {
         success: function (response) {
             console.log($(water_application_area_id).val());
             $($name_id + ' option').remove();
-            response.data.forEach(element => {
-                $($name_id).append(new Option(element.name, element.id));
-            });
+            if ($('#water_application_area_id').val() == '0') {
+                $($name_id).append(new Option("จังหวัดกรุงเทพมหานคร", "0"));
+            } else {
+                response.data.forEach(element => {
+                    $($name_id).append(new Option(element.name, element.id));
+                });
+            }
+
         }
     });
 }
