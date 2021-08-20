@@ -209,7 +209,7 @@ function get_request_form_for_tracking_by_id(id) {
                 $('.350ml').show()
             }
             $('#water_500_ml').text(response.data.water_500_ml)
-            if (Number(response.data.water_350_ml) != 0) {
+            if (Number(response.data.water_500_ml) != 0) {
                 sum_water++
 
                 $('.500ml').show()
