@@ -42,13 +42,21 @@ function login($username, $password) {
                             $state.user.firstname = response.data ? response.data[0].firstname : null
                             $state.user.id = response.data ? response.data[0].id : null
                             $state.user.lastname = response.data ? response.data[0].lastname : null
-                            if (response.data[0].area_id) {
+                            if (response.data[0].area_id && response.data[0].title) {
                                 $state.user.area_id = response.data[0].area_id
-                            }
-                            if (response.data[0].title) {
                                 $state.user.title = response.data[0].title
+                                app.setLocation('#/staff-application');
+
+                            } else {
+                                console.log("การุณาลองใหม่");
+                                Swal.fire({
+                                    heightAuto: false,
+                                    icon: 'error',
+                                    title: 'การุณาลองใหม่',
+                                    text: 'รหัสผ่านหรือผู้ใช้งานไม่ถูกต้อง',
+                                    confirmButtonText: 'ตกลง',
+                                })
                             }
-                            app.setLocation('#/staff-application');
                         }
                     });
                 }
